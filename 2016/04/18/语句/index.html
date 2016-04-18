@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -80,16 +80,22 @@
 
 
 
-<meta name="description" content="Talk is cheap,show me your code!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="块级语句没有作用域，for（定义var）和外面定义一样
+var语句：var a ＝ b ＝ 1；
+b会变成全局变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="语句">
+<meta property="og:url" content="http://yoursite.com/2016/04/18/语句/index.html">
 <meta property="og:site_name" content="周延博">
-<meta property="og:description" content="Talk is cheap,show me your code!">
-<meta property="og:updated_time" content="2016-04-10T05:30:13.000Z">
+<meta property="og:description" content="块级语句没有作用域，for（定义var）和外面定义一样
+var语句：var a ＝ b ＝ 1；
+b会变成全局变量">
+<meta property="og:updated_time" content="2016-04-18T05:00:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="Talk is cheap,show me your code!">
+<meta name="twitter:title" content="语句">
+<meta name="twitter:description" content="块级语句没有作用域，for（定义var）和外面定义一样
+var语句：var a ＝ b ＝ 1；
+b会变成全局变量">
 
 
 
@@ -107,13 +113,7 @@
   };
 </script>
 
-  <title>
-  
-
-  
-    categories | 周延博
-  
-</title>
+  <title> 语句 | 周延博 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -134,7 +134,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
     <a href="https://github.com/perseveringman"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,9 +234,168 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                语句
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-18T12:33:25+08:00" content="2016-04-18">
+              2016-04-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
+      
+
+      
+        <h3 id="块级语句"><a href="#块级语句" class="headerlink" title="块级语句"></a>块级语句</h3><pre><code>没有作用域，for（定义var）和外面定义一样
+</code></pre><h3 id="var语句："><a href="#var语句：" class="headerlink" title="var语句："></a>var语句：</h3><pre><code>var a ＝ b ＝ 1；
+b会变成全局变量
+</code></pre>  <a id="more"></a>
+<h3 id="try－catch语句："><a href="#try－catch语句：" class="headerlink" title="try－catch语句："></a>try－catch语句：</h3><pre><code>异常捕获
+ try{
+     throw&quot;test&quot;;
+}catch(ex){
+     console.log(ex); //test
+}finally{
+     console.log(&apos;finally&apos;);     
+}                     
+     有异常执行catch，怎样都会执行finally。
+</code></pre><h3 id="function语句："><a href="#function语句：" class="headerlink" title="function语句："></a>function语句：</h3><pre><code>function fd(){
+...
+}  //函数声明语句
+
+var fe = function(){
+
+}; //函数表达式语句，有分号。
+
+函数声明会被预处理，所以在最前面执行fd(); //true
+fe() ;//false
+</code></pre><h3 id="for-…-in语句"><a href="#for-…-in语句" class="headerlink" title="for … in语句:"></a>for … in语句:</h3><pre><code>1.顺序不确定
+2.enumerable为false不会出现
+3.for in 对象属性受原型链影响
+</code></pre><h3 id="with语句："><a href="#with语句：" class="headerlink" title="with语句："></a>with语句：</h3><pre><code>让JS引擎优化更难
+可读性差
+可被变量定义代替
+严格模式下禁用
+</code></pre>
+      
+    </div>
     
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/18/表达式和运算符/" rel="next" title="表达式和运算符">
+                <i class="fa fa-chevron-left"></i> 表达式和运算符
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/18/严格模式/" rel="prev" title="严格模式">
+                严格模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -268,8 +427,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/logo.jpg"
@@ -321,6 +489,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#块级语句"><span class="nav-number">1.</span> <span class="nav-text">块级语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#var语句："><span class="nav-number">2.</span> <span class="nav-text">var语句：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try－catch语句："><span class="nav-number">3.</span> <span class="nav-text">try－catch语句：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#function语句："><span class="nav-number">4.</span> <span class="nav-text">function语句：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-…-in语句"><span class="nav-number">5.</span> <span class="nav-text">for … in语句:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#with语句："><span class="nav-number">6.</span> <span class="nav-text">with语句：</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -416,6 +595,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
