@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>周延博</title>
+  <subtitle>Ryan Chou&#39;s blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-04-24T11:14:48.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Ryan Chou</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>居中布局</title>
+    <link href="http://yoursite.com/2016/04/24/%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80/"/>
+    <id>http://yoursite.com/2016/04/24/居中布局/</id>
+    <published>2016-04-24T11:07:35.000Z</published>
+    <updated>2016-04-24T11:14:48.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;本文统一讨论的例子&quot;&gt;&lt;a href=&quot;#本文统一讨论的例子&quot; class=&quot;headerlink&quot; title=&quot;本文统一讨论的例子&quot;&gt;&lt;/a&gt;本文统一讨论的例子&lt;/h3&gt;&lt;pre&gt;&lt;code&gt; &amp;lt;div class=&amp;quot;parent&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;child&amp;quot;&amp;gt;DEMO&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;水平居中：&quot;&gt;&lt;a href=&quot;#水平居中：&quot; class=&quot;headerlink&quot; title=&quot;水平居中：&quot;&gt;&lt;/a&gt;水平居中：&lt;/h3&gt;&lt;h4 id=&quot;P-S-宽高不定&quot;&gt;&lt;a href=&quot;#P-S-宽高不定&quot; class=&quot;headerlink&quot; title=&quot;P.S:宽高不定&quot;&gt;&lt;/a&gt;P.S:宽高不定&lt;/h4&gt;&lt;h4 id=&quot;1-inline-block-text-align&quot;&gt;&lt;a href=&quot;#1-inline-block-text-align&quot; class=&quot;headerlink&quot; title=&quot;1.inline-block + text-align&quot;&gt;&lt;/a&gt;1.inline-block + text-align&lt;/h4&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;
+    .child{ display:inline-block;  //宽度根据内容改变}
+    .parent{   text-align:center;  //对inline元素起作用}
+&amp;lt;/style&amp;gt;
+
+可以兼容到IE6/7，通过zoom＝1；和inline属性
+不足：text-align会使里面的文字也居中，可以在child中加text-align来覆盖；
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;2-table-margin&quot;&gt;&lt;a href=&quot;#2-table-margin&quot; class=&quot;headerlink&quot; title=&quot;2.table+margin&quot;&gt;&lt;/a&gt;2.table+margin&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;.child{ display:table; margin:0 auto; }
+
+优点：不关心parent，IE8+
+兼容IE6/7:换成table标签
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;3-absolute-transform&quot;&gt;&lt;a href=&quot;#3-absolute-transform&quot; class=&quot;headerlink&quot; title=&quot;3.absolute+transform&quot;&gt;&lt;/a&gt;3.absolute+transform&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;.parent{ position: relative;}
+.child{ position: absolute;//宽度由内容决定 Left: 50%; transform: translateX(-50%);}
+transform: translateX(-50%);表示向左平移自己宽度的一半
+优点：不会对其他元素造成影响
+缺点：tranform是CSS3，没法兼容
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;4-flex-justify-content&quot;&gt;&lt;a href=&quot;#4-flex-justify-content&quot; class=&quot;headerlink&quot; title=&quot;4.flex+justify-content&quot;&gt;&lt;/a&gt;4.flex+justify-content&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;.parent{ display:flex; justify-content:center;}
+优点：只用对parent设置；
+方法2:
+     .parent{display:flex; }
+     .child{margin:0 auto;}
+缺点：flex不兼容IE678
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;垂直居中：&quot;&gt;&lt;a href=&quot;#垂直居中：&quot; class=&quot;headerlink&quot; title=&quot;垂直居中：&quot;&gt;&lt;/a&gt;垂直居中：&lt;/h3&gt;&lt;h4 id=&quot;P-S-子容器高度不确定，父容器高度也不确定&quot;&gt;&lt;a href=&quot;#P-S-子容器高度不确定，父容器高度也不确定&quot; class=&quot;headerlink&quot; title=&quot;P.S:子容器高度不确定，父容器高度也不确定&quot;&gt;&lt;/a&gt;P.S:子容器高度不确定，父容器高度也不确定&lt;/h4&gt;&lt;h4 id=&quot;1-table-cell-vertical-align&quot;&gt;&lt;a href=&quot;#1-table-cell-vertical-align&quot; class=&quot;headerlink&quot; title=&quot;1.table-cell + vertical-align&quot;&gt;&lt;/a&gt;1.table-cell + vertical-align&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;.parent{ display: table-cell ;vertical-align: middle ;}
+优点：兼容到IE8+，兼容IE6/7可以改成table标签
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;2-absolute-transform&quot;&gt;&lt;a href=&quot;#2-absolute-transform&quot; class=&quot;headerlink&quot; title=&quot;2.absolute+transform&quot;&gt;&lt;/a&gt;2.absolute+transform&lt;/h4&gt;&lt;pre&gt;&lt;code&gt; .parent{ position: relative;}
+.child{ position: absolute;//高度由内容决定 top: 50%; transform:      translateY(-50%);}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;3-flex-align-items&quot;&gt;&lt;a href=&quot;#3-flex-align-items&quot; class=&quot;headerlink&quot; title=&quot;3.flex +align-items&quot;&gt;&lt;/a&gt;3.flex +align-items&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;.parent{ display: flex; align-items: center;}
+flex会将父容器撑满
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;水平及垂直居中：&quot;&gt;&lt;a href=&quot;#水平及垂直居中：&quot; class=&quot;headerlink&quot; title=&quot;水平及垂直居中：&quot;&gt;&lt;/a&gt;水平及垂直居中：&lt;/h3&gt;&lt;h4 id=&quot;P-S-元素高度宽度都未知&quot;&gt;&lt;a href=&quot;#P-S-元素高度宽度都未知&quot; class=&quot;headerlink&quot; title=&quot;P.S:元素高度宽度都未知&quot;&gt;&lt;/a&gt;P.S:元素高度宽度都未知&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;inline-block ＋ text-align +table-cell +vertical-align
+
+absolute ＋ transform
+
+flex ＋ justfy－content ＋ align－items
+.parent{ display: flex; justfy-content: center; align-items:center;//解除flex的撑满}
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;本文统一讨论的例子&quot;&gt;&lt;a href=&quot;#本文统一讨论的例子&quot; class=&quot;headerlink&quot; title=&quot;本文统一讨论的例子&quot;&gt;&lt;/a&gt;本文统一讨论的例子&lt;/h3&gt;&lt;pre&gt;&lt;code&gt; &amp;lt;div class=&amp;quot;parent&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;child&amp;quot;&amp;gt;DEMO&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;水平居中：&quot;&gt;&lt;a href=&quot;#水平居中：&quot; class=&quot;headerlink&quot; title=&quot;水平居中：&quot;&gt;&lt;/a&gt;水平居中：&lt;/h3&gt;&lt;h4 id=&quot;P-S-宽高不定&quot;&gt;&lt;a href=&quot;#P-S-宽高不定&quot; class=&quot;headerlink&quot; title=&quot;P.S:宽高不定&quot;&gt;&lt;/a&gt;P.S:宽高不定&lt;/h4&gt;&lt;h4 id=&quot;1-inline-block-text-align&quot;&gt;&lt;a href=&quot;#1-inline-block-text-align&quot; class=&quot;headerlink&quot; title=&quot;1.inline-block + text-align&quot;&gt;&lt;/a&gt;1.inline-block + text-align&lt;/h4&gt;
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com//categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://yoursite.com//tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数组</title>
+    <link href="http://yoursite.com/2016/04/18/%E6%95%B0%E7%BB%84/"/>
+    <id>http://yoursite.com/2016/04/18/数组/</id>
+    <published>2016-04-18T04:49:02.000Z</published>
+    <updated>2016-04-18T05:00:58.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;tips&quot;&gt;&lt;a href=&quot;#tips&quot; class=&quot;headerlink&quot; title=&quot;tips&quot;&gt;&lt;/a&gt;tips&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;弱类型，可以含有不同类型的元素、对象、数组。
+可以动态添加数组元素
+delete可以删除元素，但长度不变只是变为undefined
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;定义声明&quot;&gt;&lt;a href=&quot;#定义声明&quot; class=&quot;headerlink&quot; title=&quot;定义声明&quot;&gt;&lt;/a&gt;定义声明&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var arr = [];
+var arr = [,,]
+//数组允许最后有逗号，这里返回undefined*2
+var arr = new Array(); 
+var arr =  new Array(100); //undefined*100
+var arr = new Array(&amp;apos;a&amp;apos;,&amp;apos;b&amp;apos;);//赋值
+&lt;/code&gt;&lt;/pre&gt;  &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;一些属性&quot;&gt;&lt;a href=&quot;#一些属性&quot; class=&quot;headerlink&quot; title=&quot;一些属性&quot;&gt;&lt;/a&gt;一些属性&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;arr.push(1);
+
+arr[arr.length]=4;//小技巧
+
+arr.unshift(0);//在头部添加元素
+
+arr.length-=1;//删除尾部元素
+
+arr.pop();//同上
+
+arr.shift();//头部删除元素
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;数组迭代&quot;&gt;&lt;a href=&quot;#数组迭代&quot; class=&quot;headerlink&quot; title=&quot;数组迭代&quot;&gt;&lt;/a&gt;数组迭代&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;想要用for...in的话，可以这样写：
+ for(i in arr){
+     if(arr.hasOwnProperty(i))
+    {console.log(arr[i];)}
+}    
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;稀疏数组&quot;&gt;&lt;a href=&quot;#稀疏数组&quot; class=&quot;headerlink&quot; title=&quot;稀疏数组&quot;&gt;&lt;/a&gt;稀疏数组&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var arr1=new Array(100);
+var arr1[99]=1;
+99 in arr1;//true
+98 in arr1;//false
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;数组方法&quot;&gt;&lt;a href=&quot;#数组方法&quot; class=&quot;headerlink&quot; title=&quot;数组方法&quot;&gt;&lt;/a&gt;数组方法&lt;/h3&gt;&lt;h4 id=&quot;Array-prototype-join数组转为字符串&quot;&gt;&lt;a href=&quot;#Array-prototype-join数组转为字符串&quot; class=&quot;headerlink&quot; title=&quot;Array.prototype.join数组转为字符串&quot;&gt;&lt;/a&gt;Array.prototype.join数组转为字符串&lt;/h4&gt;&lt;pre&gt;&lt;code&gt; var arr =[1,2,3];
+ arr.join();//&amp;quot;1,2,3&amp;quot;
+ arr.join(&amp;quot;_&amp;quot;);//&amp;quot;1_2_3&amp;quot;
+ function repeatString(str,n){
+   return new Array(n+1).join(str);
+}//重复某个字符串
+ repeatString(&amp;quot;a&amp;quot;,3);//&amp;quot;aaa&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;Array-prototype-reverse数组逆序&quot;&gt;&lt;a href=&quot;#Array-prototype-reverse数组逆序&quot; class=&quot;headerlink&quot; title=&quot;Array.prototype. reverse数组逆序&quot;&gt;&lt;/a&gt;Array.prototype. reverse数组逆序&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;arr.reverse();//[3,2,1]
+当调用之后，数组被修改
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;Array-prototype-sort-数组排序&quot;&gt;&lt;a href=&quot;#Array-prototype-sort-数组排序&quot; class=&quot;headerlink&quot; title=&quot;Array.prototype.sort()数组排序&quot;&gt;&lt;/a&gt;Array.prototype.sort()数组排序&lt;/h4&gt;&lt;pre&gt;&lt;code&gt; 按字母顺序排序
+ 想按数字排序：
+ arr.sort(function(a,b){return a-b;});
+当调用之后，数组被修改
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;Array-prototype-concat-数组合并&quot;&gt;&lt;a href=&quot;#Array-prototype-concat-数组合并&quot; class=&quot;headerlink&quot; title=&quot;Array.prototype.concat 数组合并&quot;&gt;&lt;/a&gt;Array.prototype.concat 数组合并&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;arr.concat(4,5);//[1,2,3,4,5]
+数组未被修改
+
+arr.concat([4,5],6);//[1,2,3,4,5,6]
+数组被拉平了！
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;Array-prototype-slice返回部分数组&quot;&gt;&lt;a href=&quot;#Array-prototype-slice返回部分数组&quot; class=&quot;headerlink&quot; title=&quot;Array.prototype.slice返回部分数组&quot;&gt;&lt;/a&gt;Array.prototype.slice返回部分数组&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;var arr1=[1,2,3,4,5];
+arr1.slice(1,3);//[2,3]
+arr.slice(1);//[2,3,4,5]
+arr.slice(1,-1);//[2,3,4]
+arr.slice(-4,-3);//[2]
+第一个参数表示从哪个开始，第二个表示到结束的下一个，支持负数，表示从后往前，数组未被修改
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;Array-prototype-splice-数组拼接&quot;&gt;&lt;a href=&quot;#Array-prototype-splice-数组拼接&quot; class=&quot;headerlink&quot; title=&quot;Array.prototype.splice 数组拼接&quot;&gt;&lt;/a&gt;Array.prototype.splice 数组拼接&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;arr1.splice(2);//[3,4,5];
+arr1；//[1,2]
+数组被 修改相当于减去那部分
+arr1.splice(2,2);//[3,4]第二个参数表示个数
+arr1.splice(1,1,&amp;apos;a&amp;apos;,&amp;apos;b&amp;apos;);//2第三个之后的参数表示要加入的元素             
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;tips&quot;&gt;&lt;a href=&quot;#tips&quot; class=&quot;headerlink&quot; title=&quot;tips&quot;&gt;&lt;/a&gt;tips&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;弱类型，可以含有不同类型的元素、对象、数组。
+可以动态添加数组元素
+delete可以删除元素，但长度不变只是变为undefined
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;定义声明&quot;&gt;&lt;a href=&quot;#定义声明&quot; class=&quot;headerlink&quot; title=&quot;定义声明&quot;&gt;&lt;/a&gt;定义声明&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var arr = [];
+var arr = [,,]
+//数组允许最后有逗号，这里返回undefined*2
+var arr = new Array(); 
+var arr =  new Array(100); //undefined*100
+var arr = new Array(&amp;apos;a&amp;apos;,&amp;apos;b&amp;apos;);//赋值
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对象</title>
+    <link href="http://yoursite.com/2016/04/18/%E5%AF%B9%E8%B1%A1/"/>
+    <id>http://yoursite.com/2016/04/18/对象/</id>
+    <published>2016-04-18T04:37:32.000Z</published>
+    <updated>2016-04-18T05:01:18.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;小知识点&quot;&gt;&lt;a href=&quot;#小知识点&quot; class=&quot;headerlink&quot; title=&quot;小知识点&quot;&gt;&lt;/a&gt;小知识点&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;属性无序
+key是字符串
+对象里可以有对象：
+var obj ＝{
+      o:{
+          z:3,
+          n:4
+     }
+ };
+&lt;/code&gt;&lt;/pre&gt;  &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;原型链&quot;&gt;&lt;a href=&quot;#原型链&quot; class=&quot;headerlink&quot; title=&quot;原型链&quot;&gt;&lt;/a&gt;原型链&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/0062G52qjw1f2qlktlwd6j30ia0p4q4j.jpg&quot; alt=&quot;原型链&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;读写对象属性&quot;&gt;&lt;a href=&quot;#读写对象属性&quot; class=&quot;headerlink&quot; title=&quot;读写对象属性&quot;&gt;&lt;/a&gt;读写对象属性&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;obj.x;
+obj[&amp;apos;x&amp;apos;];
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;属性读写异常&quot;&gt;&lt;a href=&quot;#属性读写异常&quot; class=&quot;headerlink&quot; title=&quot;属性读写异常&quot;&gt;&lt;/a&gt;属性读写异常&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var obj = {x:1};
+obj.y ;//undefined;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;属性删除&quot;&gt;&lt;a href=&quot;#属性删除&quot; class=&quot;headerlink&quot; title=&quot;属性删除&quot;&gt;&lt;/a&gt;属性删除&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;delete
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;属性检测&quot;&gt;&lt;a href=&quot;#属性检测&quot; class=&quot;headerlink&quot; title=&quot;属性检测&quot;&gt;&lt;/a&gt;属性检测&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;hasOwnProperty();
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;getter-setter方法&quot;&gt;&lt;a href=&quot;#getter-setter方法&quot; class=&quot;headerlink&quot; title=&quot;getter/setter方法&quot;&gt;&lt;/a&gt;getter/setter方法&lt;/h3&gt;&lt;h3 id=&quot;属性标签&quot;&gt;&lt;a href=&quot;#属性标签&quot; class=&quot;headerlink&quot; title=&quot;属性标签&quot;&gt;&lt;/a&gt;属性标签&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;Object.definedProperty(obj, &amp;quot;type&amp;quot;,    {configureable:true,writable:true,enumerable:false,value:&amp;quot;Object&amp;quot;});
+
+Object.definedProperties(obj,{属性1：{同上}，属性2.....});
+
+Object.getOwnPropertyDescriptor(obj,&amp;apos; 属性1&amp;apos;)；
+//得到该对象初始化的各种值
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;小知识点&quot;&gt;&lt;a href=&quot;#小知识点&quot; class=&quot;headerlink&quot; title=&quot;小知识点&quot;&gt;&lt;/a&gt;小知识点&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;属性无序
+key是字符串
+对象里可以有对象：
+var obj ＝{
+      o:{
+          z:3,
+          n:4
+     }
+ };
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>严格模式</title>
+    <link href="http://yoursite.com/2016/04/18/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://yoursite.com/2016/04/18/严格模式/</id>
+    <published>2016-04-18T04:35:56.000Z</published>
+    <updated>2016-04-18T04:37:21.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;主要的区别&quot;&gt;&lt;a href=&quot;#主要的区别&quot; class=&quot;headerlink&quot; title=&quot;主要的区别&quot;&gt;&lt;/a&gt;主要的区别&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;不允许用with语句
+不允许未声明的变量
+arguments 变为静态副本
+不允许重复定义对象属性名
+禁止八进制
+eval独立作用域
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;主要的区别&quot;&gt;&lt;a href=&quot;#主要的区别&quot; class=&quot;headerlink&quot; title=&quot;主要的区别&quot;&gt;&lt;/a&gt;主要的区别&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;不允许用with语句
+不允许未声明的变量
+arguments 变为静态副本
+不允许重复定义对象属性名
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>语句</title>
+    <link href="http://yoursite.com/2016/04/18/%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://yoursite.com/2016/04/18/语句/</id>
+    <published>2016-04-18T04:33:25.000Z</published>
+    <updated>2016-04-18T05:00:29.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;块级语句&quot;&gt;&lt;a href=&quot;#块级语句&quot; class=&quot;headerlink&quot; title=&quot;块级语句&quot;&gt;&lt;/a&gt;块级语句&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;没有作用域，for（定义var）和外面定义一样
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;var语句：&quot;&gt;&lt;a href=&quot;#var语句：&quot; class=&quot;headerlink&quot; title=&quot;var语句：&quot;&gt;&lt;/a&gt;var语句：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var a ＝ b ＝ 1；
+b会变成全局变量
+&lt;/code&gt;&lt;/pre&gt;  &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;try－catch语句：&quot;&gt;&lt;a href=&quot;#try－catch语句：&quot; class=&quot;headerlink&quot; title=&quot;try－catch语句：&quot;&gt;&lt;/a&gt;try－catch语句：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;异常捕获
+ try{
+     throw&amp;quot;test&amp;quot;;
+}catch(ex){
+     console.log(ex); //test
+}finally{
+     console.log(&amp;apos;finally&amp;apos;);     
+}                     
+     有异常执行catch，怎样都会执行finally。
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;function语句：&quot;&gt;&lt;a href=&quot;#function语句：&quot; class=&quot;headerlink&quot; title=&quot;function语句：&quot;&gt;&lt;/a&gt;function语句：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function fd(){
+...
+}  //函数声明语句
+
+var fe = function(){
+
+}; //函数表达式语句，有分号。
+
+函数声明会被预处理，所以在最前面执行fd(); //true
+fe() ;//false
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;for-…-in语句&quot;&gt;&lt;a href=&quot;#for-…-in语句&quot; class=&quot;headerlink&quot; title=&quot;for … in语句:&quot;&gt;&lt;/a&gt;for … in语句:&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;1.顺序不确定
+2.enumerable为false不会出现
+3.for in 对象属性受原型链影响
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;with语句：&quot;&gt;&lt;a href=&quot;#with语句：&quot; class=&quot;headerlink&quot; title=&quot;with语句：&quot;&gt;&lt;/a&gt;with语句：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;让JS引擎优化更难
+可读性差
+可被变量定义代替
+严格模式下禁用
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;块级语句&quot;&gt;&lt;a href=&quot;#块级语句&quot; class=&quot;headerlink&quot; title=&quot;块级语句&quot;&gt;&lt;/a&gt;块级语句&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;没有作用域，for（定义var）和外面定义一样
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;var语句：&quot;&gt;&lt;a href=&quot;#var语句：&quot; class=&quot;headerlink&quot; title=&quot;var语句：&quot;&gt;&lt;/a&gt;var语句：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var a ＝ b ＝ 1；
+b会变成全局变量
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>表达式和运算符</title>
+    <link href="http://yoursite.com/2016/04/18/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+    <id>http://yoursite.com/2016/04/18/表达式和运算符/</id>
+    <published>2016-04-18T04:28:59.000Z</published>
+    <updated>2016-04-18T05:01:07.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;一、表达式&quot;&gt;&lt;a href=&quot;#一、表达式&quot; class=&quot;headerlink&quot; title=&quot;一、表达式&quot;&gt;&lt;/a&gt;一、表达式&lt;/h2&gt;&lt;h3 id=&quot;1-初始化表达式&quot;&gt;&lt;a href=&quot;#1-初始化表达式&quot; class=&quot;headerlink&quot; title=&quot;1.初始化表达式&quot;&gt;&lt;/a&gt;1.初始化表达式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;[1,2]   = new Array(1,2);
+[1,,,4]  =[1,undefined,undefined,4]
+{x:1,y:2} ={ var o = new Object();o.x=1;o.y=2;}
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;2-函数表达式&quot;&gt;&lt;a href=&quot;#2-函数表达式&quot; class=&quot;headerlink&quot; title=&quot;2.函数表达式&quot;&gt;&lt;/a&gt;2.函数表达式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var fe = function(){};
+(function(){console.log(&amp;apos;hello world&amp;apos;);})();
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;3-属性访问表达式&quot;&gt;&lt;a href=&quot;#3-属性访问表达式&quot; class=&quot;headerlink&quot; title=&quot;3.属性访问表达式&quot;&gt;&lt;/a&gt;3.属性访问表达式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var o = {x:1};
+o.x  或  o[&amp;apos;x&amp;apos;]去访问
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;4-调用表达式&quot;&gt;&lt;a href=&quot;#4-调用表达式&quot; class=&quot;headerlink&quot; title=&quot;4.调用表达式&quot;&gt;&lt;/a&gt;4.调用表达式&lt;/h3&gt;&lt;h3 id=&quot;5-对象创建表达式&quot;&gt;&lt;a href=&quot;#5-对象创建表达式&quot; class=&quot;headerlink&quot; title=&quot;5.对象创建表达式&quot;&gt;&lt;/a&gt;5.对象创建表达式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;new Fun(1,2);
+new Object;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;二、运算符&quot;&gt;&lt;a href=&quot;#二、运算符&quot; class=&quot;headerlink&quot; title=&quot;二、运算符&quot;&gt;&lt;/a&gt;二、运算符&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;三元：c？a：b  
+逗号表达式： a,b       var val =(1,2,3);    //val =3;  
+delete:var obj = {x:1}  delete obj.x  
+in: window.x = 1;  &amp;apos;x&amp;apos; in window //true  
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、表达式&quot;&gt;&lt;a href=&quot;#一、表达式&quot; class=&quot;headerlink&quot; title=&quot;一、表达式&quot;&gt;&lt;/a&gt;一、表达式&lt;/h2&gt;&lt;h3 id=&quot;1-初始化表达式&quot;&gt;&lt;a href=&quot;#1-初始化表达式&quot; class=&quot;headerlink&quot; title=&quot;1.初始化表达式&quot;&gt;&lt;/a&gt;1.初始化表达式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;[1,2]   = new Array(1,2);
+[1,,,4]  =[1,undefined,undefined,4]
+{x:1,y:2} ={ var o = new Object();o.x=1;o.y=2;}
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>类型检测</title>
+    <link href="http://yoursite.com/2016/04/18/%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/"/>
+    <id>http://yoursite.com/2016/04/18/类型检测/</id>
+    <published>2016-04-18T04:24:24.000Z</published>
+    <updated>2016-04-18T04:56:32.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;1-typeof-适合函数对象和基本类型的判断&quot;&gt;&lt;a href=&quot;#1-typeof-适合函数对象和基本类型的判断&quot; class=&quot;headerlink&quot; title=&quot;1.typeof   适合函数对象和基本类型的判断&quot;&gt;&lt;/a&gt;1.typeof   适合函数对象和基本类型的判断&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;typeof 100  // number
+typeof true // boolean
+typeof function // function
+typeof (undefined) // undefined
+typeof new Object() // object
+typeof [1,2] // object
+typeof NaN //number
+typeof null  //object
+&lt;/code&gt;&lt;/pre&gt;  &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;    
+&lt;h3 id=&quot;2-instanceof-适合于对象判断&quot;&gt;&lt;a href=&quot;#2-instanceof-适合于对象判断&quot; class=&quot;headerlink&quot; title=&quot;2. instanceof   适合于对象判断&quot;&gt;&lt;/a&gt;2. instanceof   适合于对象判断&lt;/h3&gt;&lt;pre&gt;&lt;code&gt; obj instanceof  Object
+ 左操作数是对象，不是返回false。
+ 右操作数是函数对象或函数构造器，     
+
+ [1,2] instanceof  Array === true     
+ new Object() instanceof  Array === false
+
+P.S:不同window或iframe间的对象类型检测不能使用instanceof
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;3-Object-prototype-toString-适合内置对象和基本类型&quot;&gt;&lt;a href=&quot;#3-Object-prototype-toString-适合内置对象和基本类型&quot; class=&quot;headerlink&quot; title=&quot;3.Object.prototype.toString 适合内置对象和基本类型&quot;&gt;&lt;/a&gt;3.Object.prototype.toString 适合内置对象和基本类型&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;Object.prototype.toString.apply([]); === &amp;quot;[object Array]&amp;quot;
+Object.prototype.toString.apply(function(){}) ;===&amp;quot;[object Function]&amp;quot;
+Object.prototype.toString.apply(undefined); ===&amp;quot;[object Undefined]&amp;quot;
+Object.prototype.toString.apply(null); ===&amp;quot;object Null&amp;quot;
+
+ P.S:IE678 null 返回 object Object
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-typeof-适合函数对象和基本类型的判断&quot;&gt;&lt;a href=&quot;#1-typeof-适合函数对象和基本类型的判断&quot; class=&quot;headerlink&quot; title=&quot;1.typeof   适合函数对象和基本类型的判断&quot;&gt;&lt;/a&gt;1.typeof   适合函数对象和基本类型的判断&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;typeof 100  // number
+typeof true // boolean
+typeof function // function
+typeof (undefined) // undefined
+typeof new Object() // object
+typeof [1,2] // object
+typeof NaN //number
+typeof null  //object
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据类型</title>
+    <link href="http://yoursite.com/2016/04/10/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://yoursite.com/2016/04/10/数据类型/</id>
+    <published>2016-04-10T05:47:21.000Z</published>
+    <updated>2016-04-18T05:01:28.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;基本类型&quot;&gt;&lt;a href=&quot;#基本类型&quot; class=&quot;headerlink&quot; title=&quot;基本类型&quot;&gt;&lt;/a&gt;基本类型&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;1.number  
+2.boolean  
+3.string  
+4.null  
+5.undefined  
+对象类型-Object：  
+Date  
+Array  
+&lt;/code&gt;&lt;/pre&gt;  &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;＝＝&quot;&gt;&lt;a href=&quot;#＝＝&quot; class=&quot;headerlink&quot; title=&quot;＝＝&quot;&gt;&lt;/a&gt;＝＝&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;1.字符串和数字，把字符串转换为数字  
+“1.23”＝＝1.23  
+2.0==false  
+3.null == undefined  
+4.new Object() == new Object()  
+5.[1,2] == [1,2]  
+6.boolean 转换为数字，true ＝1 ，false ＝ 0  
+7.对象转换为基本类型  
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;＝＝＝&quot;&gt;&lt;a href=&quot;#＝＝＝&quot; class=&quot;headerlink&quot; title=&quot;＝＝＝&quot;&gt;&lt;/a&gt;＝＝＝&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;类型不同，返回false  
+类型相同：  
+null ＝＝＝ null   
+undefined ＝＝＝ undefined  
+NaN != NaN  
+new Object != new Object  
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;基本类型&quot;&gt;&lt;a href=&quot;#基本类型&quot; class=&quot;headerlink&quot; title=&quot;基本类型&quot;&gt;&lt;/a&gt;基本类型&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;1.number  
+2.boolean  
+3.string  
+4.null  
+5.undefined  
+对象类型-Object：  
+Date  
+Array  
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2016/03/20/hello-world/"/>
+    <id>http://yoursite.com/2016/03/20/hello-world/</id>
+    <published>2016-03-20T11:25:15.000Z</published>
+    <updated>2016-04-10T06:15:38.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
