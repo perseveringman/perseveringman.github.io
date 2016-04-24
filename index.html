@@ -249,6 +249,154 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/24/居中布局/" itemprop="url">
+                  居中布局
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-24T19:07:35+08:00" content="2016-04-24">
+              2016-04-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="本文统一讨论的例子"><a href="#本文统一讨论的例子" class="headerlink" title="本文统一讨论的例子"></a>本文统一讨论的例子</h3><pre><code> &lt;div class=&quot;parent&quot;&gt;
+    &lt;div class=&quot;child&quot;&gt;DEMO&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h3 id="水平居中："><a href="#水平居中：" class="headerlink" title="水平居中："></a>水平居中：</h3><h4 id="P-S-宽高不定"><a href="#P-S-宽高不定" class="headerlink" title="P.S:宽高不定"></a>P.S:宽高不定</h4><h4 id="1-inline-block-text-align"><a href="#1-inline-block-text-align" class="headerlink" title="1.inline-block + text-align"></a>1.inline-block + text-align</h4><pre><code>&lt;style type=&quot;text/css&quot;&gt;
+    .child{ display:inline-block;  //宽度根据内容改变}
+    .parent{   text-align:center;  //对inline元素起作用}
+&lt;/style&gt;
+
+可以兼容到IE6/7，通过zoom＝1；和inline属性
+不足：text-align会使里面的文字也居中，可以在child中加text-align来覆盖；
+</code></pre><h4 id="2-table-margin"><a href="#2-table-margin" class="headerlink" title="2.table+margin"></a>2.table+margin</h4><pre><code>.child{ display:table; margin:0 auto; }
+
+优点：不关心parent，IE8+
+兼容IE6/7:换成table标签
+</code></pre><h4 id="3-absolute-transform"><a href="#3-absolute-transform" class="headerlink" title="3.absolute+transform"></a>3.absolute+transform</h4><pre><code>.parent{ position: relative;}
+.child{ position: absolute;//宽度由内容决定 Left: 50%; transform: translateX(-50%);}
+transform: translateX(-50%);表示向左平移自己宽度的一半
+优点：不会对其他元素造成影响
+缺点：tranform是CSS3，没法兼容
+</code></pre><h4 id="4-flex-justify-content"><a href="#4-flex-justify-content" class="headerlink" title="4.flex+justify-content"></a>4.flex+justify-content</h4><pre><code>.parent{ display:flex; justify-content:center;}
+优点：只用对parent设置；
+方法2:
+     .parent{display:flex; }
+     .child{margin:0 auto;}
+缺点：flex不兼容IE678
+</code></pre><h3 id="垂直居中："><a href="#垂直居中：" class="headerlink" title="垂直居中："></a>垂直居中：</h3><h4 id="P-S-子容器高度不确定，父容器高度也不确定"><a href="#P-S-子容器高度不确定，父容器高度也不确定" class="headerlink" title="P.S:子容器高度不确定，父容器高度也不确定"></a>P.S:子容器高度不确定，父容器高度也不确定</h4><h4 id="1-table-cell-vertical-align"><a href="#1-table-cell-vertical-align" class="headerlink" title="1.table-cell + vertical-align"></a>1.table-cell + vertical-align</h4><pre><code>.parent{ display: table-cell ;vertical-align: middle ;}
+优点：兼容到IE8+，兼容IE6/7可以改成table标签
+</code></pre><h4 id="2-absolute-transform"><a href="#2-absolute-transform" class="headerlink" title="2.absolute+transform"></a>2.absolute+transform</h4><pre><code> .parent{ position: relative;}
+.child{ position: absolute;//高度由内容决定 top: 50%; transform:      translateY(-50%);}
+</code></pre><h4 id="3-flex-align-items"><a href="#3-flex-align-items" class="headerlink" title="3.flex +align-items"></a>3.flex +align-items</h4><pre><code>.parent{ display: flex; align-items: center;}
+flex会将父容器撑满
+</code></pre><h3 id="水平及垂直居中："><a href="#水平及垂直居中：" class="headerlink" title="水平及垂直居中："></a>水平及垂直居中：</h3><h4 id="P-S-元素高度宽度都未知"><a href="#P-S-元素高度宽度都未知" class="headerlink" title="P.S:元素高度宽度都未知"></a>P.S:元素高度宽度都未知</h4><pre><code>inline-block ＋ text-align +table-cell +vertical-align
+
+absolute ＋ transform
+
+flex ＋ justfy－content ＋ align－items
+.parent{ display: flex; justfy-content: center; align-items:center;//解除flex的撑满}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/18/数组/" itemprop="url">
                   数组
                 </a>
@@ -1208,7 +1356,7 @@ Array
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1216,7 +1364,7 @@ Array
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1225,7 +1373,7 @@ Array
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
