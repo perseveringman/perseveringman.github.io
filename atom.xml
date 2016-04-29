@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-29T08:46:40.000Z</updated>
+  <updated>2016-04-29T08:49:07.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/04/29/JSON/"/>
     <id>http://yoursite.com/2016/04/29/JSON/</id>
     <published>2016-04-29T08:32:25.000Z</published>
-    <updated>2016-04-29T08:46:40.000Z</updated>
+    <updated>2016-04-29T08:49:07.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;三种类型&quot;&gt;&lt;a href=&quot;#三种类型&quot; class=&quot;headerlink&quot; title=&quot;三种类型&quot;&gt;&lt;/a&gt;三种类型&lt;/h3&gt;&lt;h4 id=&quot;简单值&quot;&gt;&lt;a href=&quot;#简单值&quot; class=&quot;headerlink&quot; title=&quot;简单值&quot;&gt;&lt;/a&gt;简单值&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;可以表示字符串、数值、布尔值和null，但不支持undefined
 表示字符串必须用双引号
@@ -36,7 +36,9 @@
            &amp;quot;age&amp;quot;:29
       }    
 三点不同：
-  1.没有声明变量（没有变量概念）           2.没有末尾分号          3.属性要求加双引号（其实javascript也可以加）
+  1.没有声明变量（没有变量概念） 
+  2.没有末尾分号
+  3.属性要求加双引号（其实javascript也可以加）
 &lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;    
 &lt;h4 id=&quot;数组&quot;&gt;&lt;a href=&quot;#数组&quot; class=&quot;headerlink&quot; title=&quot;数组&quot;&gt;&lt;/a&gt;数组&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;同样没有声明和分号
 [24,&amp;quot;name&amp;quot;,&amp;quot;age&amp;quot;];
@@ -97,7 +99,9 @@ alert(personCopy.releaseDate.getFullYear()); //这样实现了一个日期
            &amp;quot;age&amp;quot;:29
       }    
 三点不同：
-  1.没有声明变量（没有变量概念）           2.没有末尾分号          3.属性要求加双引号（其实javascript也可以加）
+  1.没有声明变量（没有变量概念） 
+  2.没有末尾分号
+  3.属性要求加双引号（其实javascript也可以加）
 &lt;/code&gt;&lt;/pre&gt;
     
     </summary>
