@@ -82,31 +82,19 @@
 
 
 
-<meta name="description" content="主要的区别不允许用with语句
-不允许未声明的变量
-arguments 变为静态副本
-不允许重复定义对象属性名
-禁止八进制
-eval独立作用域">
+<meta name="description" content="定时器setInterval //多次var interval = setInterval(func,delay)   //函数，间隔ms
+clearInterval(intervalID)  //清除">
 <meta property="og:type" content="article">
-<meta property="og:title" content="严格模式">
-<meta property="og:url" content="http://yoursite.com/2016/04/18/严格模式/index.html">
+<meta property="og:title" content="动画">
+<meta property="og:url" content="http://yoursite.com/2016/04/29/动画/index.html">
 <meta property="og:site_name" content="周延博">
-<meta property="og:description" content="主要的区别不允许用with语句
-不允许未声明的变量
-arguments 变为静态副本
-不允许重复定义对象属性名
-禁止八进制
-eval独立作用域">
-<meta property="og:updated_time" content="2016-04-18T04:37:21.000Z">
+<meta property="og:description" content="定时器setInterval //多次var interval = setInterval(func,delay)   //函数，间隔ms
+clearInterval(intervalID)  //清除">
+<meta property="og:updated_time" content="2016-04-29T08:48:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="严格模式">
-<meta name="twitter:description" content="主要的区别不允许用with语句
-不允许未声明的变量
-arguments 变为静态副本
-不允许重复定义对象属性名
-禁止八进制
-eval独立作用域">
+<meta name="twitter:title" content="动画">
+<meta name="twitter:description" content="定时器setInterval //多次var interval = setInterval(func,delay)   //函数，间隔ms
+clearInterval(intervalID)  //清除">
 
 
 
@@ -124,7 +112,7 @@ eval独立作用域">
   };
 </script>
 
-  <title> 严格模式 | 周延博 </title>
+  <title> 动画 | 周延博 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -264,7 +252,7 @@ eval独立作用域">
             
             
               
-                严格模式
+                动画
               
             
           </h1>
@@ -276,8 +264,8 @@ eval独立作用域">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-18T12:35:56+08:00" content="2016-04-18">
-              2016-04-18
+            <time itemprop="dateCreated" datetime="2016-04-29T16:23:55+08:00" content="2016-04-29">
+              2016-04-29
             </time>
           </span>
 
@@ -322,12 +310,17 @@ eval独立作用域">
       
 
       
-        <h3 id="主要的区别"><a href="#主要的区别" class="headerlink" title="主要的区别"></a>主要的区别</h3><pre><code>不允许用with语句
-不允许未声明的变量
-arguments 变为静态副本
-不允许重复定义对象属性名
-禁止八进制
-eval独立作用域
+        <h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><h4 id="setInterval-多次"><a href="#setInterval-多次" class="headerlink" title="setInterval //多次"></a>setInterval //多次</h4><pre><code>var interval = setInterval(func,delay)   //函数，间隔ms
+clearInterval(intervalID)  //清除
+</code></pre><a id="more"></a>
+<h4 id="setTimeout-一次"><a href="#setTimeout-一次" class="headerlink" title="setTimeout // 一次"></a>setTimeout // 一次</h4><pre><code>var timeoutID ＝ setTimeout(func,[delay间隔，默认0])
+clearTimeout(timeoutID)
+</code></pre><h4 id="requestAnimationFrame-浏览器刷新频率-流畅"><a href="#requestAnimationFrame-浏览器刷新频率-流畅" class="headerlink" title="requestAnimationFrame// 浏览器刷新频率    流畅"></a>requestAnimationFrame// 浏览器刷新频率    流畅</h4><pre><code>var requestID = requestAnimationFrame(func)
+cancelAnimationFrame(requestID)
+</code></pre><h3 id="常见动画"><a href="#常见动画" class="headerlink" title="常见动画"></a>常见动画</h3><pre><code>形变
+位移
+旋转
+透明度
 </code></pre>
       
     </div>
@@ -357,16 +350,16 @@ eval独立作用域
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/18/语句/" rel="next" title="语句">
-                <i class="fa fa-chevron-left"></i> 语句
+              <a href="/2016/04/29/DOM事件/" rel="next" title="DOM事件">
+                <i class="fa fa-chevron-left"></i> DOM事件
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/18/对象/" rel="prev" title="对象">
-                对象 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/29/HTML/" rel="prev" title="HTML">
+                HTML <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -501,7 +494,7 @@ eval独立作用域
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要的区别"><span class="nav-number">1.</span> <span class="nav-text">主要的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定时器"><span class="nav-number">1.</span> <span class="nav-text">定时器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#setInterval-多次"><span class="nav-number">1.1.</span> <span class="nav-text">setInterval //多次</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setTimeout-一次"><span class="nav-number">1.2.</span> <span class="nav-text">setTimeout // 一次</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#requestAnimationFrame-浏览器刷新频率-流畅"><span class="nav-number">1.3.</span> <span class="nav-text">requestAnimationFrame// 浏览器刷新频率    流畅</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见动画"><span class="nav-number">2.</span> <span class="nav-text">常见动画</span></a></li></ol></div>
             
           </div>
         </section>
