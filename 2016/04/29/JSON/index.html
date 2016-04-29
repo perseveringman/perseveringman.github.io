@@ -82,42 +82,43 @@
 
 
 
-<meta name="description" content="小知识点属性无序
-key是字符串
-对象里可以有对象：
-var obj ＝{
-      o:{
-          z:3,
-          n:4
-     }
- };">
+<meta name="description" content="三种类型简单值可以表示字符串、数值、布尔值和null，但不支持undefined
+表示字符串必须用双引号
+对象  与javascript中稍有不同
+  javascript中：
+      var person = {
+           name:&amp;quot;Nicholas&amp;quot;,
+           age:29
+         };
+  JSON中：
+      {">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对象">
-<meta property="og:url" content="http://yoursite.com/2016/04/18/对象/index.html">
+<meta property="og:title" content="JSON">
+<meta property="og:url" content="http://yoursite.com/2016/04/29/JSON/index.html">
 <meta property="og:site_name" content="周延博">
-<meta property="og:description" content="小知识点属性无序
-key是字符串
-对象里可以有对象：
-var obj ＝{
-      o:{
-          z:3,
-          n:4
-     }
- };">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/0062G52qjw1f2qlktlwd6j30ia0p4q4j.jpg">
-<meta property="og:updated_time" content="2016-04-18T05:01:18.000Z">
+<meta property="og:description" content="三种类型简单值可以表示字符串、数值、布尔值和null，但不支持undefined
+表示字符串必须用双引号
+对象  与javascript中稍有不同
+  javascript中：
+      var person = {
+           name:&amp;quot;Nicholas&amp;quot;,
+           age:29
+         };
+  JSON中：
+      {">
+<meta property="og:updated_time" content="2016-04-29T08:46:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对象">
-<meta name="twitter:description" content="小知识点属性无序
-key是字符串
-对象里可以有对象：
-var obj ＝{
-      o:{
-          z:3,
-          n:4
-     }
- };">
-<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/0062G52qjw1f2qlktlwd6j30ia0p4q4j.jpg">
+<meta name="twitter:title" content="JSON">
+<meta name="twitter:description" content="三种类型简单值可以表示字符串、数值、布尔值和null，但不支持undefined
+表示字符串必须用双引号
+对象  与javascript中稍有不同
+  javascript中：
+      var person = {
+           name:&amp;quot;Nicholas&amp;quot;,
+           age:29
+         };
+  JSON中：
+      {">
 
 
 
@@ -135,7 +136,7 @@ var obj ＝{
   };
 </script>
 
-  <title> 对象 | 周延博 </title>
+  <title> JSON | 周延博 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -275,7 +276,7 @@ var obj ＝{
             
             
               
-                对象
+                JSON
               
             
           </h1>
@@ -287,8 +288,8 @@ var obj ＝{
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-18T12:37:32+08:00" content="2016-04-18">
-              2016-04-18
+            <time itemprop="dateCreated" datetime="2016-04-29T16:32:25+08:00" content="2016-04-29">
+              2016-04-29
             </time>
           </span>
 
@@ -333,29 +334,63 @@ var obj ＝{
       
 
       
-        <h3 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h3><pre><code>属性无序
-key是字符串
-对象里可以有对象：
-var obj ＝{
-      o:{
-          z:3,
-          n:4
-     }
- };
-</code></pre>  <a id="more"></a>
-<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p><img src="http://ww2.sinaimg.cn/large/0062G52qjw1f2qlktlwd6j30ia0p4q4j.jpg" alt="原型链"></p>
-<h3 id="读写对象属性"><a href="#读写对象属性" class="headerlink" title="读写对象属性"></a>读写对象属性</h3><pre><code>obj.x;
-obj[&apos;x&apos;];
-</code></pre><h3 id="属性读写异常"><a href="#属性读写异常" class="headerlink" title="属性读写异常"></a>属性读写异常</h3><pre><code>var obj = {x:1};
-obj.y ;//undefined;
-</code></pre><h3 id="属性删除"><a href="#属性删除" class="headerlink" title="属性删除"></a>属性删除</h3><pre><code>delete
-</code></pre><h3 id="属性检测"><a href="#属性检测" class="headerlink" title="属性检测"></a>属性检测</h3><pre><code>hasOwnProperty();
-</code></pre><h3 id="getter-setter方法"><a href="#getter-setter方法" class="headerlink" title="getter/setter方法"></a>getter/setter方法</h3><h3 id="属性标签"><a href="#属性标签" class="headerlink" title="属性标签"></a>属性标签</h3><pre><code>Object.definedProperty(obj, &quot;type&quot;,    {configureable:true,writable:true,enumerable:false,value:&quot;Object&quot;});
-
-Object.definedProperties(obj,{属性1：{同上}，属性2.....});
-
-Object.getOwnPropertyDescriptor(obj,&apos; 属性1&apos;)；
-//得到该对象初始化的各种值
+        <h3 id="三种类型"><a href="#三种类型" class="headerlink" title="三种类型"></a>三种类型</h3><h4 id="简单值"><a href="#简单值" class="headerlink" title="简单值"></a>简单值</h4><pre><code>可以表示字符串、数值、布尔值和null，但不支持undefined
+表示字符串必须用双引号
+</code></pre><h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><pre><code>  与javascript中稍有不同
+  javascript中：
+      var person = {
+           name:&quot;Nicholas&quot;,
+           age:29
+         };
+  JSON中：
+      {
+           &quot;name&quot;:&quot;Nicholas&quot;,
+           &quot;age&quot;:29
+      }    
+三点不同：
+  1.没有声明变量（没有变量概念）           2.没有末尾分号          3.属性要求加双引号（其实javascript也可以加）
+</code></pre><a id="more"></a>    
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><pre><code>同样没有声明和分号
+[24,&quot;name&quot;,&quot;age&quot;];
+</code></pre><h3 id="解析与序列化"><a href="#解析与序列化" class="headerlink" title="解析与序列化"></a>解析与序列化</h3><pre><code>XML要解析成DOM文档再从中提取数据，极为麻烦
+JSON可以解析为javascript对象
+JSON变成web服务开发中交换数据的事实标准
+</code></pre><h4 id="JSON对象"><a href="#JSON对象" class="headerlink" title="JSON对象"></a>JSON对象</h4><pre><code>ECMAScript 5 定义了一个原生的JSON对象，可以调用 stringify()和parse()，
+IE8+，ff3.5+，safari4+，oprea10.5，chrome：JSON解析使用eval()函数
+低版本：使用一个shim
+</code></pre><h4 id="stringify-把javascript对象序列化为JSON字符串"><a href="#stringify-把javascript对象序列化为JSON字符串" class="headerlink" title="stringify() //把javascript对象序列化为JSON字符串"></a>stringify() //把javascript对象序列化为JSON字符串</h4><pre><code>   var person = {
+     name:&quot;Nicholas&quot;,
+     age:29
+   };
+var jsontext ＝ JSON.stringify(person);
+序列化时会忽略函数以及原型成员（prototype），undefined也会跳过，只返回有效的实例属性
+</code></pre><h5 id="序列化选项：上述函数还可以接受两个参数，过滤器和是否保留缩进"><a href="#序列化选项：上述函数还可以接受两个参数，过滤器和是否保留缩进" class="headerlink" title="序列化选项：上述函数还可以接受两个参数，过滤器和是否保留缩进"></a>序列化选项：上述函数还可以接受两个参数，过滤器和是否保留缩进</h5><pre><code> 过滤器如果是一个数组，那么只返回该数组中的属性
+ 如果是一个函数，则可以通过函数对属性操作
+ var jsontext = JSON.stringify(person,function(key,value){
+     switch(key){
+         case &quot;name&quot;:return undefined(相当于跳过属性)
+         case &quot;age&quot;:return 50(更改属性)
+         case &quot;一个数组名&quot;：return value.join(&quot;,&quot;)(把数组连接成字符串)
+         default:
+                 return value;  保证其他属性都正常返回
+})
+</code></pre><h5 id="字符串缩进：var-jsontext-JSON-stringify-person-null-4"><a href="#字符串缩进：var-jsontext-JSON-stringify-person-null-4" class="headerlink" title="字符串缩进：var jsontext = JSON.stringify(person,null,4)"></a>字符串缩进：var jsontext = JSON.stringify(person,null,4)</h5><pre><code>缩进最大10个字符
+如果缩进参数为字符串，则被用作缩进字符
+建议用&quot;- -&quot;或制表符
+</code></pre><h4 id="toJSON-方法"><a href="#toJSON-方法" class="headerlink" title="toJSON()方法"></a>toJSON()方法</h4><pre><code>写在对象中，作为一个属性：toJSON:function(){return this.tite;}//返回标题
+还可以返回undefined，如果是子对象，会导致返回null
+</code></pre><h5 id="序列化对象的顺序："><a href="#序列化对象的顺序：" class="headerlink" title="序列化对象的顺序："></a>序列化对象的顺序：</h5><pre><code>1.存在toJSON且能获得有效值，则调用，否则返回对象本身
+2. 如果提供函数过滤器，传入过滤器是第一步返回的值。
+3.序列化
+4.有第三个参数，格式化
+</code></pre><h4 id="parse-把JSON字符串变成javascript值"><a href="#parse-把JSON字符串变成javascript值" class="headerlink" title="parse() // 把JSON字符串变成javascript值"></a>parse() // 把JSON字符串变成javascript值</h4><pre><code>var personCopy ＝ JSON.parse(jsontext);
+如果字符串不是有效JSON，会报错。
+</code></pre><h5 id="解析选项"><a href="#解析选项" class="headerlink" title="解析选项"></a>解析选项</h5><pre><code>接收第二个函数参数，在每个键值对上调用
+返回undefined，则表示删除该属性
+releaseDate： new Date(2011,11,1) // 在对象里新增一个属性
+key == &quot;releaseDate&quot; // 解析到这个属性
+return new Date(value);     //返回一个日期对象为releaseDate属性的值
+alert(personCopy.releaseDate.getFullYear()); //这样实现了一个日期
 </code></pre>
       
     </div>
@@ -385,17 +420,13 @@ Object.getOwnPropertyDescriptor(obj,&apos; 属性1&apos;)；
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/18/严格模式/" rel="next" title="严格模式">
-                <i class="fa fa-chevron-left"></i> 严格模式
+              <a href="/2016/04/29/DOM事件/" rel="next" title="DOM事件">
+                <i class="fa fa-chevron-left"></i> DOM事件
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/18/数组/" rel="prev" title="数组">
-                数组 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,7 +560,7 @@ Object.getOwnPropertyDescriptor(obj,&apos; 属性1&apos;)；
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#小知识点"><span class="nav-number">1.</span> <span class="nav-text">小知识点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链"><span class="nav-number">2.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读写对象属性"><span class="nav-number">3.</span> <span class="nav-text">读写对象属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性读写异常"><span class="nav-number">4.</span> <span class="nav-text">属性读写异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性删除"><span class="nav-number">5.</span> <span class="nav-text">属性删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性检测"><span class="nav-number">6.</span> <span class="nav-text">属性检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getter-setter方法"><span class="nav-number">7.</span> <span class="nav-text">getter/setter方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性标签"><span class="nav-number">8.</span> <span class="nav-text">属性标签</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种类型"><span class="nav-number">1.</span> <span class="nav-text">三种类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单值"><span class="nav-number">1.1.</span> <span class="nav-text">简单值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象"><span class="nav-number">1.2.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组"><span class="nav-number">1.3.</span> <span class="nav-text">数组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析与序列化"><span class="nav-number">2.</span> <span class="nav-text">解析与序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON对象"><span class="nav-number">2.1.</span> <span class="nav-text">JSON对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#stringify-把javascript对象序列化为JSON字符串"><span class="nav-number">2.2.</span> <span class="nav-text">stringify() //把javascript对象序列化为JSON字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#序列化选项：上述函数还可以接受两个参数，过滤器和是否保留缩进"><span class="nav-number">2.2.1.</span> <span class="nav-text">序列化选项：上述函数还可以接受两个参数，过滤器和是否保留缩进</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串缩进：var-jsontext-JSON-stringify-person-null-4"><span class="nav-number">2.2.2.</span> <span class="nav-text">字符串缩进：var jsontext = JSON.stringify(person,null,4)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toJSON-方法"><span class="nav-number">2.3.</span> <span class="nav-text">toJSON()方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#序列化对象的顺序："><span class="nav-number">2.3.1.</span> <span class="nav-text">序列化对象的顺序：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parse-把JSON字符串变成javascript值"><span class="nav-number">2.4.</span> <span class="nav-text">parse() // 把JSON字符串变成javascript值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#解析选项"><span class="nav-number">2.4.1.</span> <span class="nav-text">解析选项</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>

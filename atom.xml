@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-24T11:14:48.000Z</updated>
+  <updated>2016-04-29T08:46:40.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,229 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JSON</title>
+    <link href="http://yoursite.com/2016/04/29/JSON/"/>
+    <id>http://yoursite.com/2016/04/29/JSON/</id>
+    <published>2016-04-29T08:32:25.000Z</published>
+    <updated>2016-04-29T08:46:40.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;三种类型&quot;&gt;&lt;a href=&quot;#三种类型&quot; class=&quot;headerlink&quot; title=&quot;三种类型&quot;&gt;&lt;/a&gt;三种类型&lt;/h3&gt;&lt;h4 id=&quot;简单值&quot;&gt;&lt;a href=&quot;#简单值&quot; class=&quot;headerlink&quot; title=&quot;简单值&quot;&gt;&lt;/a&gt;简单值&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;可以表示字符串、数值、布尔值和null，但不支持undefined
+表示字符串必须用双引号
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;对象&quot;&gt;&lt;a href=&quot;#对象&quot; class=&quot;headerlink&quot; title=&quot;对象&quot;&gt;&lt;/a&gt;对象&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;  与javascript中稍有不同
+  javascript中：
+      var person = {
+           name:&amp;quot;Nicholas&amp;quot;,
+           age:29
+         };
+  JSON中：
+      {
+           &amp;quot;name&amp;quot;:&amp;quot;Nicholas&amp;quot;,
+           &amp;quot;age&amp;quot;:29
+      }    
+三点不同：
+  1.没有声明变量（没有变量概念）           2.没有末尾分号          3.属性要求加双引号（其实javascript也可以加）
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;    
+&lt;h4 id=&quot;数组&quot;&gt;&lt;a href=&quot;#数组&quot; class=&quot;headerlink&quot; title=&quot;数组&quot;&gt;&lt;/a&gt;数组&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;同样没有声明和分号
+[24,&amp;quot;name&amp;quot;,&amp;quot;age&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;解析与序列化&quot;&gt;&lt;a href=&quot;#解析与序列化&quot; class=&quot;headerlink&quot; title=&quot;解析与序列化&quot;&gt;&lt;/a&gt;解析与序列化&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;XML要解析成DOM文档再从中提取数据，极为麻烦
+JSON可以解析为javascript对象
+JSON变成web服务开发中交换数据的事实标准
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;JSON对象&quot;&gt;&lt;a href=&quot;#JSON对象&quot; class=&quot;headerlink&quot; title=&quot;JSON对象&quot;&gt;&lt;/a&gt;JSON对象&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;ECMAScript 5 定义了一个原生的JSON对象，可以调用 stringify()和parse()，
+IE8+，ff3.5+，safari4+，oprea10.5，chrome：JSON解析使用eval()函数
+低版本：使用一个shim
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;stringify-把javascript对象序列化为JSON字符串&quot;&gt;&lt;a href=&quot;#stringify-把javascript对象序列化为JSON字符串&quot; class=&quot;headerlink&quot; title=&quot;stringify() //把javascript对象序列化为JSON字符串&quot;&gt;&lt;/a&gt;stringify() //把javascript对象序列化为JSON字符串&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;   var person = {
+     name:&amp;quot;Nicholas&amp;quot;,
+     age:29
+   };
+var jsontext ＝ JSON.stringify(person);
+序列化时会忽略函数以及原型成员（prototype），undefined也会跳过，只返回有效的实例属性
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;序列化选项：上述函数还可以接受两个参数，过滤器和是否保留缩进&quot;&gt;&lt;a href=&quot;#序列化选项：上述函数还可以接受两个参数，过滤器和是否保留缩进&quot; class=&quot;headerlink&quot; title=&quot;序列化选项：上述函数还可以接受两个参数，过滤器和是否保留缩进&quot;&gt;&lt;/a&gt;序列化选项：上述函数还可以接受两个参数，过滤器和是否保留缩进&lt;/h5&gt;&lt;pre&gt;&lt;code&gt; 过滤器如果是一个数组，那么只返回该数组中的属性
+ 如果是一个函数，则可以通过函数对属性操作
+ var jsontext = JSON.stringify(person,function(key,value){
+     switch(key){
+         case &amp;quot;name&amp;quot;:return undefined(相当于跳过属性)
+         case &amp;quot;age&amp;quot;:return 50(更改属性)
+         case &amp;quot;一个数组名&amp;quot;：return value.join(&amp;quot;,&amp;quot;)(把数组连接成字符串)
+         default:
+                 return value;  保证其他属性都正常返回
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;字符串缩进：var-jsontext-JSON-stringify-person-null-4&quot;&gt;&lt;a href=&quot;#字符串缩进：var-jsontext-JSON-stringify-person-null-4&quot; class=&quot;headerlink&quot; title=&quot;字符串缩进：var jsontext = JSON.stringify(person,null,4)&quot;&gt;&lt;/a&gt;字符串缩进：var jsontext = JSON.stringify(person,null,4)&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;缩进最大10个字符
+如果缩进参数为字符串，则被用作缩进字符
+建议用&amp;quot;- -&amp;quot;或制表符
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;toJSON-方法&quot;&gt;&lt;a href=&quot;#toJSON-方法&quot; class=&quot;headerlink&quot; title=&quot;toJSON()方法&quot;&gt;&lt;/a&gt;toJSON()方法&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;写在对象中，作为一个属性：toJSON:function(){return this.tite;}//返回标题
+还可以返回undefined，如果是子对象，会导致返回null
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;序列化对象的顺序：&quot;&gt;&lt;a href=&quot;#序列化对象的顺序：&quot; class=&quot;headerlink&quot; title=&quot;序列化对象的顺序：&quot;&gt;&lt;/a&gt;序列化对象的顺序：&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;1.存在toJSON且能获得有效值，则调用，否则返回对象本身
+2. 如果提供函数过滤器，传入过滤器是第一步返回的值。
+3.序列化
+4.有第三个参数，格式化
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;parse-把JSON字符串变成javascript值&quot;&gt;&lt;a href=&quot;#parse-把JSON字符串变成javascript值&quot; class=&quot;headerlink&quot; title=&quot;parse() // 把JSON字符串变成javascript值&quot;&gt;&lt;/a&gt;parse() // 把JSON字符串变成javascript值&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;var personCopy ＝ JSON.parse(jsontext);
+如果字符串不是有效JSON，会报错。
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;解析选项&quot;&gt;&lt;a href=&quot;#解析选项&quot; class=&quot;headerlink&quot; title=&quot;解析选项&quot;&gt;&lt;/a&gt;解析选项&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;接收第二个函数参数，在每个键值对上调用
+返回undefined，则表示删除该属性
+releaseDate： new Date(2011,11,1) // 在对象里新增一个属性
+key == &amp;quot;releaseDate&amp;quot; // 解析到这个属性
+return new Date(value);     //返回一个日期对象为releaseDate属性的值
+alert(personCopy.releaseDate.getFullYear()); //这样实现了一个日期
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;三种类型&quot;&gt;&lt;a href=&quot;#三种类型&quot; class=&quot;headerlink&quot; title=&quot;三种类型&quot;&gt;&lt;/a&gt;三种类型&lt;/h3&gt;&lt;h4 id=&quot;简单值&quot;&gt;&lt;a href=&quot;#简单值&quot; class=&quot;headerlink&quot; title=&quot;简单值&quot;&gt;&lt;/a&gt;简单值&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;可以表示字符串、数值、布尔值和null，但不支持undefined
+表示字符串必须用双引号
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;对象&quot;&gt;&lt;a href=&quot;#对象&quot; class=&quot;headerlink&quot; title=&quot;对象&quot;&gt;&lt;/a&gt;对象&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;  与javascript中稍有不同
+  javascript中：
+      var person = {
+           name:&amp;quot;Nicholas&amp;quot;,
+           age:29
+         };
+  JSON中：
+      {
+           &amp;quot;name&amp;quot;:&amp;quot;Nicholas&amp;quot;,
+           &amp;quot;age&amp;quot;:29
+      }    
+三点不同：
+  1.没有声明变量（没有变量概念）           2.没有末尾分号          3.属性要求加双引号（其实javascript也可以加）
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DOM事件</title>
+    <link href="http://yoursite.com/2016/04/29/DOM%E4%BA%8B%E4%BB%B6/"/>
+    <id>http://yoursite.com/2016/04/29/DOM事件/</id>
+    <published>2016-04-29T08:13:33.000Z</published>
+    <updated>2016-04-29T08:24:44.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;什么是DOM事件？&quot;&gt;&lt;a href=&quot;#什么是DOM事件？&quot; class=&quot;headerlink&quot; title=&quot;什么是DOM事件？&quot;&gt;&lt;/a&gt;什么是DOM事件？&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;点击一个DOM元素
+键盘按下一个键
+输入框输入一个内容
+页面加载完成
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;事件流&quot;&gt;&lt;a href=&quot;#事件流&quot; class=&quot;headerlink&quot; title=&quot;事件流&quot;&gt;&lt;/a&gt;事件流&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;事件捕获   capture phase
+      从window开始向下捕获，一直到事件发生的标签的父元素
+事件触发   target phase
+      目标节点的事件触发
+事件冒泡   bubble phase
+      从事件发生的父元素开始冒泡到window对象
+
+IE低版本没有捕获过程
+页面加载没有冒泡过程
+只要在整个事件流的过程中的对象上注册，就会发生
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;事件注册与触发&quot;&gt;&lt;a href=&quot;#事件注册与触发&quot; class=&quot;headerlink&quot; title=&quot;事件注册与触发&quot;&gt;&lt;/a&gt;事件注册与触发&lt;/h3&gt;&lt;h4 id=&quot;事件注册&quot;&gt;&lt;a href=&quot;#事件注册&quot; class=&quot;headerlink&quot; title=&quot;事件注册&quot;&gt;&lt;/a&gt;事件注册&lt;/h4&gt;&lt;pre&gt;&lt;code&gt; 1.eventTarget.addEventListener(type,listener[,useCapture(事件是否是捕获过程)])
+eg:
+var elem = document.ElementById(&amp;apos;div&amp;apos;)
+ var clickHandler = function(event){
+     //...
+}
+elem.addEventListener(&amp;apos;click&amp;apos;,clickHandler,false);
+
+2. elem.onclick = clickHandler;  //这种方法只能注册一个函数
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;事件取消注册&quot;&gt;&lt;a href=&quot;#事件取消注册&quot; class=&quot;headerlink&quot; title=&quot;事件取消注册&quot;&gt;&lt;/a&gt;事件取消注册&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;eventTarget.removeEventListener(type,listener[,useCapture])
+
+eg:
+elem.removeEventListener(&amp;apos;click&amp;apos;,clickHandler,false);
+elem.onclick = null;//不建议
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;事件触发&quot;&gt;&lt;a href=&quot;#事件触发&quot; class=&quot;headerlink&quot; title=&quot;事件触发&quot;&gt;&lt;/a&gt;事件触发&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;eventTarget.dispatchEvent(type)
+elem.dispatchEvent(&amp;apos;click&amp;apos;);
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;浏览器兼容（IE6-7-8）&quot;&gt;&lt;a href=&quot;#浏览器兼容（IE6-7-8）&quot; class=&quot;headerlink&quot; title=&quot;浏览器兼容（IE6,7,8）&quot;&gt;&lt;/a&gt;浏览器兼容（IE6,7,8）&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;事件注册与取消
+      attachEvent/detachEvent
+事件触发
+      fireEvent(e)
+no capture(捕获)
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;兼容代码&quot;&gt;&lt;a href=&quot;#兼容代码&quot; class=&quot;headerlink&quot; title=&quot;兼容代码&quot;&gt;&lt;/a&gt;兼容代码&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;var addEvent ＝ document.addEventListener ?
+      function(elem,type,listener,useCapture){
+            elem.addEventListener(type,listener,useCapture);
+      }:
+     function(elem,type,listener,useCapture){
+          elem.attachEvent(&amp;apos;on&amp;apos; + type,listener);
+      };
+delEvent类似
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;事件对象&quot;&gt;&lt;a href=&quot;#事件对象&quot; class=&quot;headerlink&quot; title=&quot;事件对象&quot;&gt;&lt;/a&gt;事件对象&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var clickHandler = function(event){}   //event就是事件对象
+
+IE低版本需要在函数里先写event ＝ event || window.event;
+
+属性
+- type   //事件类型
+- target(srcElement浏览器兼容)  //元素
+- currentTarget当前处理事件的函数，前面说道事件并不一定注册到元素，有可能是父元素等
+
+方法
+- stopPropagation //阻止事件传播
+       event.stopPropagation()(w3c)
+       event.cancelBubble = true(IE)
+       event.stopImmediatePropagation()(w3c) //还阻止后续事件
+- preventDefault//阻止默认行为,如点击链接不打开页面
+       event.preventDefault()(w3c)
+       event.returnValue = fasle (IE)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;事件类型&quot;&gt;&lt;a href=&quot;#事件类型&quot; class=&quot;headerlink&quot; title=&quot;事件类型&quot;&gt;&lt;/a&gt;事件类型&lt;/h3&gt;&lt;h4 id=&quot;鼠标事件&quot;&gt;&lt;a href=&quot;#鼠标事件&quot; class=&quot;headerlink&quot; title=&quot;鼠标事件&quot;&gt;&lt;/a&gt;鼠标事件&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;click
+dbclick
+mousedown  按下鼠标
+mousemove
+mouseover     移上
+mouseout     移开
+mouseup
+mouseenter   不冒泡   进入元素
+mouseleave     不冒泡   移开元素
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;鼠标事件对象&quot;&gt;&lt;a href=&quot;#鼠标事件对象&quot; class=&quot;headerlink&quot; title=&quot;鼠标事件对象&quot;&gt;&lt;/a&gt;鼠标事件对象&lt;/h4&gt;&lt;h5 id=&quot;属性&quot;&gt;&lt;a href=&quot;#属性&quot; class=&quot;headerlink&quot; title=&quot;属性&quot;&gt;&lt;/a&gt;属性&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;clientX，Y  //到页面的左端和顶端
+screenX，Y // 到电脑屏幕的左端和顶端
+button（0，1，2）左中右键
+ctrlKey......//对应ctrl键等，按下为true
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;鼠标事件顺序&quot;&gt;&lt;a href=&quot;#鼠标事件顺序&quot; class=&quot;headerlink&quot; title=&quot;鼠标事件顺序&quot;&gt;&lt;/a&gt;鼠标事件顺序&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;从元素A上方移过
+    mousemove－》mouseover（A）－》mouseenter（A）－》很多mousemove（A）
+    －》mouseout（A）－》mouseleave（A）
+点击元素
+       mousedown－》［mousemove］移动会触发－》mouse－》click
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;焦点事件&quot;&gt;&lt;a href=&quot;#焦点事件&quot; class=&quot;headerlink&quot; title=&quot;焦点事件&quot;&gt;&lt;/a&gt;焦点事件&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;blur  //元素失去焦点
+focus //获得焦点
+focusin //即将获得
+focusout //即将失去
+属性：
+   - relatedTarget   
+       //focusin foucs 失去焦点的元素 blur focusout得到焦点的元素
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;input事件&quot;&gt;&lt;a href=&quot;#input事件&quot; class=&quot;headerlink&quot; title=&quot;input事件&quot;&gt;&lt;/a&gt;input事件&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;beforeinput   //输入之前
+input //输入时不断触发input
+onpropertychange(IE)
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;KeyboardEvent&quot;&gt;&lt;a href=&quot;#KeyboardEvent&quot; class=&quot;headerlink&quot; title=&quot;KeyboardEvent&quot;&gt;&lt;/a&gt;KeyboardEvent&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;keydown
+keyup
+属性：
+- key
+- code
+- ctrlKey....
+- repeat  //按下不动 true
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;Event&quot;&gt;&lt;a href=&quot;#Event&quot; class=&quot;headerlink&quot; title=&quot;Event&quot;&gt;&lt;/a&gt;Event&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;load   // 页面加载
+unload
+error
+select  // 文本被选择
+abort   //图片正在加载，按下esc触发
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;什么是DOM事件？&quot;&gt;&lt;a href=&quot;#什么是DOM事件？&quot; class=&quot;headerlink&quot; title=&quot;什么是DOM事件？&quot;&gt;&lt;/a&gt;什么是DOM事件？&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;点击一个DOM元素
+键盘按下一个键
+输入框输入一个内容
+页面加载完成
+...
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>居中布局</title>

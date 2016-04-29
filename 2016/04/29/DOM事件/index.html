@@ -82,42 +82,28 @@
 
 
 
-<meta name="description" content="小知识点属性无序
-key是字符串
-对象里可以有对象：
-var obj ＝{
-      o:{
-          z:3,
-          n:4
-     }
- };">
+<meta name="description" content="什么是DOM事件？点击一个DOM元素
+键盘按下一个键
+输入框输入一个内容
+页面加载完成
+...">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对象">
-<meta property="og:url" content="http://yoursite.com/2016/04/18/对象/index.html">
+<meta property="og:title" content="DOM事件">
+<meta property="og:url" content="http://yoursite.com/2016/04/29/DOM事件/index.html">
 <meta property="og:site_name" content="周延博">
-<meta property="og:description" content="小知识点属性无序
-key是字符串
-对象里可以有对象：
-var obj ＝{
-      o:{
-          z:3,
-          n:4
-     }
- };">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/0062G52qjw1f2qlktlwd6j30ia0p4q4j.jpg">
-<meta property="og:updated_time" content="2016-04-18T05:01:18.000Z">
+<meta property="og:description" content="什么是DOM事件？点击一个DOM元素
+键盘按下一个键
+输入框输入一个内容
+页面加载完成
+...">
+<meta property="og:updated_time" content="2016-04-29T08:24:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对象">
-<meta name="twitter:description" content="小知识点属性无序
-key是字符串
-对象里可以有对象：
-var obj ＝{
-      o:{
-          z:3,
-          n:4
-     }
- };">
-<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/0062G52qjw1f2qlktlwd6j30ia0p4q4j.jpg">
+<meta name="twitter:title" content="DOM事件">
+<meta name="twitter:description" content="什么是DOM事件？点击一个DOM元素
+键盘按下一个键
+输入框输入一个内容
+页面加载完成
+...">
 
 
 
@@ -135,7 +121,7 @@ var obj ＝{
   };
 </script>
 
-  <title> 对象 | 周延博 </title>
+  <title> DOM事件 | 周延博 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -275,7 +261,7 @@ var obj ＝{
             
             
               
-                对象
+                DOM事件
               
             
           </h1>
@@ -287,8 +273,8 @@ var obj ＝{
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-18T12:37:32+08:00" content="2016-04-18">
-              2016-04-18
+            <time itemprop="dateCreated" datetime="2016-04-29T16:13:33+08:00" content="2016-04-29">
+              2016-04-29
             </time>
           </span>
 
@@ -333,29 +319,108 @@ var obj ＝{
       
 
       
-        <h3 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h3><pre><code>属性无序
-key是字符串
-对象里可以有对象：
-var obj ＝{
-      o:{
-          z:3,
-          n:4
-     }
- };
-</code></pre>  <a id="more"></a>
-<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p><img src="http://ww2.sinaimg.cn/large/0062G52qjw1f2qlktlwd6j30ia0p4q4j.jpg" alt="原型链"></p>
-<h3 id="读写对象属性"><a href="#读写对象属性" class="headerlink" title="读写对象属性"></a>读写对象属性</h3><pre><code>obj.x;
-obj[&apos;x&apos;];
-</code></pre><h3 id="属性读写异常"><a href="#属性读写异常" class="headerlink" title="属性读写异常"></a>属性读写异常</h3><pre><code>var obj = {x:1};
-obj.y ;//undefined;
-</code></pre><h3 id="属性删除"><a href="#属性删除" class="headerlink" title="属性删除"></a>属性删除</h3><pre><code>delete
-</code></pre><h3 id="属性检测"><a href="#属性检测" class="headerlink" title="属性检测"></a>属性检测</h3><pre><code>hasOwnProperty();
-</code></pre><h3 id="getter-setter方法"><a href="#getter-setter方法" class="headerlink" title="getter/setter方法"></a>getter/setter方法</h3><h3 id="属性标签"><a href="#属性标签" class="headerlink" title="属性标签"></a>属性标签</h3><pre><code>Object.definedProperty(obj, &quot;type&quot;,    {configureable:true,writable:true,enumerable:false,value:&quot;Object&quot;});
+        <h3 id="什么是DOM事件？"><a href="#什么是DOM事件？" class="headerlink" title="什么是DOM事件？"></a>什么是DOM事件？</h3><pre><code>点击一个DOM元素
+键盘按下一个键
+输入框输入一个内容
+页面加载完成
+...
+</code></pre><a id="more"></a>
+<h3 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h3><pre><code>事件捕获   capture phase
+      从window开始向下捕获，一直到事件发生的标签的父元素
+事件触发   target phase
+      目标节点的事件触发
+事件冒泡   bubble phase
+      从事件发生的父元素开始冒泡到window对象
 
-Object.definedProperties(obj,{属性1：{同上}，属性2.....});
+IE低版本没有捕获过程
+页面加载没有冒泡过程
+只要在整个事件流的过程中的对象上注册，就会发生
+</code></pre><h3 id="事件注册与触发"><a href="#事件注册与触发" class="headerlink" title="事件注册与触发"></a>事件注册与触发</h3><h4 id="事件注册"><a href="#事件注册" class="headerlink" title="事件注册"></a>事件注册</h4><pre><code> 1.eventTarget.addEventListener(type,listener[,useCapture(事件是否是捕获过程)])
+eg:
+var elem = document.ElementById(&apos;div&apos;)
+ var clickHandler = function(event){
+     //...
+}
+elem.addEventListener(&apos;click&apos;,clickHandler,false);
 
-Object.getOwnPropertyDescriptor(obj,&apos; 属性1&apos;)；
-//得到该对象初始化的各种值
+2. elem.onclick = clickHandler;  //这种方法只能注册一个函数
+</code></pre><h4 id="事件取消注册"><a href="#事件取消注册" class="headerlink" title="事件取消注册"></a>事件取消注册</h4><pre><code>eventTarget.removeEventListener(type,listener[,useCapture])
+
+eg:
+elem.removeEventListener(&apos;click&apos;,clickHandler,false);
+elem.onclick = null;//不建议
+</code></pre><h4 id="事件触发"><a href="#事件触发" class="headerlink" title="事件触发"></a>事件触发</h4><pre><code>eventTarget.dispatchEvent(type)
+elem.dispatchEvent(&apos;click&apos;);
+</code></pre><h3 id="浏览器兼容（IE6-7-8）"><a href="#浏览器兼容（IE6-7-8）" class="headerlink" title="浏览器兼容（IE6,7,8）"></a>浏览器兼容（IE6,7,8）</h3><pre><code>事件注册与取消
+      attachEvent/detachEvent
+事件触发
+      fireEvent(e)
+no capture(捕获)
+</code></pre><h4 id="兼容代码"><a href="#兼容代码" class="headerlink" title="兼容代码"></a>兼容代码</h4><pre><code>var addEvent ＝ document.addEventListener ?
+      function(elem,type,listener,useCapture){
+            elem.addEventListener(type,listener,useCapture);
+      }:
+     function(elem,type,listener,useCapture){
+          elem.attachEvent(&apos;on&apos; + type,listener);
+      };
+delEvent类似
+</code></pre><h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><pre><code>var clickHandler = function(event){}   //event就是事件对象
+
+IE低版本需要在函数里先写event ＝ event || window.event;
+
+属性
+- type   //事件类型
+- target(srcElement浏览器兼容)  //元素
+- currentTarget当前处理事件的函数，前面说道事件并不一定注册到元素，有可能是父元素等
+
+方法
+- stopPropagation //阻止事件传播
+       event.stopPropagation()(w3c)
+       event.cancelBubble = true(IE)
+       event.stopImmediatePropagation()(w3c) //还阻止后续事件
+- preventDefault//阻止默认行为,如点击链接不打开页面
+       event.preventDefault()(w3c)
+       event.returnValue = fasle (IE)
+</code></pre><h3 id="事件类型"><a href="#事件类型" class="headerlink" title="事件类型"></a>事件类型</h3><h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><pre><code>click
+dbclick
+mousedown  按下鼠标
+mousemove
+mouseover     移上
+mouseout     移开
+mouseup
+mouseenter   不冒泡   进入元素
+mouseleave     不冒泡   移开元素
+</code></pre><h4 id="鼠标事件对象"><a href="#鼠标事件对象" class="headerlink" title="鼠标事件对象"></a>鼠标事件对象</h4><h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><pre><code>clientX，Y  //到页面的左端和顶端
+screenX，Y // 到电脑屏幕的左端和顶端
+button（0，1，2）左中右键
+ctrlKey......//对应ctrl键等，按下为true
+</code></pre><h4 id="鼠标事件顺序"><a href="#鼠标事件顺序" class="headerlink" title="鼠标事件顺序"></a>鼠标事件顺序</h4><pre><code>从元素A上方移过
+    mousemove－》mouseover（A）－》mouseenter（A）－》很多mousemove（A）
+    －》mouseout（A）－》mouseleave（A）
+点击元素
+       mousedown－》［mousemove］移动会触发－》mouse－》click
+</code></pre><h4 id="焦点事件"><a href="#焦点事件" class="headerlink" title="焦点事件"></a>焦点事件</h4><pre><code>blur  //元素失去焦点
+focus //获得焦点
+focusin //即将获得
+focusout //即将失去
+属性：
+   - relatedTarget   
+       //focusin foucs 失去焦点的元素 blur focusout得到焦点的元素
+</code></pre><h4 id="input事件"><a href="#input事件" class="headerlink" title="input事件"></a>input事件</h4><pre><code>beforeinput   //输入之前
+input //输入时不断触发input
+onpropertychange(IE)
+</code></pre><h4 id="KeyboardEvent"><a href="#KeyboardEvent" class="headerlink" title="KeyboardEvent"></a>KeyboardEvent</h4><pre><code>keydown
+keyup
+属性：
+- key
+- code
+- ctrlKey....
+- repeat  //按下不动 true
+</code></pre><h4 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h4><pre><code>load   // 页面加载
+unload
+error
+select  // 文本被选择
+abort   //图片正在加载，按下esc触发
 </code></pre>
       
     </div>
@@ -385,16 +450,16 @@ Object.getOwnPropertyDescriptor(obj,&apos; 属性1&apos;)；
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/18/严格模式/" rel="next" title="严格模式">
-                <i class="fa fa-chevron-left"></i> 严格模式
+              <a href="/2016/04/24/居中布局/" rel="next" title="居中布局">
+                <i class="fa fa-chevron-left"></i> 居中布局
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/18/数组/" rel="prev" title="数组">
-                数组 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/29/JSON/" rel="prev" title="JSON">
+                JSON <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -529,7 +594,7 @@ Object.getOwnPropertyDescriptor(obj,&apos; 属性1&apos;)；
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#小知识点"><span class="nav-number">1.</span> <span class="nav-text">小知识点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链"><span class="nav-number">2.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读写对象属性"><span class="nav-number">3.</span> <span class="nav-text">读写对象属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性读写异常"><span class="nav-number">4.</span> <span class="nav-text">属性读写异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性删除"><span class="nav-number">5.</span> <span class="nav-text">属性删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性检测"><span class="nav-number">6.</span> <span class="nav-text">属性检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getter-setter方法"><span class="nav-number">7.</span> <span class="nav-text">getter/setter方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性标签"><span class="nav-number">8.</span> <span class="nav-text">属性标签</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是DOM事件？"><span class="nav-number">1.</span> <span class="nav-text">什么是DOM事件？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件流"><span class="nav-number">2.</span> <span class="nav-text">事件流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件注册与触发"><span class="nav-number">3.</span> <span class="nav-text">事件注册与触发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件注册"><span class="nav-number">3.1.</span> <span class="nav-text">事件注册</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件取消注册"><span class="nav-number">3.2.</span> <span class="nav-text">事件取消注册</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件触发"><span class="nav-number">3.3.</span> <span class="nav-text">事件触发</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器兼容（IE6-7-8）"><span class="nav-number">4.</span> <span class="nav-text">浏览器兼容（IE6,7,8）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#兼容代码"><span class="nav-number">4.1.</span> <span class="nav-text">兼容代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件对象"><span class="nav-number">5.</span> <span class="nav-text">事件对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件类型"><span class="nav-number">6.</span> <span class="nav-text">事件类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#鼠标事件"><span class="nav-number">6.1.</span> <span class="nav-text">鼠标事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#鼠标事件对象"><span class="nav-number">6.2.</span> <span class="nav-text">鼠标事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#属性"><span class="nav-number">6.2.1.</span> <span class="nav-text">属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#鼠标事件顺序"><span class="nav-number">6.3.</span> <span class="nav-text">鼠标事件顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#焦点事件"><span class="nav-number">6.4.</span> <span class="nav-text">焦点事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#input事件"><span class="nav-number">6.5.</span> <span class="nav-text">input事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KeyboardEvent"><span class="nav-number">6.6.</span> <span class="nav-text">KeyboardEvent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Event"><span class="nav-number">6.7.</span> <span class="nav-text">Event</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
