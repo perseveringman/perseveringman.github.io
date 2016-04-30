@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-29T08:49:07.000Z</updated>
+  <updated>2016-04-30T13:42:29.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jQuery基础</title>
+    <link href="http://yoursite.com/2016/04/30/jQuery%E5%9F%BA%E7%A1%80/"/>
+    <id>http://yoursite.com/2016/04/30/jQuery基础/</id>
+    <published>2016-04-30T13:39:27.000Z</published>
+    <updated>2016-04-30T13:42:29.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;语法：&quot;&gt;&lt;a href=&quot;#语法：&quot; class=&quot;headerlink&quot; title=&quot;语法：&quot;&gt;&lt;/a&gt;语法：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;$(selector).action()
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;文档就绪函数：&quot;&gt;&lt;a href=&quot;#文档就绪函数：&quot; class=&quot;headerlink&quot; title=&quot;文档就绪函数：&quot;&gt;&lt;/a&gt;文档就绪函数：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;$(document).ready(function(){
+--- jQuery functions go here ----
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;选择器：&quot;&gt;&lt;a href=&quot;#选择器：&quot; class=&quot;headerlink&quot; title=&quot;选择器：&quot;&gt;&lt;/a&gt;选择器：&lt;/h3&gt;&lt;h4 id=&quot;元素选择器：&quot;&gt;&lt;a href=&quot;#元素选择器：&quot; class=&quot;headerlink&quot; title=&quot;元素选择器：&quot;&gt;&lt;/a&gt;元素选择器：&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;$(&amp;quot;p&amp;quot;) 选取 &amp;lt;p&amp;gt; 元素。
+$(&amp;quot;p.intro&amp;quot;) 选取所有 class=&amp;quot;intro&amp;quot; 的 &amp;lt;p&amp;gt; 元素。
+$(&amp;quot;p#demo&amp;quot;) 选取所有 id=&amp;quot;demo&amp;quot; 的 &amp;lt;p&amp;gt; 元素。
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;属性选择器：&quot;&gt;&lt;a href=&quot;#属性选择器：&quot; class=&quot;headerlink&quot; title=&quot;属性选择器：&quot;&gt;&lt;/a&gt;属性选择器：&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;$(&amp;quot;[href]&amp;quot;) 选取所有带有 href 属性的元素。
+$(&amp;quot;[href=&amp;apos;#&amp;apos;]&amp;quot;) 选取所有带有 href 值等于 &amp;quot;#&amp;quot; 的元素。
+$(&amp;quot;[href!=&amp;apos;#&amp;apos;]&amp;quot;) 选取所有带有 href 值不等于 &amp;quot;#&amp;quot; 的元素。
+$(&amp;quot;[href$=&amp;apos;.jpg&amp;apos;]&amp;quot;) 选取所有 href 值以 &amp;quot;.jpg&amp;quot; 结尾的元素。
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;CSS选择器：&quot;&gt;&lt;a href=&quot;#CSS选择器：&quot; class=&quot;headerlink&quot; title=&quot;CSS选择器：&quot;&gt;&lt;/a&gt;CSS选择器：&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;$(“selector”).css(“属性名”,”值”)；
+$(&amp;quot;p&amp;quot;).css(&amp;quot;background-color&amp;quot;,&amp;quot;red&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;事件函数：&quot;&gt;&lt;a href=&quot;#事件函数：&quot; class=&quot;headerlink&quot; title=&quot;事件函数：&quot;&gt;&lt;/a&gt;事件函数：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;$(&amp;quot;button&amp;quot;).click(function() {..some code... } )
+事件函数参考手册http://www.w3school.com.cn/jquery/jquery_ref_events.asp
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;名称冲突：&quot;&gt;&lt;a href=&quot;#名称冲突：&quot; class=&quot;headerlink&quot; title=&quot;名称冲突：&quot;&gt;&lt;/a&gt;名称冲突：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var jq=jQuery.noConflict();用jq代替$
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;小结&quot;&gt;&lt;a href=&quot;#小结&quot; class=&quot;headerlink&quot; title=&quot;小结&quot;&gt;&lt;/a&gt;小结&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;由于jQuery 是为处理 HTML 事件而特别设计的，那么当您遵循以下原则时，您的代码会更恰当且更易维护：
+
+ - 把所有 jQuery 代码置于事件处理函数中
+ - 把所有事件处理函数置于文档就绪事件处理器中
+ - 把 jQuery 代码置于单独的 .js 文件中
+ - 如果存在名称冲突，则重命名 jQuery 库
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;语法：&quot;&gt;&lt;a href=&quot;#语法：&quot; class=&quot;headerlink&quot; title=&quot;语法：&quot;&gt;&lt;/a&gt;语法：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;$(selector).action()
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;文档就绪函数：&quot;&gt;&lt;a href=&quot;#文档就绪函数：&quot; class=&quot;headerlink&quot; title=&quot;文档就绪函数：&quot;&gt;&lt;/a&gt;文档就绪函数：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;$(document).ready(function(){
+--- jQuery functions go here ----
+});
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="jQuery" scheme="http://yoursite.com//categories/jQuery/"/>
+    
+    
+      <category term="jQuery" scheme="http://yoursite.com//tags/jQuery/"/>
+    
+  </entry>
   
   <entry>
     <title>JSON</title>
