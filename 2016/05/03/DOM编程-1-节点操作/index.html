@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript," />
+  <meta name="keywords" content="JavaScript,DOM编程," />
 
 
 
@@ -82,40 +82,31 @@
 
 
 
-<meta name="description" content="tips弱类型，可以含有不同类型的元素、对象、数组。
-可以动态添加数组元素
-delete可以删除元素，但长度不变只是变为undefined
-定义声明var arr = [];
-var arr = [,,]
-//数组允许最后有逗号，这里返回undefined*2
-var arr = new Array(); 
-var arr =  new Array(100); //undefined*100
-va">
+<meta name="description" content="获取节点父子关系节点：－parentNode
+－firstChild／lastChild／childNodes
+－childNodes／children
+兄弟关系：－previousSibling／nextSibling
+－previousElementsSibling／nextElementsSibling
+指定节点：getElementsByIdelement＝document.getElem">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数组">
-<meta property="og:url" content="http://yoursite.com/2016/04/18/数组/index.html">
+<meta property="og:title" content="DOM编程(1)--节点操作">
+<meta property="og:url" content="http://yoursite.com/2016/05/03/DOM编程-1-节点操作/index.html">
 <meta property="og:site_name" content="周延博">
-<meta property="og:description" content="tips弱类型，可以含有不同类型的元素、对象、数组。
-可以动态添加数组元素
-delete可以删除元素，但长度不变只是变为undefined
-定义声明var arr = [];
-var arr = [,,]
-//数组允许最后有逗号，这里返回undefined*2
-var arr = new Array(); 
-var arr =  new Array(100); //undefined*100
-va">
-<meta property="og:updated_time" content="2016-04-18T05:00:58.000Z">
+<meta property="og:description" content="获取节点父子关系节点：－parentNode
+－firstChild／lastChild／childNodes
+－childNodes／children
+兄弟关系：－previousSibling／nextSibling
+－previousElementsSibling／nextElementsSibling
+指定节点：getElementsByIdelement＝document.getElem">
+<meta property="og:updated_time" content="2016-05-03T12:56:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数组">
-<meta name="twitter:description" content="tips弱类型，可以含有不同类型的元素、对象、数组。
-可以动态添加数组元素
-delete可以删除元素，但长度不变只是变为undefined
-定义声明var arr = [];
-var arr = [,,]
-//数组允许最后有逗号，这里返回undefined*2
-var arr = new Array(); 
-var arr =  new Array(100); //undefined*100
-va">
+<meta name="twitter:title" content="DOM编程(1)--节点操作">
+<meta name="twitter:description" content="获取节点父子关系节点：－parentNode
+－firstChild／lastChild／childNodes
+－childNodes／children
+兄弟关系：－previousSibling／nextSibling
+－previousElementsSibling／nextElementsSibling
+指定节点：getElementsByIdelement＝document.getElem">
 
 
 
@@ -133,7 +124,7 @@ va">
   };
 </script>
 
-  <title> 数组 | 周延博 </title>
+  <title> DOM编程(1)--节点操作 | 周延博 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -273,7 +264,7 @@ va">
             
             
               
-                数组
+                DOM编程(1)--节点操作
               
             
           </h1>
@@ -285,8 +276,8 @@ va">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-18T12:49:02+08:00" content="2016-04-18">
-              2016-04-18
+            <time itemprop="dateCreated" datetime="2016-05-03T20:48:44+08:00" content="2016-05-03">
+              2016-05-03
             </time>
           </span>
 
@@ -331,65 +322,40 @@ va">
       
 
       
-        <h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><pre><code>弱类型，可以含有不同类型的元素、对象、数组。
-可以动态添加数组元素
-delete可以删除元素，但长度不变只是变为undefined
-</code></pre><h3 id="定义声明"><a href="#定义声明" class="headerlink" title="定义声明"></a>定义声明</h3><pre><code>var arr = [];
-var arr = [,,]
-//数组允许最后有逗号，这里返回undefined*2
-var arr = new Array(); 
-var arr =  new Array(100); //undefined*100
-var arr = new Array(&apos;a&apos;,&apos;b&apos;);//赋值
-</code></pre>  <a id="more"></a>
-<h3 id="一些属性"><a href="#一些属性" class="headerlink" title="一些属性"></a>一些属性</h3><pre><code>arr.push(1);
-
-arr[arr.length]=4;//小技巧
-
-arr.unshift(0);//在头部添加元素
-
-arr.length-=1;//删除尾部元素
-
-arr.pop();//同上
-
-arr.shift();//头部删除元素
-</code></pre><h3 id="数组迭代"><a href="#数组迭代" class="headerlink" title="数组迭代"></a>数组迭代</h3><pre><code>想要用for...in的话，可以这样写：
- for(i in arr){
-     if(arr.hasOwnProperty(i))
-    {console.log(arr[i];)}
-}    
-</code></pre><h3 id="稀疏数组"><a href="#稀疏数组" class="headerlink" title="稀疏数组"></a>稀疏数组</h3><pre><code>var arr1=new Array(100);
-var arr1[99]=1;
-99 in arr1;//true
-98 in arr1;//false
-</code></pre><h3 id="数组方法"><a href="#数组方法" class="headerlink" title="数组方法"></a>数组方法</h3><h4 id="Array-prototype-join数组转为字符串"><a href="#Array-prototype-join数组转为字符串" class="headerlink" title="Array.prototype.join数组转为字符串"></a>Array.prototype.join数组转为字符串</h4><pre><code> var arr =[1,2,3];
- arr.join();//&quot;1,2,3&quot;
- arr.join(&quot;_&quot;);//&quot;1_2_3&quot;
- function repeatString(str,n){
-   return new Array(n+1).join(str);
-}//重复某个字符串
- repeatString(&quot;a&quot;,3);//&quot;aaa&quot;
-</code></pre><h4 id="Array-prototype-reverse数组逆序"><a href="#Array-prototype-reverse数组逆序" class="headerlink" title="Array.prototype. reverse数组逆序"></a>Array.prototype. reverse数组逆序</h4><pre><code>arr.reverse();//[3,2,1]
-当调用之后，数组被修改
-</code></pre><h4 id="Array-prototype-sort-数组排序"><a href="#Array-prototype-sort-数组排序" class="headerlink" title="Array.prototype.sort()数组排序"></a>Array.prototype.sort()数组排序</h4><pre><code> 按字母顺序排序
- 想按数字排序：
- arr.sort(function(a,b){return a-b;});
-当调用之后，数组被修改
-</code></pre><h4 id="Array-prototype-concat-数组合并"><a href="#Array-prototype-concat-数组合并" class="headerlink" title="Array.prototype.concat 数组合并"></a>Array.prototype.concat 数组合并</h4><pre><code>arr.concat(4,5);//[1,2,3,4,5]
-数组未被修改
-
-arr.concat([4,5],6);//[1,2,3,4,5,6]
-数组被拉平了！
-</code></pre><h4 id="Array-prototype-slice返回部分数组"><a href="#Array-prototype-slice返回部分数组" class="headerlink" title="Array.prototype.slice返回部分数组"></a>Array.prototype.slice返回部分数组</h4><pre><code>var arr1=[1,2,3,4,5];
-arr1.slice(1,3);//[2,3]
-arr.slice(1);//[2,3,4,5]
-arr.slice(1,-1);//[2,3,4]
-arr.slice(-4,-3);//[2]
-第一个参数表示从哪个开始，第二个表示到结束的下一个，支持负数，表示从后往前，数组未被修改
-</code></pre><h4 id="Array-prototype-splice-数组拼接"><a href="#Array-prototype-splice-数组拼接" class="headerlink" title="Array.prototype.splice 数组拼接"></a>Array.prototype.splice 数组拼接</h4><pre><code>arr1.splice(2);//[3,4,5];
-arr1；//[1,2]
-数组被 修改相当于减去那部分
-arr1.splice(2,2);//[3,4]第二个参数表示个数
-arr1.splice(1,1,&apos;a&apos;,&apos;b&apos;);//2第三个之后的参数表示要加入的元素             
+        <h3 id="获取节点"><a href="#获取节点" class="headerlink" title="获取节点"></a>获取节点</h3><h4 id="父子关系节点："><a href="#父子关系节点：" class="headerlink" title="父子关系节点："></a>父子关系节点：</h4><pre><code>－parentNode
+－firstChild／lastChild／childNodes
+－childNodes／children
+</code></pre><h4 id="兄弟关系："><a href="#兄弟关系：" class="headerlink" title="兄弟关系："></a>兄弟关系：</h4><pre><code>－previousSibling／nextSibling
+－previousElementsSibling／nextElementsSibling
+</code></pre><h4 id="指定节点："><a href="#指定节点：" class="headerlink" title="指定节点："></a>指定节点：</h4><h5 id="getElementsById"><a href="#getElementsById" class="headerlink" title="getElementsById"></a>getElementsById</h5><pre><code>element＝document.getElementById(id);
+</code></pre><h5 id="getElementsByTagName"><a href="#getElementsByTagName" class="headerlink" title="getElementsByTagName"></a>getElementsByTagName</h5><pre><code>collection = element.getElementByTagName(tagName);
+collection是会动态变化的
+</code></pre><h5 id="getElementsByClassName"><a href="#getElementsByClassName" class="headerlink" title="getElementsByClassName"></a>getElementsByClassName</h5><pre><code>collection = element.getElementsByClassName(className);
+</code></pre><h5 id="IE678不支持，兼容："><a href="#IE678不支持，兼容：" class="headerlink" title="IE678不支持，兼容："></a>IE678不支持，兼容：</h5><pre><code>function getElementsByClassName(root，className){
+   if(root.getElementsByClassName){
+      return root.getElementsByClassName(className);
+   else{
+         var elements = root.getElementsByTagName(‘*’);
+         var result =[];
+      for(var i = 0 ;element; element = elements[i];i++){
+          if(hasClassName(element,className)){
+              result.push(element);
+         }
+      }
+       return result;
+   }
+}
+  hasClassName需要自己实现
+</code></pre><h5 id="querySelector／All"><a href="#querySelector／All" class="headerlink" title="querySelector／All"></a>querySelector／All</h5><pre><code>list = element.querySelector／querySelectorAll (selector);
+selector是css选择器
+list不会动态变化
+IE678不兼容
+</code></pre><h3 id="创建节点"><a href="#创建节点" class="headerlink" title="创建节点"></a>创建节点</h3><pre><code>element =document.createElement(tagName);
+</code></pre><h3 id="修改节点"><a href="#修改节点" class="headerlink" title="修改节点"></a>修改节点</h3><h4 id="textContent"><a href="#textContent" class="headerlink" title="textContent"></a>textContent</h4><pre><code>element.textContent 节点及其后代的文本内容
+</code></pre><h4 id="innerText-不是w3c规范"><a href="#innerText-不是w3c规范" class="headerlink" title="innerText(不是w3c规范)"></a>innerText(不是w3c规范)</h4><pre><code>同上
+</code></pre><h3 id="插入节点"><a href="#插入节点" class="headerlink" title="插入节点"></a>插入节点</h3><h4 id="appendChild"><a href="#appendChild" class="headerlink" title="appendChild"></a>appendChild</h4><pre><code>var achild = element.appendChild(achild);
+</code></pre><h4 id="insertBefore"><a href="#insertBefore" class="headerlink" title="insertBefore"></a>insertBefore</h4><pre><code>var achild = element.insertBefore (achild);
+</code></pre><h3 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h3><h4 id="removeChild"><a href="#removeChild" class="headerlink" title="removeChild"></a>removeChild</h4><pre><code>child = element.removeChild(child)
 </code></pre>
       
     </div>
@@ -412,6 +378,8 @@ arr1.splice(1,1,&apos;a&apos;,&apos;b&apos;);//2第三个之后的参数表示�
           
             <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
+            <a href="/tags/DOM编程/" rel="tag">#DOM编程</a>
+          
         </div>
       
 
@@ -419,17 +387,13 @@ arr1.splice(1,1,&apos;a&apos;,&apos;b&apos;);//2第三个之后的参数表示�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/18/对象/" rel="next" title="对象">
-                <i class="fa fa-chevron-left"></i> 对象
+              <a href="/2016/04/30/jQuery基础/" rel="next" title="jQuery基础">
+                <i class="fa fa-chevron-left"></i> jQuery基础
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/24/居中布局/" rel="prev" title="居中布局">
-                居中布局 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -563,7 +527,7 @@ arr1.splice(1,1,&apos;a&apos;,&apos;b&apos;);//2第三个之后的参数表示�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#tips"><span class="nav-number">1.</span> <span class="nav-text">tips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义声明"><span class="nav-number">2.</span> <span class="nav-text">定义声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些属性"><span class="nav-number">3.</span> <span class="nav-text">一些属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组迭代"><span class="nav-number">4.</span> <span class="nav-text">数组迭代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#稀疏数组"><span class="nav-number">5.</span> <span class="nav-text">稀疏数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组方法"><span class="nav-number">6.</span> <span class="nav-text">数组方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-prototype-join数组转为字符串"><span class="nav-number">6.1.</span> <span class="nav-text">Array.prototype.join数组转为字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-prototype-reverse数组逆序"><span class="nav-number">6.2.</span> <span class="nav-text">Array.prototype. reverse数组逆序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-prototype-sort-数组排序"><span class="nav-number">6.3.</span> <span class="nav-text">Array.prototype.sort()数组排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-prototype-concat-数组合并"><span class="nav-number">6.4.</span> <span class="nav-text">Array.prototype.concat 数组合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-prototype-slice返回部分数组"><span class="nav-number">6.5.</span> <span class="nav-text">Array.prototype.slice返回部分数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-prototype-splice-数组拼接"><span class="nav-number">6.6.</span> <span class="nav-text">Array.prototype.splice 数组拼接</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取节点"><span class="nav-number">1.</span> <span class="nav-text">获取节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#父子关系节点："><span class="nav-number">1.1.</span> <span class="nav-text">父子关系节点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#兄弟关系："><span class="nav-number">1.2.</span> <span class="nav-text">兄弟关系：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指定节点："><span class="nav-number">1.3.</span> <span class="nav-text">指定节点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#getElementsById"><span class="nav-number">1.3.1.</span> <span class="nav-text">getElementsById</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#getElementsByTagName"><span class="nav-number">1.3.2.</span> <span class="nav-text">getElementsByTagName</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#getElementsByClassName"><span class="nav-number">1.3.3.</span> <span class="nav-text">getElementsByClassName</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#IE678不支持，兼容："><span class="nav-number">1.3.4.</span> <span class="nav-text">IE678不支持，兼容：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#querySelector／All"><span class="nav-number">1.3.5.</span> <span class="nav-text">querySelector／All</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建节点"><span class="nav-number">2.</span> <span class="nav-text">创建节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改节点"><span class="nav-number">3.</span> <span class="nav-text">修改节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#textContent"><span class="nav-number">3.1.</span> <span class="nav-text">textContent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#innerText-不是w3c规范"><span class="nav-number">3.2.</span> <span class="nav-text">innerText(不是w3c规范)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入节点"><span class="nav-number">4.</span> <span class="nav-text">插入节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#appendChild"><span class="nav-number">4.1.</span> <span class="nav-text">appendChild</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#insertBefore"><span class="nav-number">4.2.</span> <span class="nav-text">insertBefore</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除节点"><span class="nav-number">5.</span> <span class="nav-text">删除节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#removeChild"><span class="nav-number">5.1.</span> <span class="nav-text">removeChild</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

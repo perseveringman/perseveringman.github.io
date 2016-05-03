@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-30T13:42:29.000Z</updated>
+  <updated>2016-05-03T12:56:18.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DOM编程(1)--节点操作</title>
+    <link href="http://yoursite.com/2016/05/03/DOM%E7%BC%96%E7%A8%8B-1-%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/"/>
+    <id>http://yoursite.com/2016/05/03/DOM编程-1-节点操作/</id>
+    <published>2016-05-03T12:48:44.000Z</published>
+    <updated>2016-05-03T12:56:18.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;获取节点&quot;&gt;&lt;a href=&quot;#获取节点&quot; class=&quot;headerlink&quot; title=&quot;获取节点&quot;&gt;&lt;/a&gt;获取节点&lt;/h3&gt;&lt;h4 id=&quot;父子关系节点：&quot;&gt;&lt;a href=&quot;#父子关系节点：&quot; class=&quot;headerlink&quot; title=&quot;父子关系节点：&quot;&gt;&lt;/a&gt;父子关系节点：&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;－parentNode
+－firstChild／lastChild／childNodes
+－childNodes／children
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;兄弟关系：&quot;&gt;&lt;a href=&quot;#兄弟关系：&quot; class=&quot;headerlink&quot; title=&quot;兄弟关系：&quot;&gt;&lt;/a&gt;兄弟关系：&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;－previousSibling／nextSibling
+－previousElementsSibling／nextElementsSibling
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;指定节点：&quot;&gt;&lt;a href=&quot;#指定节点：&quot; class=&quot;headerlink&quot; title=&quot;指定节点：&quot;&gt;&lt;/a&gt;指定节点：&lt;/h4&gt;&lt;h5 id=&quot;getElementsById&quot;&gt;&lt;a href=&quot;#getElementsById&quot; class=&quot;headerlink&quot; title=&quot;getElementsById&quot;&gt;&lt;/a&gt;getElementsById&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;element＝document.getElementById(id);
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;getElementsByTagName&quot;&gt;&lt;a href=&quot;#getElementsByTagName&quot; class=&quot;headerlink&quot; title=&quot;getElementsByTagName&quot;&gt;&lt;/a&gt;getElementsByTagName&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;collection = element.getElementByTagName(tagName);
+collection是会动态变化的
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;getElementsByClassName&quot;&gt;&lt;a href=&quot;#getElementsByClassName&quot; class=&quot;headerlink&quot; title=&quot;getElementsByClassName&quot;&gt;&lt;/a&gt;getElementsByClassName&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;collection = element.getElementsByClassName(className);
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;IE678不支持，兼容：&quot;&gt;&lt;a href=&quot;#IE678不支持，兼容：&quot; class=&quot;headerlink&quot; title=&quot;IE678不支持，兼容：&quot;&gt;&lt;/a&gt;IE678不支持，兼容：&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;function getElementsByClassName(root，className){
+   if(root.getElementsByClassName){
+      return root.getElementsByClassName(className);
+   else{
+         var elements = root.getElementsByTagName(‘*’);
+         var result =[];
+      for(var i = 0 ;element; element = elements[i];i++){
+          if(hasClassName(element,className)){
+              result.push(element);
+         }
+      }
+       return result;
+   }
+}
+  hasClassName需要自己实现
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;querySelector／All&quot;&gt;&lt;a href=&quot;#querySelector／All&quot; class=&quot;headerlink&quot; title=&quot;querySelector／All&quot;&gt;&lt;/a&gt;querySelector／All&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;list = element.querySelector／querySelectorAll (selector);
+selector是css选择器
+list不会动态变化
+IE678不兼容
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;创建节点&quot;&gt;&lt;a href=&quot;#创建节点&quot; class=&quot;headerlink&quot; title=&quot;创建节点&quot;&gt;&lt;/a&gt;创建节点&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;element =document.createElement(tagName);
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;修改节点&quot;&gt;&lt;a href=&quot;#修改节点&quot; class=&quot;headerlink&quot; title=&quot;修改节点&quot;&gt;&lt;/a&gt;修改节点&lt;/h3&gt;&lt;h4 id=&quot;textContent&quot;&gt;&lt;a href=&quot;#textContent&quot; class=&quot;headerlink&quot; title=&quot;textContent&quot;&gt;&lt;/a&gt;textContent&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;element.textContent 节点及其后代的文本内容
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;innerText-不是w3c规范&quot;&gt;&lt;a href=&quot;#innerText-不是w3c规范&quot; class=&quot;headerlink&quot; title=&quot;innerText(不是w3c规范)&quot;&gt;&lt;/a&gt;innerText(不是w3c规范)&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;同上
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;插入节点&quot;&gt;&lt;a href=&quot;#插入节点&quot; class=&quot;headerlink&quot; title=&quot;插入节点&quot;&gt;&lt;/a&gt;插入节点&lt;/h3&gt;&lt;h4 id=&quot;appendChild&quot;&gt;&lt;a href=&quot;#appendChild&quot; class=&quot;headerlink&quot; title=&quot;appendChild&quot;&gt;&lt;/a&gt;appendChild&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;var achild = element.appendChild(achild);
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;insertBefore&quot;&gt;&lt;a href=&quot;#insertBefore&quot; class=&quot;headerlink&quot; title=&quot;insertBefore&quot;&gt;&lt;/a&gt;insertBefore&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;var achild = element.insertBefore (achild);
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;删除节点&quot;&gt;&lt;a href=&quot;#删除节点&quot; class=&quot;headerlink&quot; title=&quot;删除节点&quot;&gt;&lt;/a&gt;删除节点&lt;/h3&gt;&lt;h4 id=&quot;removeChild&quot;&gt;&lt;a href=&quot;#removeChild&quot; class=&quot;headerlink&quot; title=&quot;removeChild&quot;&gt;&lt;/a&gt;removeChild&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;child = element.removeChild(child)
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;获取节点&quot;&gt;&lt;a href=&quot;#获取节点&quot; class=&quot;headerlink&quot; title=&quot;获取节点&quot;&gt;&lt;/a&gt;获取节点&lt;/h3&gt;&lt;h4 id=&quot;父子关系节点：&quot;&gt;&lt;a href=&quot;#父子关系节点：&quot; class=&quot;headerlink&quot; title=&quot;父子关
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
+    
+      <category term="DOM编程" scheme="http://yoursite.com//tags/DOM%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>jQuery基础</title>
