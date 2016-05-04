@@ -312,43 +312,17 @@
 
       
         
-          
-            <h3 id="获取节点"><a href="#获取节点" class="headerlink" title="获取节点"></a>获取节点</h3><h4 id="父子关系节点："><a href="#父子关系节点：" class="headerlink" title="父子关系节点："></a>父子关系节点：</h4><pre><code>－parentNode
+          <h3 id="获取节点"><a href="#获取节点" class="headerlink" title="获取节点"></a>获取节点</h3><h4 id="父子关系节点："><a href="#父子关系节点：" class="headerlink" title="父子关系节点："></a>父子关系节点：</h4><pre><code>－parentNode
 －firstChild／lastChild／childNodes
 －childNodes／children
 </code></pre><h4 id="兄弟关系："><a href="#兄弟关系：" class="headerlink" title="兄弟关系："></a>兄弟关系：</h4><pre><code>－previousSibling／nextSibling
 －previousElementsSibling／nextElementsSibling
-</code></pre><h4 id="指定节点："><a href="#指定节点：" class="headerlink" title="指定节点："></a>指定节点：</h4><h5 id="getElementsById"><a href="#getElementsById" class="headerlink" title="getElementsById"></a>getElementsById</h5><pre><code>element＝document.getElementById(id);
-</code></pre><h5 id="getElementsByTagName"><a href="#getElementsByTagName" class="headerlink" title="getElementsByTagName"></a>getElementsByTagName</h5><pre><code>collection = element.getElementByTagName(tagName);
-collection是会动态变化的
-</code></pre><h5 id="getElementsByClassName"><a href="#getElementsByClassName" class="headerlink" title="getElementsByClassName"></a>getElementsByClassName</h5><pre><code>collection = element.getElementsByClassName(className);
-</code></pre><h5 id="IE678不支持，兼容："><a href="#IE678不支持，兼容：" class="headerlink" title="IE678不支持，兼容："></a>IE678不支持，兼容：</h5><pre><code>function getElementsByClassName(root，className){
-   if(root.getElementsByClassName){
-      return root.getElementsByClassName(className);
-   else{
-         var elements = root.getElementsByTagName(‘*’);
-         var result =[];
-      for(var i = 0 ;element; element = elements[i];i++){
-          if(hasClassName(element,className)){
-              result.push(element);
-         }
-      }
-       return result;
-   }
-}
-  hasClassName需要自己实现
-</code></pre><h5 id="querySelector／All"><a href="#querySelector／All" class="headerlink" title="querySelector／All"></a>querySelector／All</h5><pre><code>list = element.querySelector／querySelectorAll (selector);
-selector是css选择器
-list不会动态变化
-IE678不兼容
-</code></pre><h3 id="创建节点"><a href="#创建节点" class="headerlink" title="创建节点"></a>创建节点</h3><pre><code>element =document.createElement(tagName);
-</code></pre><h3 id="修改节点"><a href="#修改节点" class="headerlink" title="修改节点"></a>修改节点</h3><h4 id="textContent"><a href="#textContent" class="headerlink" title="textContent"></a>textContent</h4><pre><code>element.textContent 节点及其后代的文本内容
-</code></pre><h4 id="innerText-不是w3c规范"><a href="#innerText-不是w3c规范" class="headerlink" title="innerText(不是w3c规范)"></a>innerText(不是w3c规范)</h4><pre><code>同上
-</code></pre><h3 id="插入节点"><a href="#插入节点" class="headerlink" title="插入节点"></a>插入节点</h3><h4 id="appendChild"><a href="#appendChild" class="headerlink" title="appendChild"></a>appendChild</h4><pre><code>var achild = element.appendChild(achild);
-</code></pre><h4 id="insertBefore"><a href="#insertBefore" class="headerlink" title="insertBefore"></a>insertBefore</h4><pre><code>var achild = element.insertBefore (achild);
-</code></pre><h3 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h3><h4 id="removeChild"><a href="#removeChild" class="headerlink" title="removeChild"></a>removeChild</h4><pre><code>child = element.removeChild(child)
-</code></pre>
-          
+</code></pre><h4 id="指定节点："><a href="#指定节点：" class="headerlink" title="指定节点："></a>指定节点：</h4>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/03/DOM编程-1-节点操作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

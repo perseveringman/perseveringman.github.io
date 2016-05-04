@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-03T12:56:18.000Z</updated>
+  <updated>2016-05-04T12:43:42.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,14 +20,15 @@
     <link href="http://yoursite.com/2016/05/03/DOM%E7%BC%96%E7%A8%8B-1-%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/"/>
     <id>http://yoursite.com/2016/05/03/DOM编程-1-节点操作/</id>
     <published>2016-05-03T12:48:44.000Z</published>
-    <updated>2016-05-03T12:56:18.000Z</updated>
+    <updated>2016-05-04T12:43:42.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;获取节点&quot;&gt;&lt;a href=&quot;#获取节点&quot; class=&quot;headerlink&quot; title=&quot;获取节点&quot;&gt;&lt;/a&gt;获取节点&lt;/h3&gt;&lt;h4 id=&quot;父子关系节点：&quot;&gt;&lt;a href=&quot;#父子关系节点：&quot; class=&quot;headerlink&quot; title=&quot;父子关系节点：&quot;&gt;&lt;/a&gt;父子关系节点：&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;－parentNode
 －firstChild／lastChild／childNodes
 －childNodes／children
 &lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;兄弟关系：&quot;&gt;&lt;a href=&quot;#兄弟关系：&quot; class=&quot;headerlink&quot; title=&quot;兄弟关系：&quot;&gt;&lt;/a&gt;兄弟关系：&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;－previousSibling／nextSibling
 －previousElementsSibling／nextElementsSibling
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;指定节点：&quot;&gt;&lt;a href=&quot;#指定节点：&quot; class=&quot;headerlink&quot; title=&quot;指定节点：&quot;&gt;&lt;/a&gt;指定节点：&lt;/h4&gt;&lt;h5 id=&quot;getElementsById&quot;&gt;&lt;a href=&quot;#getElementsById&quot; class=&quot;headerlink&quot; title=&quot;getElementsById&quot;&gt;&lt;/a&gt;getElementsById&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;element＝document.getElementById(id);
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;指定节点：&quot;&gt;&lt;a href=&quot;#指定节点：&quot; class=&quot;headerlink&quot; title=&quot;指定节点：&quot;&gt;&lt;/a&gt;指定节点：&lt;/h4&gt;  &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h5 id=&quot;getElementsById&quot;&gt;&lt;a href=&quot;#getElementsById&quot; class=&quot;headerlink&quot; title=&quot;getElementsById&quot;&gt;&lt;/a&gt;getElementsById&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;element＝document.getElementById(id);
 &lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;getElementsByTagName&quot;&gt;&lt;a href=&quot;#getElementsByTagName&quot; class=&quot;headerlink&quot; title=&quot;getElementsByTagName&quot;&gt;&lt;/a&gt;getElementsByTagName&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;collection = element.getElementByTagName(tagName);
 collection是会动态变化的
 &lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;getElementsByClassName&quot;&gt;&lt;a href=&quot;#getElementsByClassName&quot; class=&quot;headerlink&quot; title=&quot;getElementsByClassName&quot;&gt;&lt;/a&gt;getElementsByClassName&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;collection = element.getElementsByClassName(className);
@@ -60,7 +61,12 @@ IE678不兼容
     
     <summary type="html">
     
-      &lt;h3 id=&quot;获取节点&quot;&gt;&lt;a href=&quot;#获取节点&quot; class=&quot;headerlink&quot; title=&quot;获取节点&quot;&gt;&lt;/a&gt;获取节点&lt;/h3&gt;&lt;h4 id=&quot;父子关系节点：&quot;&gt;&lt;a href=&quot;#父子关系节点：&quot; class=&quot;headerlink&quot; title=&quot;父子关
+      &lt;h3 id=&quot;获取节点&quot;&gt;&lt;a href=&quot;#获取节点&quot; class=&quot;headerlink&quot; title=&quot;获取节点&quot;&gt;&lt;/a&gt;获取节点&lt;/h3&gt;&lt;h4 id=&quot;父子关系节点：&quot;&gt;&lt;a href=&quot;#父子关系节点：&quot; class=&quot;headerlink&quot; title=&quot;父子关系节点：&quot;&gt;&lt;/a&gt;父子关系节点：&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;－parentNode
+－firstChild／lastChild／childNodes
+－childNodes／children
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;兄弟关系：&quot;&gt;&lt;a href=&quot;#兄弟关系：&quot; class=&quot;headerlink&quot; title=&quot;兄弟关系：&quot;&gt;&lt;/a&gt;兄弟关系：&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;－previousSibling／nextSibling
+－previousElementsSibling／nextElementsSibling
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;指定节点：&quot;&gt;&lt;a href=&quot;#指定节点：&quot; class=&quot;headerlink&quot; title=&quot;指定节点：&quot;&gt;&lt;/a&gt;指定节点：&lt;/h4&gt;
     
     </summary>
     
