@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript,DOM编程," />
 
 
 
@@ -82,15 +82,40 @@
 
 
 
-<meta name="description" content="Talk is cheap,show me your code!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="周延博">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+<meta name="description" content="1.property accessorclass属性变成className
+value属性获取值
+disabled ＝ true 则输入框不能输入
+
+通用型比较差－－名字异常
+可以取到实用对象
+2.get/setAttributegetAttribute 直接取属性名，无名字异常
+setAttribute(name,value);
+eg:input.setAttribute(&amp;quot;value">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM编程(2)－－属性操作">
+<meta property="og:url" content="http://yoursite.com/2016/05/05/DOM编程-2-－－属性操作/index.html">
 <meta property="og:site_name" content="周延博">
-<meta property="og:description" content="Talk is cheap,show me your code!">
+<meta property="og:description" content="1.property accessorclass属性变成className
+value属性获取值
+disabled ＝ true 则输入框不能输入
+
+通用型比较差－－名字异常
+可以取到实用对象
+2.get/setAttributegetAttribute 直接取属性名，无名字异常
+setAttribute(name,value);
+eg:input.setAttribute(&amp;quot;value">
+<meta property="og:updated_time" content="2016-05-05T14:01:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="周延博">
-<meta name="twitter:description" content="Talk is cheap,show me your code!">
+<meta name="twitter:title" content="DOM编程(2)－－属性操作">
+<meta name="twitter:description" content="1.property accessorclass属性变成className
+value属性获取值
+disabled ＝ true 则输入框不能输入
+
+通用型比较差－－名字异常
+可以取到实用对象
+2.get/setAttributegetAttribute 直接取属性名，无名字异常
+setAttribute(name,value);
+eg:input.setAttribute(&amp;quot;value">
 
 
 
@@ -108,7 +133,7 @@
   };
 </script>
 
-  <title> 归档 | 周延博 </title>
+  <title> DOM编程(2)－－属性操作 | 周延博 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -129,7 +154,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
     <a href="https://github.com/perseveringman"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,255 +252,154 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 16 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/04/18/严格模式/" itemprop="url">
-              
-                <span itemprop="name">严格模式</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-18T12:35:56+08:00"
-              content="2016-04-18" >
-          04-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/04/18/语句/" itemprop="url">
-              
-                <span itemprop="name">语句</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-18T12:33:25+08:00"
-              content="2016-04-18" >
-          04-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/04/18/表达式和运算符/" itemprop="url">
-              
-                <span itemprop="name">表达式和运算符</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-18T12:28:59+08:00"
-              content="2016-04-18" >
-          04-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/04/18/类型检测/" itemprop="url">
-              
-                <span itemprop="name">类型检测</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-18T12:24:24+08:00"
-              content="2016-04-18" >
-          04-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/04/10/数据类型/" itemprop="url">
-              
-                <span itemprop="name">数据类型</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-10T13:47:21+08:00"
-              content="2016-04-10" >
-          04-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/03/20/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-03-20T19:25:15+08:00"
-              content="2016-03-20" >
-          03-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-  </nav>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                DOM编程(2)－－属性操作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-05T22:01:08+08:00" content="2016-05-05">
+              2016-05-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
 
 
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-property-accessor"><a href="#1-property-accessor" class="headerlink" title="1.property accessor"></a>1.property accessor</h3><pre><code>class属性变成className
+value属性获取值
+disabled ＝ true 则输入框不能输入
+
+通用型比较差－－名字异常
+可以取到实用对象
+</code></pre><h3 id="2-get-setAttribute"><a href="#2-get-setAttribute" class="headerlink" title="2.get/setAttribute"></a>2.get/setAttribute</h3><pre><code>getAttribute 直接取属性名，无名字异常
+setAttribute(name,value);
+eg:input.setAttribute(&quot;value&quot;,&quot;asfdfsfsf&quot;);
+
+操作的是属性字符串（全是string）
+</code></pre><h3 id="3-dataset-HTMLElement-dataset"><a href="#3-dataset-HTMLElement-dataset" class="headerlink" title="3.dataset  HTMLElement.dataset"></a>3.dataset  HTMLElement.dataset</h3><pre><code>var data = input.dataset;
+data就存放了input标签的所有属性
+
+用来做自定义的属性；
+</code></pre>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/DOM编程/" rel="tag">#DOM编程</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/03/DOM编程-1-节点操作/" rel="next" title="DOM编程(1)--节点操作">
+                <i class="fa fa-chevron-left"></i> DOM编程(1)--节点操作
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -483,6 +407,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -502,8 +430,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/logo.jpg"
@@ -573,6 +510,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-property-accessor"><span class="nav-number">1.</span> <span class="nav-text">1.property accessor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-get-setAttribute"><span class="nav-number">2.</span> <span class="nav-text">2.get/setAttribute</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-dataset-HTMLElement-dataset"><span class="nav-number">3.</span> <span class="nav-text">3.dataset  HTMLElement.dataset</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -668,11 +616,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
