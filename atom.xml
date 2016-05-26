@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-26T04:26:01.000Z</updated>
+  <updated>2016-05-26T04:28:11.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/05/26/%E6%AD%A3%E5%88%99%E8%AF%A6%E8%A7%A3/"/>
     <id>http://yoursite.com/2016/05/26/正则详解/</id>
     <published>2016-05-26T04:08:10.000Z</published>
-    <updated>2016-05-26T04:26:01.000Z</updated>
+    <updated>2016-05-26T04:28:11.000Z</updated>
     
     <content type="html">&lt;p&gt;不知道出处的一个html文件，很详细，整理成文章，配合目录方便查询，若知道作者请告知。&lt;/p&gt;
 &lt;h3 id=&quot;test方法&quot;&gt;&lt;a href=&quot;#test方法&quot; class=&quot;headerlink&quot; title=&quot;test方法&quot;&gt;&lt;/a&gt;test方法&lt;/h3&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -311,6 +311,8 @@ var re = /^\w{1,15}(?:@(?!-))(?:(?:[a-z0-9-]*)(?:[a-z0-9](?!-))(?:\.(?!-)))+[a-z
     </summary>
     
       <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
+    
+      <category term="RegExp" scheme="http://yoursite.com//categories/JavaScript/RegExp/"/>
     
     
       <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
