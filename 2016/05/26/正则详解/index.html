@@ -1,0 +1,889 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="周延博" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="不知道出处的一个html文件，很详细，整理成文章，配合目录方便查询，若知道作者请告知。
+test方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则详解">
+<meta property="og:url" content="http://yoursite.com/2016/05/26/正则详解/index.html">
+<meta property="og:site_name" content="周延博">
+<meta property="og:description" content="不知道出处的一个html文件，很详细，整理成文章，配合目录方便查询，若知道作者请告知。
+test方法">
+<meta property="og:updated_time" content="2016-05-26T04:26:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则详解">
+<meta name="twitter:description" content="不知道出处的一个html文件，很详细，整理成文章，配合目录方便查询，若知道作者请告知。
+test方法">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 正则详解 | 周延博 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/perseveringman"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">周延博</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Ryan Chou's blog</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                正则详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-26T12:08:10+08:00" content="2016-05-26">
+              2016-05-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>不知道出处的一个html文件，很详细，整理成文章，配合目录方便查询，若知道作者请告知。</p>
+<h3 id="test方法"><a href="#test方法" class="headerlink" title="test方法"></a>test方法</h3><a id="more"></a>
+<pre><code>//test方法,测试字符串,符合模式时返回true,否则返回false
+var re = /he/;//最简单的正则表达式,将匹配he这个单词
+var str = &quot;he&quot;;
+console.log(re.test(str));//true
+str = &quot;we&quot;;
+console.log(re.test(str));//false
+str = &quot;HE&quot;;
+console.log(re.test(str));//false,大写,如果要大小写都匹配可以指定i标志(i是ignoreCase或case-insensitive的表示)
+re = /he/i;
+console.log(re.test(str));//true
+str = &quot;Certainly!He loves her!&quot;;
+console.log(re.test(str));//true,只要包含he(HE)就符合,如果要只是he或HE,不能有其它字符,则可使用^和$
+re = /^he/i;//脱字符(^)代表字符开始位置
+console.log(re.test(str));//false,因为he不在str最开始
+str = &quot;He is a good boy!&quot;;
+console.log(re.test(str));//true,He是字符开始位置,还需要使用$
+re = /^he$/i;//$表示字符结束位置
+console.log(re.test(str));//false
+str = &quot;He&quot;;
+console.log(re.test(str));//true
+//当然,这样不能发现正则表达式有多强大,因为我们完全可以在上面的例子中使用==或indexOf
+re = /\s/;// \s匹配任何空白字符，包括空格、制表符、换页符等等
+str = &quot;user Name&quot;;//用户名包含空格
+console.log(re.test(str));//true
+str = &quot;user        Name&quot;;//用户名包含制表符
+console.log(re.test(str));//true
+re = /^[a-z]/i;//[]匹配指定范围内的任意字符,这里将匹配英文字母,不区分大小写
+str = &quot;variableName&quot;;//变量名必须以字母开头
+console.log(re.test(str));//true
+str = &quot;123abc&quot;;
+console.log(re.test(str));//false
+</code></pre><h3 id="exec方法"><a href="#exec方法" class="headerlink" title="exec方法"></a>exec方法</h3><pre><code>// 当然,仅仅知道了字符串是否匹配模式还不够,我们还需要知道哪些字符匹配了模式
+var osVersion = &quot;Ubuntu 8&quot;;//其中的8表示系统主版本号
+   var re = /^[a-z]+\s+\d+$/i; //+号表示字符至少要出现1次,\s表示空白字符,\d表示一个数字
+   console.log(re.test(osVersion));//true,但我们想知道主版本号
+   //另一个方法exec,返回一个数组,数组的第一个元素为完整的匹配内容
+   re=/^[a-z]+\s+\d+$/i;
+   arr = re.exec(osVersion);
+   console.log(arr[0]);//将osVersion完整输出,因为整个字符串刚好匹配re
+   //我只需要取出数字
+   re=/\d+/;
+   var arr = re.exec(osVersion);
+   console.log(arr[0]);//8
+
+// 更复杂的用法,使用子匹配
+// exec返回的数组第1到n元素中包含的是匹配中出现的任意一个子匹配
+re=/^[a-z]+\s+(\d+)$/i;//用()来创建子匹配
+arr =re.exec(osVersion);
+console.log(arr[0]);//整个osVersion,也就是正则表达式的完整匹配
+console.log(arr[1]);//8,第一个子匹配,事实也可以这样取出主版本号
+console.log(arr.length);//2
+osVersion = &quot;Ubuntu 8.10&quot;;//取出主版本号和次版本号
+re = /^[a-z]+\s+(\d+)\.(\d+)$/i;//.是正则表达式元字符之一,若要用它的字面意义须转义
+arr = re.exec(osVersion);
+console.log(arr[0]);//完整的osVersion
+console.log(arr[1]);//8
+console.log(arr[2]);//10
+
+// 注意,当字符串不匹配re时,exec方法将返回null
+</code></pre><h3 id="replace方法"><a href="#replace方法" class="headerlink" title="replace方法"></a>replace方法</h3><pre><code>// replace方法,用于替换字符串
+var str =&quot;some money&quot;;
+console.log(str.replace(&quot;some&quot;,&quot;much&quot;));//much money
+//replace的第一个参数可以为正则表达式
+var re = /\s/;//空白字符
+console.log(str.replace(re,&quot;%&quot;));//some%money
+//在不知道字符串中有多少空白字符时,正则表达式极为方便
+str =&quot;some some             \tsome\t\f&quot;;
+re = /\s+/;
+console.log(str.replace(re,&quot;#&quot;));//但这样只会将第一次出现的一堆空白字符替换掉
+//因为一个正则表达式只能进行一次匹配,\s+匹配了第一个空格后就退出了
+re = /\s+/g;//g,全局标志,将使正则表达式匹配整个字符串
+console.log(str.replace(re,&quot;@&quot;));//some@some@some@
+</code></pre><h3 id="split方法"><a href="#split方法" class="headerlink" title="split方法"></a>split方法</h3><pre><code>//另一个与之相似的是split
+var str = &quot;a-bd-c&quot;;
+var arr = str.split(&quot;-&quot;);//返回[&quot;a&quot;,&quot;bd&quot;,&quot;c&quot;]
+//如果str是用户输入的,他可能输入a-bd-c也可能输入a bd c或a_bd_c,但不会是abdc(这样就说他输错了)
+str = &quot;a_db-c&quot;;//用户以他喜欢的方式加分隔符s
+re=/[^a-z]/i;//前面我们说^表示字符开始,但在[]里它表示一个负字符集
+//匹配任何不在指定范围内的任意字符,这里将匹配除字母处的所有字符
+arr = str.split(re);//仍返回[&quot;a&quot;,&quot;bd&quot;,&quot;c&quot;];
+</code></pre><h3 id="search方法"><a href="#search方法" class="headerlink" title="search方法"></a>search方法</h3><pre><code>//在字符串中查找时我们常用indexOf,与之对应用于正则查找的方法是search
+str = &quot;My age is 18.Golden age!&quot;;//年龄不是一定的,我们用indexOf不能查找它的位置
+re = /\d+/;
+console.log(str.search(re));//返回查找到的字符串开始下标10
+//注意,因为查找本身就是出现第一次就立即返回,所以无需在search时使用g标志
+//下面的代码虽然不出错,但g标志是多余的
+re=/\d+/g;
+console.log(str.search(re));//仍然是10
+
+// 注意,当search方法没有找到匹配时,将返回-1
+</code></pre><h3 id="match方法"><a href="#match方法" class="headerlink" title="match方法"></a>match方法</h3><pre><code>// 类似于exec方法,String对象的match方法也用于将字符串与正则表达式进行匹配并返回结果数组
+var str = &quot;My name is CJ.Hello everyone!&quot;;
+   var re = /[A-Z]/;//匹配所有大写字母
+   var arr = str.match(re);//返回数组
+   console.log(arr);//数组中只会包含一个M,因为我们没有使用全局匹配
+   re = /[A-Z]/g;
+   arr = str.match(re);
+   console.log(arr);//M,C,J,H
+   //从字符串中抽取单词
+   re = /\b[a-z]*\b/gi;//\b表示单词边界
+   str = &quot;one two three four&quot;;
+   console.log(str.match(re));//one,two,three,four
+</code></pre><h3 id="RegExp对象实例属性"><a href="#RegExp对象实例属性" class="headerlink" title="RegExp对象实例属性"></a>RegExp对象实例属性</h3><pre><code>//RegExp对象实例的一些属性 
+var re = /[a-z]/i;
+   console.log(re.source);//将[a-z]字符串输出
+   //请注意,直接console.log(re)会将正则表达式连同前向斜线与标志输出,这是re.toString方法定义的
+</code></pre><h4 id="lastIndex"><a href="#lastIndex" class="headerlink" title="lastIndex"></a>lastIndex</h4><pre><code>// 每个RegExp对象的实例具有lastIndex属性,它是被查找字符串中下一次成功匹配的开始位置,默认值是-1。
+// lastIndex 属性被 RegExp 对象的 exec 和 test 方法修改.并且它是可写的.
+var re = /[A-Z]/;
+   //exec方法执行后,修改了re的lastIndex属性,
+   var str = &quot;Hello,World!!!&quot;;
+   var arr = re.exec(str);
+   console.log(re.lastIndex);//0,因为没有设置全局标志
+   re = /[A-Z]/g;
+   arr = re.exec(str);
+   console.log(re.lastIndex);//1
+   arr = re.exec(str);
+   console.log(re.lastIndex);//7
+
+// 当匹配失败（后面没有匹配），或lastIndex值大于字符串长度时，再执行exec等方法会将lastIndex设为0(开始位置)
+var re = /[A-Z]/;
+   var str = &quot;Hello,World!!!&quot;;
+   re.lastIndex = 120;
+   var arr = re.exec(str);
+   console.log(re.lastIndex);//0
+</code></pre><h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><pre><code>// RegExp对象的静态属性 
+// input 最后用于匹配的字符串（传递给test,exec方法的字符串）
+var re = /[A-Z]/;
+var str = &quot;Hello,World!!!&quot;;
+var arr = re.exec(str);
+console.log(RegExp.input);//Hello,World!!!
+re.exec(&quot;tempstr&quot;);
+console.log(RegExp.input);//仍然是Hello,World!!!,因为tempstr不匹配
+</code></pre><h4 id="lastmatch"><a href="#lastmatch" class="headerlink" title="lastmatch"></a>lastmatch</h4><pre><code>//lastMatch 最后匹配的字符
+re = /[a-z]/g;
+str = &quot;hi&quot;;
+re.test(str);
+console.log(RegExp.lastMatch);//h
+re.test(str);
+console.log(RegExp[&quot;$&amp;&quot;]);//i  ,$&amp;是lastMatch的短名字，但由于它不是合法变量名，所以要。。
+</code></pre><h4 id="lastParen"><a href="#lastParen" class="headerlink" title="lastParen"></a>lastParen</h4><pre><code>//lastParen 最后匹配的分组
+re = /[a-z](\d+)/gi;
+str = &quot;Class1 Class2 Class3&quot;;
+re.test(str);
+console.log(RegExp.lastParen);//1
+re.test(str);
+console.log(RegExp[&quot;$+&quot;]);//2
+</code></pre><h4 id="leftContext-rigthContext"><a href="#leftContext-rigthContext" class="headerlink" title="leftContext/rigthContext"></a>leftContext/rigthContext</h4><pre><code>//leftContext  返回被查找的字符串中从字符串开始位置到最后匹配之前的位置之间的字符
+//rigthContext 返回被搜索的字符串中从最后一个匹配位置开始到字符串结尾之间的字符
+re = /[A-Z]/g;
+str = &quot;123ABC456&quot;;
+re.test(str);
+console.log(RegExp.leftContext);//123
+console.log(RegExp.rightContext);//BC456
+re.test(str);
+console.log(RegExp[&quot;$`&quot;]);//123A
+console.log(RegExp[&quot;$&apos;&quot;]);//C456
+</code></pre><h4 id="multiline"><a href="#multiline" class="headerlink" title="multiline"></a>multiline</h4><pre><code>// multiline属性返回正则表达式是否使用多行模式,这个属性不针对某个正则表达式实例，而是针对所有正则表达式，并且这个属性可写.(IE与Opera不支持这个属性) 
+console.log(RegExp.multiline);
+//因为IE，Opera不支持这个属性，所以最好还是单独指定
+var re = /\w+/m;
+console.log(re.multiline);
+console.log(RegExp[&quot;$*&quot;]);//RegExp对象的静态属性不会因为给RegExp某个对象实例指定了m标志而改变
+RegExp.multiline = true;//这将打开所有正则表达式实例的多行匹配模式
+console.log(RegExp.multiline);
+</code></pre><h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><pre><code>// 使用元字符注意事项:元字符是正则表达式的一部分，当我们要匹配正则表达式本身时，必须对这些元字符转义.
+// 下面是正则表达式用到的所有元字符
+// ( [ { \ ^ $ | ) ? * + .
+
+// 使用RegExp构造函数与使用正则表达式字面量创建正则表达式注意点
+var str = &quot;\?&quot;;
+   console.log(str);//只会输出?
+   var re = /\?/;//将匹配?
+   console.log(re.test(str));//true
+try {
+    re = new RegExp(&quot;\?&quot;);//出错,因为这相当于re = /\?/
+} catch (e) {}
+   re = new RegExp(&quot;\\?&quot;);//正确，将匹配？
+   console.log(re.test(str));//true
+
+//既然双重转义这么不友好，所以还是用正则表达式字面量的声明方式
+
+//如何在正则表达式中使用特殊字符？
+//ASCII方式用十六进制数来表示特殊字符
+var re = /^\x43\x4A$/;//将匹配CJ
+console.log(re.test(&quot;CJ&quot;));//true
+//也可使用八进制方式
+re = /^\103\112$/;//将匹配CJ
+console.log(re.test(&quot;CJ&quot;));//true
+//还可以使用Unicode编码
+re =/^\u0043\u004A$/;//使用 Unicode，必须使用u开头，接着是字符编码的四位16进制表现形式
+console.log(re.test(&quot;CJ&quot;));
+</code></pre><h3 id="预定义特殊字符"><a href="#预定义特殊字符" class="headerlink" title="预定义特殊字符"></a>预定义特殊字符</h3><pre><code>字符    描述
+\n      换行符
+\r      回车符
+\t      制表符
+\f      换页符（Tab）
+\cX     与X对应的控制字符
+\b      退格符(BackSpace)
+\v      垂直制表符
+\0      空字符(&quot;&quot;)
+
+字符类 ---〉简单类，反向类，范围类，组合类，预定义类
+下面是正则表达式中的预定义类
+
+
+代码  等同于                  匹配
+.     IE下[^\n]，其它[^\n\r]  匹配除换行符之外的任何一个字符
+\d    [0-9]                   匹配数字
+\D    [^0-9]                  匹配非数字字符
+\s    [ \n\r\t\f\x0B]         匹配一个空白字符
+\S    [^ \n\r\t\f\x0B]        匹配一个非空白字符
+\w    [a-zA-Z0-9_]            匹配字母数字和下划线
+\W    [^a-zA-Z0-9_]           匹配除字母数字下划线之外的字符
+</code></pre><h3 id="多行模式"><a href="#多行模式" class="headerlink" title="多行模式"></a>多行模式</h3><pre><code>var re = /[a-z]$/;
+var str = &quot;ab\ncdef&quot;;
+console.log(str.replace(re,&quot;#&quot;));//ab\ncde#
+re =/[a-z]$/m;
+console.log(str.replace(re,&quot;#&quot;));//a#\ncde#
+</code></pre><h3 id="分组与非捕获性分组"><a href="#分组与非捕获性分组" class="headerlink" title="分组与非捕获性分组"></a>分组与非捕获性分组</h3><pre><code>re = /abc{2}/;//将匹配abcc
+   re = /(abc){2}/;//将匹配abcabc
+   //上面的分组都是捕获性分组
+   str = &quot;abcabc ###&quot;;
+   arr = re.exec(str);
+   console.log(arr[1]);//abc
+   //非捕获性分组 (?:)
+   re = /(?:abc){2}/;
+   arr = re.exec(str);
+   console.log(arr[1]);//undefined
+</code></pre><h3 id="候选（也就是所说的“或”）"><a href="#候选（也就是所说的“或”）" class="headerlink" title="候选（也就是所说的“或”）"></a>候选（也就是所说的“或”）</h3><pre><code>re = /^a|bc$/;//将匹配开始位置的a或结束位置的bc
+str =&quot;add&quot;;
+console.log(re.test(str));//true
+re = /^(a|bc)$/;//将匹配a或bc
+str =&quot;bc&quot;;
+console.log(re.test(str));//true
+</code></pre><h3 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a>反向引用</h3><pre><code> //  当包含分组的正则表达式进行过test,match,search这些方法之后，每个分组都被放在一个特殊的地方以备将来使， 
+//  用这些存储是分组中的特殊值，我们称之为反向引用
+ var re = /(A?(B?(C?)))/;
+ /*上面的正则表达式将依次产生三个分组
+ (A?(B?(C?))) 最外面的
+ (B?(C?))
+ (C?)*/
+ str = &quot;ABC&quot;;
+ re.test(str);//反向引用被存储在RegExp对象的静态属性$1—$9中
+ console.log(RegExp.$1+&quot;\n&quot;+RegExp.$2+&quot;\n&quot;+RegExp.$3);
+ //反向引用也可以在正则表达式中使用\1 ,\2...这类的形式使用
+ re = /\d+(\D)\d+\1\d+/;
+ str = &quot;2008-1-1&quot;;
+ console.log(re.test(str));//true
+ str = &quot;2008-4_3&quot;;
+ console.log(re.test(str));//false
+
+ // 使用反向引用可以要求字符串中某几个位置上的字符必须相同.另外，在replace这类方法中可用特殊字符序列来表示反向引用
+ re = /(\d)\s(\d)/;
+ str = &quot;1234 5678&quot;;
+ console.log(str.replace(re,&quot;$2 $1&quot;));//在这个里面$1表示第一个分组1234,$2则表示5678
+</code></pre><h3 id="前瞻"><a href="#前瞻" class="headerlink" title="前瞻"></a>前瞻</h3><pre><code>/*其它——〉正向前瞻,用来捕获出现在特定字符之前的字符,只有当字符后面跟着某个特定字符才去捕获它。
+与正向前瞻对应的有负向前瞻，它用匹配只有当字符后面不跟着某个特定字符时才去匹配它。在执行前瞻和负向前瞻之类的运算时，
+正则表达式引擎会留意字符串后面的部分，然而却不移动index */
+//正向前瞻
+re = /([a-z]+(?=\d))/i;
+//我们要匹配后面跟一个数字的单词，然后将单词返回，而不要返回数字
+str = &quot;abc every1 abc&quot;;
+console.log(re.test(str));//true
+console.log(RegExp.$1);//every
+console.log(re.lastIndex);//使用前瞻的好处是,前瞻的内容(?=\d)并不会当成一次匹配，下次匹配仍从它开始
+//负向前瞻(?!)
+re = /([a-z](?!\d))/i;
+//将匹配后面不包含数字的字母,并且不会返回(?!\d)中的内容
+str = &quot;abc1 one&quot;;
+console.log(re.test(str));
+console.log(RegExp.$1);//one
+</code></pre><h3 id="电子邮箱正则"><a href="#电子邮箱正则" class="headerlink" title="电子邮箱正则"></a>电子邮箱正则</h3><pre><code>/* 构建一个验证电子邮箱地址有效性的正则表达式。电子邮箱地址有效性要求(我们姑且这样定义)：
+用户名只能包含字母数字以及下划线，最少一位，最多25位，用户名后面紧跟@，
+后面是域名，域名名称要求只能包含字母数字和减号（-），并且不能以减号开头或结尾，
+然后后面是域名后缀（可以有多个），域名后缀必须是点号连上2-4位英文字母 */
+var re = /^\w{1,15}(?:@(?!-))(?:(?:[a-z0-9-]*)(?:[a-z0-9](?!-))(?:\.(?!-)))+[a-z]{2,4}$/;
+</code></pre>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/05/DOM编程-2-－－属性操作/" rel="next" title="DOM编程(2)－－属性操作">
+                <i class="fa fa-chevron-left"></i> DOM编程(2)－－属性操作
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/logo.jpg"
+               alt="Ryan Chou" />
+          <p class="site-author-name" itemprop="name">Ryan Chou</p>
+          <p class="site-description motion-element" itemprop="description">Talk is cheap,show me your code!</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/5536378810/profile?topnav=1&wvr=6&is_all=1" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#test方法"><span class="nav-number">1.</span> <span class="nav-text">test方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exec方法"><span class="nav-number">2.</span> <span class="nav-text">exec方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#replace方法"><span class="nav-number">3.</span> <span class="nav-text">replace方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#split方法"><span class="nav-number">4.</span> <span class="nav-text">split方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#search方法"><span class="nav-number">5.</span> <span class="nav-text">search方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#match方法"><span class="nav-number">6.</span> <span class="nav-text">match方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp对象实例属性"><span class="nav-number">7.</span> <span class="nav-text">RegExp对象实例属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lastIndex"><span class="nav-number">7.1.</span> <span class="nav-text">lastIndex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#input"><span class="nav-number">7.2.</span> <span class="nav-text">input</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lastmatch"><span class="nav-number">7.3.</span> <span class="nav-text">lastmatch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lastParen"><span class="nav-number">7.4.</span> <span class="nav-text">lastParen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#leftContext-rigthContext"><span class="nav-number">7.5.</span> <span class="nav-text">leftContext/rigthContext</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#multiline"><span class="nav-number">7.6.</span> <span class="nav-text">multiline</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元字符"><span class="nav-number">8.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预定义特殊字符"><span class="nav-number">9.</span> <span class="nav-text">预定义特殊字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多行模式"><span class="nav-number">10.</span> <span class="nav-text">多行模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组与非捕获性分组"><span class="nav-number">11.</span> <span class="nav-text">分组与非捕获性分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#候选（也就是所说的“或”）"><span class="nav-number">12.</span> <span class="nav-text">候选（也就是所说的“或”）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向引用"><span class="nav-number">13.</span> <span class="nav-text">反向引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前瞻"><span class="nav-number">14.</span> <span class="nav-text">前瞻</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电子邮箱正则"><span class="nav-number">15.</span> <span class="nav-text">电子邮箱正则</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ryan Chou</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
