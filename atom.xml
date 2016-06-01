@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-26T04:28:11.000Z</updated>
+  <updated>2016-06-01T14:56:39.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BFC</title>
+    <link href="http://yoursite.com/2016/06/01/BFC/"/>
+    <id>http://yoursite.com/2016/06/01/BFC/</id>
+    <published>2016-06-01T14:52:23.000Z</published>
+    <updated>2016-06-01T14:56:39.000Z</updated>
+    
+    <content type="html">&lt;p&gt;BFC(Block formatting contexts),块级格式上下文  &lt;/p&gt;
+&lt;p&gt;w3c规范中给出了bfc的定义：&lt;/p&gt;
+&lt;p&gt;浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为“visiable”的块级盒子，都会为他们的内容创建新的BFC（块级格式上下文）。&lt;/p&gt;
+&lt;p&gt;在BFC中，盒子从顶端开始垂直地一个接一个地排列，两个盒子之间的垂直的间隙是由他们的margin 值所决定的。在一个BFC中，两个相邻的块级盒子的垂直外边距会产生折叠。&lt;/p&gt;
+&lt;p&gt;在BFC中，每一个盒子的左外边缘（margin-left）会触碰到容器的左边缘(border-left)（对于从右到左的格式来说，则触碰到右边缘）。&lt;/p&gt;
+&lt;p&gt;BFC的特性是在一个BFC中的元素的布局不受外界的影响&lt;/p&gt;
+&lt;p&gt;BFC能解决的两个问题：&lt;/p&gt;
+&lt;p&gt;1.可以消除浮动元素对其非浮动的兄弟元素和其子元素带来的影响，如左图右文，通过文字类添加overflow：hidden；创建新的BFC&lt;/p&gt;
+&lt;p&gt;2.解决margin间距折叠问题&lt;br&gt;创建了新的BFC的元素（例如浮动元素或者’overflow’值为’visible’以外的元素）与它的子元素的外边距不会折叠&lt;br&gt;浮动元素不与任何元素的外边距产生折叠（包括其父元素和子元素）&lt;br&gt;绝对定位元素不与任何元素的外边距产生折叠&lt;br&gt;inline-block元素不与任何元素的外边距产生折叠&lt;br&gt;一个常规文档流元素的margin-bottom与它下一个常规文档流的兄弟元素的margin-top会产生折叠，除非它们之间存在间隙（clearance）。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;BFC(Block formatting contexts),块级格式上下文  &lt;/p&gt;
+&lt;p&gt;w3c规范中给出了bfc的定义：&lt;/p&gt;
+&lt;p&gt;浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-cap
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com//categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://yoursite.com//tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>正则详解</title>
