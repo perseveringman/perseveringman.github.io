@@ -84,26 +84,20 @@
 
 <meta name="description" content="let 1.块级作用域  
 
-没有变量提升、且存在暂时性死区（temporal dead zone，简称TDZ）tdz区域使用该变量会报错
-if (true) { // TDZ开始 tmp = ‘abc’; // ReferenceError console.log(tmp); // ReferenceError
- let tmp; // TDZ结束 console.log(tmp); // un">
+没有变量提升、且存在暂时性死区（temporal dead zone，简称TDZ）tdz区域使用该变量会报错">
 <meta property="og:type" content="article">
 <meta property="og:title" content="let&const">
 <meta property="og:url" content="http://yoursite.com/2016/06/21/let-const/index.html">
 <meta property="og:site_name" content="周延博">
 <meta property="og:description" content="let 1.块级作用域  
 
-没有变量提升、且存在暂时性死区（temporal dead zone，简称TDZ）tdz区域使用该变量会报错
-if (true) { // TDZ开始 tmp = ‘abc’; // ReferenceError console.log(tmp); // ReferenceError
- let tmp; // TDZ结束 console.log(tmp); // un">
-<meta property="og:updated_time" content="2016-06-21T10:32:33.000Z">
+没有变量提升、且存在暂时性死区（temporal dead zone，简称TDZ）tdz区域使用该变量会报错">
+<meta property="og:updated_time" content="2016-06-21T10:34:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="let&const">
 <meta name="twitter:description" content="let 1.块级作用域  
 
-没有变量提升、且存在暂时性死区（temporal dead zone，简称TDZ）tdz区域使用该变量会报错
-if (true) { // TDZ开始 tmp = ‘abc’; // ReferenceError console.log(tmp); // ReferenceError
- let tmp; // TDZ结束 console.log(tmp); // un">
+没有变量提升、且存在暂时性死区（temporal dead zone，简称TDZ）tdz区域使用该变量会报错">
 
 
 
@@ -322,13 +316,14 @@ if (true) { // TDZ开始 tmp = ‘abc’; // ReferenceError console.log(tmp); //
         <h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p> 1.块级作用域  </p>
 <ol>
 <li><p>没有变量提升、且存在暂时性死区（temporal dead zone，简称TDZ）<br>tdz区域使用该变量会报错</p>
+<a id="more"></a>
 <p>if (true) {<br> // TDZ开始<br> tmp = ‘abc’; // ReferenceError<br> console.log(tmp); // ReferenceError</p>
 <p> let tmp; // TDZ结束<br> console.log(tmp); // undefined</p>
 <p> tmp = 123;<br> console.log(tmp); // 123</p>
 <p>}</p>
 </li>
 </ol>
-<p>###const<br>1.声明只读常量（之后赋值全部无效，所以必须立即赋值）<br>2.常量不提升，暂时性死区<br>3.赋值为对象类型时（数组之类的也算），可以继续添加属性。<br>4.可以使用Object.freeze({})冻结对象，这样就不能继续添加属性  </p>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>1.声明只读常量（之后赋值全部无效，所以必须立即赋值）<br>2.常量不提升，暂时性死区<br>3.赋值为对象类型时（数组之类的也算），可以继续添加属性。<br>4.可以使用Object.freeze({})冻结对象，这样就不能继续添加属性  </p>
 
       
     </div>
@@ -500,7 +495,7 @@ if (true) { // TDZ开始 tmp = ‘abc’; // ReferenceError console.log(tmp); //
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#let"><span class="nav-number">1.</span> <span class="nav-text">let</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#let"><span class="nav-number">1.</span> <span class="nav-text">let</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const"><span class="nav-number">2.</span> <span class="nav-text">const</span></a></li></ol></div>
             
           </div>
         </section>

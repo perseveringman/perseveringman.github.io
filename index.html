@@ -312,19 +312,14 @@
 
       
         
-          
-            <h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p> 1.块级作用域  </p>
+          <h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p> 1.块级作用域  </p>
 <ol>
 <li><p>没有变量提升、且存在暂时性死区（temporal dead zone，简称TDZ）<br>tdz区域使用该变量会报错</p>
-<p>if (true) {<br> // TDZ开始<br> tmp = ‘abc’; // ReferenceError<br> console.log(tmp); // ReferenceError</p>
-<p> let tmp; // TDZ结束<br> console.log(tmp); // undefined</p>
-<p> tmp = 123;<br> console.log(tmp); // 123</p>
-<p>}</p>
-</li>
-</ol>
-<p>###const<br>1.声明只读常量（之后赋值全部无效，所以必须立即赋值）<br>2.常量不提升，暂时性死区<br>3.赋值为对象类型时（数组之类的也算），可以继续添加属性。<br>4.可以使用Object.freeze({})冻结对象，这样就不能继续添加属性  </p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/21/let-const/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
