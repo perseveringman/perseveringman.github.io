@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="周延博">
 <meta property="og:description" content="出现问题使用Video.js过程中使用Video.js备用的flash方案时出现问题，配置好了fallback，使用flowplayer作为后备的播放器，但不起作用">
 <meta property="og:image" content="http://7xt3kw.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-23%20%E4%B8%8B%E5%8D%886.15.28.png">
-<meta property="og:updated_time" content="2016-06-23T10:47:02.000Z">
+<meta property="og:updated_time" content="2016-06-23T10:49:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Video.js flash兼容">
 <meta name="twitter:description" content="出现问题使用Video.js过程中使用Video.js备用的flash方案时出现问题，配置好了fallback，使用flowplayer作为后备的播放器，但不起作用">
@@ -311,12 +311,11 @@
       
         <h3 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h3><p>使用Video.js过程中使用Video.js备用的flash方案时出现问题，配置好了fallback，使用flowplayer作为后备的播放器，但不起作用<br><img src="http://7xt3kw.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-23%20%E4%B8%8B%E5%8D%886.15.28.png" alt="problem1"><br><a id="more"></a></p>
 <h3 id="迫不得已的方案"><a href="#迫不得已的方案" class="headerlink" title="迫不得已的方案"></a>迫不得已的方案</h3><p>试过了各种格式的代码后都不起作用，迫不得已只能写一个纯的flowplayer播放器，关键代码如下：  </p>
-<pre><script type="text/javascript" src="../flowplayer-3.2.13.min.js">\</script>
-<a href="http://www.hehehehehe.mp4" style="display:block;width:520px;height:330px" id="player" target="_blank" rel="external"></a> 
-<script>flowplayer("player", "../flowplayer-3.2.18.swf");</script>
-</pre>
-
-<p>成功显示之后，通过逻辑判断嵌入播放视频的位置</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;../flowplayer-3.2.13.min.js&quot;&gt;
+&lt;/script&gt;
+&lt;a href=&quot;http://www.hehehehehe.mp4&quot; style=&quot;display:block;width:520px;height:330px&quot; id=&quot;player&quot;&gt;&lt;/a&gt; 
+&lt;script&gt;flowplayer(&quot;player&quot;, &quot;../flowplayer-3.2.18.swf&quot;);&lt;/script&gt;
+</code></pre><p>成功显示之后，通过逻辑判断嵌入播放视频的位置</p>
 
       
     </div>
