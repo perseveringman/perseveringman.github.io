@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript," />
+  <meta name="keywords" content="JavaScript,debug集锦," />
 
 
 
@@ -82,42 +82,18 @@
 
 
 
-<meta name="description" content="小知识点属性无序
-key是字符串
-对象里可以有对象：
-var obj ＝{
-      o:{
-          z:3,
-          n:4
-     }
- };">
+<meta name="description" content="出现问题使用Video.js过程中使用Video.js备用的flash方案时出现问题，配置好了fallback，使用flowplayer作为后备的播放器，但不起作用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对象">
-<meta property="og:url" content="http://yoursite.com/2016/04/18/对象/index.html">
+<meta property="og:title" content="Video.js flash兼容">
+<meta property="og:url" content="http://yoursite.com/2016/06/23/Video-js-flash兼容/index.html">
 <meta property="og:site_name" content="周延博">
-<meta property="og:description" content="小知识点属性无序
-key是字符串
-对象里可以有对象：
-var obj ＝{
-      o:{
-          z:3,
-          n:4
-     }
- };">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/0062G52qjw1f2qlktlwd6j30ia0p4q4j.jpg">
-<meta property="og:updated_time" content="2016-04-18T05:01:18.000Z">
+<meta property="og:description" content="出现问题使用Video.js过程中使用Video.js备用的flash方案时出现问题，配置好了fallback，使用flowplayer作为后备的播放器，但不起作用">
+<meta property="og:image" content="http://7xt3kw.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-23%20%E4%B8%8B%E5%8D%886.15.28.png">
+<meta property="og:updated_time" content="2016-06-23T10:42:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对象">
-<meta name="twitter:description" content="小知识点属性无序
-key是字符串
-对象里可以有对象：
-var obj ＝{
-      o:{
-          z:3,
-          n:4
-     }
- };">
-<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/0062G52qjw1f2qlktlwd6j30ia0p4q4j.jpg">
+<meta name="twitter:title" content="Video.js flash兼容">
+<meta name="twitter:description" content="出现问题使用Video.js过程中使用Video.js备用的flash方案时出现问题，配置好了fallback，使用flowplayer作为后备的播放器，但不起作用">
+<meta name="twitter:image" content="http://7xt3kw.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-23%20%E4%B8%8B%E5%8D%886.15.28.png">
 
 
 
@@ -135,7 +111,7 @@ var obj ＝{
   };
 </script>
 
-  <title> 对象 | 周延博 </title>
+  <title> Video.js flash兼容 | 周延博 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -275,7 +251,7 @@ var obj ＝{
             
             
               
-                对象
+                Video.js flash兼容
               
             
           </h1>
@@ -287,8 +263,8 @@ var obj ＝{
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-18T12:37:32+08:00" content="2016-04-18">
-              2016-04-18
+            <time itemprop="dateCreated" datetime="2016-06-23T18:05:31+08:00" content="2016-06-23">
+              2016-06-23
             </time>
           </span>
 
@@ -333,30 +309,11 @@ var obj ＝{
       
 
       
-        <h3 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h3><pre><code>属性无序
-key是字符串
-对象里可以有对象：
-var obj ＝{
-      o:{
-          z:3,
-          n:4
-     }
- };
-</code></pre>  <a id="more"></a>
-<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p><img src="http://ww2.sinaimg.cn/large/0062G52qjw1f2qlktlwd6j30ia0p4q4j.jpg" alt="原型链"></p>
-<h3 id="读写对象属性"><a href="#读写对象属性" class="headerlink" title="读写对象属性"></a>读写对象属性</h3><pre><code>obj.x;
-obj[&apos;x&apos;];
-</code></pre><h3 id="属性读写异常"><a href="#属性读写异常" class="headerlink" title="属性读写异常"></a>属性读写异常</h3><pre><code>var obj = {x:1};
-obj.y ;//undefined;
-</code></pre><h3 id="属性删除"><a href="#属性删除" class="headerlink" title="属性删除"></a>属性删除</h3><pre><code>delete
-</code></pre><h3 id="属性检测"><a href="#属性检测" class="headerlink" title="属性检测"></a>属性检测</h3><pre><code>hasOwnProperty();
-</code></pre><h3 id="getter-setter方法"><a href="#getter-setter方法" class="headerlink" title="getter/setter方法"></a>getter/setter方法</h3><h3 id="属性标签"><a href="#属性标签" class="headerlink" title="属性标签"></a>属性标签</h3><pre><code>Object.definedProperty(obj, &quot;type&quot;,    {configureable:true,writable:true,enumerable:false,value:&quot;Object&quot;});
+        <h3 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h3><p>使用Video.js过程中使用Video.js备用的flash方案时出现问题，配置好了fallback，使用flowplayer作为后备的播放器，但不起作用<br><img src="http://7xt3kw.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-23%20%E4%B8%8B%E5%8D%886.15.28.png" alt="problem1"><br><a id="more"></a></p>
+<h3 id="迫不得已的方案"><a href="#迫不得已的方案" class="headerlink" title="迫不得已的方案"></a>迫不得已的方案</h3><p>试过了各种格式的代码后都不起作用，迫不得已只能写一个纯的flowplayer播放器，关键代码如下：  </p>
+<p><pre>\<script type="text/javascript" src="../flowplayer-3.2.13.min.js">\</script><br>\<a href="http://www.hehehehehe.mp4" style="display:block;width:520px;height:330px" id="player" target="_blank" rel="external">\</a><br>\<script>flowplayer(“player”, “../flowplayer-3.2.18.swf”);\</script></pre></p>
+<p>成功显示之后，通过逻辑判断嵌入播放视频的位置</p>
 
-Object.definedProperties(obj,{属性1：{同上}，属性2.....});
-
-Object.getOwnPropertyDescriptor(obj,&apos; 属性1&apos;)；
-//得到该对象初始化的各种值
-</code></pre>
       
     </div>
     
@@ -378,6 +335,8 @@ Object.getOwnPropertyDescriptor(obj,&apos; 属性1&apos;)；
           
             <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
+            <a href="/tags/debug集锦/" rel="tag">#debug集锦</a>
+          
         </div>
       
 
@@ -385,17 +344,13 @@ Object.getOwnPropertyDescriptor(obj,&apos; 属性1&apos;)；
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/18/严格模式/" rel="next" title="严格模式">
-                <i class="fa fa-chevron-left"></i> 严格模式
+              <a href="/2016/06/21/let-const/" rel="next" title="let&const">
+                <i class="fa fa-chevron-left"></i> let&const
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/18/数组/" rel="prev" title="数组">
-                数组 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,7 +484,7 @@ Object.getOwnPropertyDescriptor(obj,&apos; 属性1&apos;)；
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#小知识点"><span class="nav-number">1.</span> <span class="nav-text">小知识点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链"><span class="nav-number">2.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读写对象属性"><span class="nav-number">3.</span> <span class="nav-text">读写对象属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性读写异常"><span class="nav-number">4.</span> <span class="nav-text">属性读写异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性删除"><span class="nav-number">5.</span> <span class="nav-text">属性删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性检测"><span class="nav-number">6.</span> <span class="nav-text">属性检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getter-setter方法"><span class="nav-number">7.</span> <span class="nav-text">getter/setter方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性标签"><span class="nav-number">8.</span> <span class="nav-text">属性标签</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#出现问题"><span class="nav-number">1.</span> <span class="nav-text">出现问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迫不得已的方案"><span class="nav-number">2.</span> <span class="nav-text">迫不得已的方案</span></a></li></ol></div>
             
           </div>
         </section>
