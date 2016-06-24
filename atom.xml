@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-23T10:58:03.000Z</updated>
+  <updated>2016-06-24T13:52:49.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>布局</title>
+    <link href="http://yoursite.com/2016/06/24/%E5%B8%83%E5%B1%80/"/>
+    <id>http://yoursite.com/2016/06/24/布局/</id>
+    <published>2016-06-24T13:49:37.000Z</published>
+    <updated>2016-06-24T13:52:49.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;布局概述&quot;&gt;&lt;a href=&quot;#布局概述&quot; class=&quot;headerlink&quot; title=&quot;布局概述&quot;&gt;&lt;/a&gt;布局概述&lt;/h3&gt;&lt;h4 id=&quot;固定宽度布局：&quot;&gt;&lt;a href=&quot;#固定宽度布局：&quot; class=&quot;headerlink&quot; title=&quot;固定宽度布局：&quot;&gt;&lt;/a&gt;固定宽度布局：&lt;/h4&gt;&lt;p&gt;  一般900到1100像素&lt;br&gt;     960像素最常见&lt;/p&gt;
+&lt;h4 id=&quot;流动布局：&quot;&gt;&lt;a href=&quot;#流动布局：&quot; class=&quot;headerlink&quot; title=&quot;流动布局：&quot;&gt;&lt;/a&gt;流动布局：&lt;/h4&gt;&lt;p&gt;   更好的适应大屏幕，同时意味着放弃对页面某些方面的控制，如页面宽度变化，文本行长度和页面元素之前的位置也会变化。&lt;/p&gt;
+&lt;p&gt;响应式布局的逐渐普及使定宽布局更好用&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;布局高度&quot;&gt;&lt;a href=&quot;#布局高度&quot; class=&quot;headerlink&quot; title=&quot;布局高度&quot;&gt;&lt;/a&gt;布局高度&lt;/h4&gt;&lt;p&gt;  多数情况下布局元素不必设定高度（绝对定位等除外）&lt;/p&gt;
+&lt;h4 id=&quot;布局宽度&quot;&gt;&lt;a href=&quot;#布局宽度&quot; class=&quot;headerlink&quot; title=&quot;布局宽度&quot;&gt;&lt;/a&gt;布局宽度&lt;/h4&gt;&lt;p&gt;  需要精细控制&lt;/p&gt;
+&lt;h3 id=&quot;两栏左定宽右自适应布局&quot;&gt;&lt;a href=&quot;#两栏左定宽右自适应布局&quot; class=&quot;headerlink&quot; title=&quot;两栏左定宽右自适应布局&quot;&gt;&lt;/a&gt;两栏左定宽右自适应布局&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;.left{
+     width:150px;
+     float:left;
+}
+.right{
+    margin-left:150px;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;三栏定宽布局&quot;&gt;&lt;a href=&quot;#三栏定宽布局&quot; class=&quot;headerlink&quot; title=&quot;三栏定宽布局&quot;&gt;&lt;/a&gt;三栏定宽布局&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;.left{
+     width:150px;
+     float:left;
+}
+.right{
+     width:150px;
+     float:right;
+}     //右需要写在中前面
+.middle{
+     margin-left:150px;
+     margin-right:150px;
+}
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;布局概述&quot;&gt;&lt;a href=&quot;#布局概述&quot; class=&quot;headerlink&quot; title=&quot;布局概述&quot;&gt;&lt;/a&gt;布局概述&lt;/h3&gt;&lt;h4 id=&quot;固定宽度布局：&quot;&gt;&lt;a href=&quot;#固定宽度布局：&quot; class=&quot;headerlink&quot; title=&quot;固定宽度布局：&quot;&gt;&lt;/a&gt;固定宽度布局：&lt;/h4&gt;&lt;p&gt;  一般900到1100像素&lt;br&gt;     960像素最常见&lt;/p&gt;
+&lt;h4 id=&quot;流动布局：&quot;&gt;&lt;a href=&quot;#流动布局：&quot; class=&quot;headerlink&quot; title=&quot;流动布局：&quot;&gt;&lt;/a&gt;流动布局：&lt;/h4&gt;&lt;p&gt;   更好的适应大屏幕，同时意味着放弃对页面某些方面的控制，如页面宽度变化，文本行长度和页面元素之前的位置也会变化。&lt;/p&gt;
+&lt;p&gt;响应式布局的逐渐普及使定宽布局更好用&lt;br&gt;
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com//categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://yoursite.com//tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>Video.js flash兼容</title>
@@ -1373,37 +1421,6 @@ Array
     
     
       <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2016/03/20/hello-world/"/>
-    <id>http://yoursite.com/2016/03/20/hello-world/</id>
-    <published>2016-03-20T11:25:15.000Z</published>
-    <updated>2016-04-10T06:15:38.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
     
   </entry>
   
