@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-24T13:52:49.000Z</updated>
+  <updated>2016-06-27T11:37:52.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>XAMPP目录设置</title>
+    <link href="http://yoursite.com/2016/06/27/XAMPP%E7%9B%AE%E5%BD%95%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://yoursite.com/2016/06/27/XAMPP目录设置/</id>
+    <published>2016-06-27T11:32:58.000Z</published>
+    <updated>2016-06-27T11:37:52.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;XAMPP环境下，如何将项目目录设置在任意位置且不影响htdocs内的文件访问&quot;&gt;&lt;a href=&quot;#XAMPP环境下，如何将项目目录设置在任意位置且不影响htdocs内的文件访问&quot; class=&quot;headerlink&quot; title=&quot;XAMPP环境下，如何将项目目录设置在任意位置且不影响htdocs内的文件访问&quot;&gt;&lt;/a&gt;XAMPP环境下，如何将项目目录设置在任意位置且不影响htdocs内的文件访问&lt;/h3&gt;&lt;p&gt;xampp默认的网站目录为/xampp/htdocs，访问localhost就可以访问这给文件夹下的文件。但有时为了项目管理方便，不可能所有文件都放在这里。下面是一个简单的利用别名（Alias）的方法来实现其他目录下项目访问。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先打开Apache的设置文件httpd.conf &lt;/li&gt;
+&lt;li&gt;搜索 &lt;directory “e:=&quot;&quot; xampp=&quot;&quot; htdocs”=&quot;&quot;&gt; 定位到这个位置，大约在245行&lt;/directory&gt;&lt;/li&gt;
+&lt;li&gt;复制&lt;directory “e:=&quot;&quot; xampp=&quot;&quot; htdocs”=&quot;&quot;&gt;到&lt;/directory&gt;的所有文本，包括这两个标记&lt;/li&gt;
+&lt;li&gt;粘贴到下面，然后将标记改为你的目录，如&lt;directory “c:=&quot;&quot; myapp”=&quot;&quot;&gt;&lt;/directory&gt;&lt;/li&gt;
+&lt;li&gt;定位到&lt;ifmodule alias_module=&quot;&quot;&gt;位置，大约363行，在这里面添加Alias /myapp “C:/myapp”&lt;/ifmodule&gt;&lt;/li&gt;
+&lt;li&gt;重启Apache，访问&lt;a href=&quot;http://localhost/myapp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost/myapp&lt;/a&gt; &lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;XAMPP环境下，如何将项目目录设置在任意位置且不影响htdocs内的文件访问&quot;&gt;&lt;a href=&quot;#XAMPP环境下，如何将项目目录设置在任意位置且不影响htdocs内的文件访问&quot; class=&quot;headerlink&quot; title=&quot;XAMPP环境下，如何将项目目录设置在任意位置且不影响htdocs内的文件访问&quot;&gt;&lt;/a&gt;XAMPP环境下，如何将项目目录设置在任意位置且不影响htdocs内的文件访问&lt;/h3&gt;&lt;p&gt;xampp默认的网站目录为/xampp/htdocs，访问localhost就可以访问这给文件夹下的文件。但有时为了项目管理方便，不可能所有文件都放在这里。下面是一个简单的利用别名（Alias）的方法来实现其他目录下项目访问。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="服务器" scheme="http://yoursite.com//categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+      <category term="服务器" scheme="http://yoursite.com//tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+      <category term="XAMPP" scheme="http://yoursite.com//tags/XAMPP/"/>
+    
+  </entry>
   
   <entry>
     <title>布局</title>
@@ -1360,59 +1393,6 @@ typeof new Object() // object
 typeof [1,2] // object
 typeof NaN //number
 typeof null  //object
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据类型</title>
-    <link href="http://yoursite.com/2016/04/10/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
-    <id>http://yoursite.com/2016/04/10/数据类型/</id>
-    <published>2016-04-10T05:47:21.000Z</published>
-    <updated>2016-04-18T05:01:28.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;基本类型&quot;&gt;&lt;a href=&quot;#基本类型&quot; class=&quot;headerlink&quot; title=&quot;基本类型&quot;&gt;&lt;/a&gt;基本类型&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;1.number  
-2.boolean  
-3.string  
-4.null  
-5.undefined  
-对象类型-Object：  
-Date  
-Array  
-&lt;/code&gt;&lt;/pre&gt;  &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;＝＝&quot;&gt;&lt;a href=&quot;#＝＝&quot; class=&quot;headerlink&quot; title=&quot;＝＝&quot;&gt;&lt;/a&gt;＝＝&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;1.字符串和数字，把字符串转换为数字  
-“1.23”＝＝1.23  
-2.0==false  
-3.null == undefined  
-4.new Object() == new Object()  
-5.[1,2] == [1,2]  
-6.boolean 转换为数字，true ＝1 ，false ＝ 0  
-7.对象转换为基本类型  
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;＝＝＝&quot;&gt;&lt;a href=&quot;#＝＝＝&quot; class=&quot;headerlink&quot; title=&quot;＝＝＝&quot;&gt;&lt;/a&gt;＝＝＝&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;类型不同，返回false  
-类型相同：  
-null ＝＝＝ null   
-undefined ＝＝＝ undefined  
-NaN != NaN  
-new Object != new Object  
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;基本类型&quot;&gt;&lt;a href=&quot;#基本类型&quot; class=&quot;headerlink&quot; title=&quot;基本类型&quot;&gt;&lt;/a&gt;基本类型&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;1.number  
-2.boolean  
-3.string  
-4.null  
-5.undefined  
-对象类型-Object：  
-Date  
-Array  
 &lt;/code&gt;&lt;/pre&gt;
     
     </summary>
