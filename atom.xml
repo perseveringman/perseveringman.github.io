@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-27T11:37:52.000Z</updated>
+  <updated>2016-06-29T10:44:14.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>node.js基础—npm</title>
+    <link href="http://yoursite.com/2016/06/29/node-js%E5%9F%BA%E7%A1%80%E2%80%94npm/"/>
+    <id>http://yoursite.com/2016/06/29/node-js基础—npm/</id>
+    <published>2016-06-29T10:36:40.000Z</published>
+    <updated>2016-06-29T10:44:14.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;npm&quot;&gt;&lt;a href=&quot;#npm&quot; class=&quot;headerlink&quot; title=&quot;npm&quot;&gt;&lt;/a&gt;npm&lt;/h3&gt;&lt;h4 id=&quot;start-a-project&quot;&gt;&lt;a href=&quot;#start-a-project&quot; class=&quot;headerlink&quot; title=&quot;start a project&quot;&gt;&lt;/a&gt;start a project&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;package.json
+
+npm init —scope=&amp;lt;username&amp;gt;
+
+npm help son查看package.json的帮助文档
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;install-a-module&quot;&gt;&lt;a href=&quot;#install-a-module&quot; class=&quot;headerlink&quot; title=&quot;install a module&quot;&gt;&lt;/a&gt;install a module&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;npm install &amp;lt;modulename&amp;gt;  安装特定包
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;listing-dependencies&quot;&gt;&lt;a href=&quot;#listing-dependencies&quot; class=&quot;headerlink&quot; title=&quot;listing dependencies&quot;&gt;&lt;/a&gt;listing dependencies&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;npm ls   查看当前的包
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在安装时 输入npm install &lt;modulename&gt;  –save&lt;br&gt;如果不输入这一条，在npm ls时会出现npm ERR! extraneous:。。。&lt;br&gt;官方解释是： &lt;/modulename&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Your dependencies should be listed in the package.json file in an object called &amp;apos;dependencies&amp;apos;.  However, when we installed &amp;apos;@linclark/pkg&amp;apos;, we didn&amp;apos;t update the package.json file to list out this dependency.  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;就是没有更新package.json,使用—save能避免这个问题&lt;/p&gt;
+&lt;h4 id=&quot;npm-Test&quot;&gt;&lt;a href=&quot;#npm-Test&quot; class=&quot;headerlink&quot; title=&quot;npm Test&quot;&gt;&lt;/a&gt;npm Test&lt;/h4&gt;&lt;p&gt;npm 需要有test.js文件，并且在package.json中还得修改&lt;br&gt;  “scripts”: {&lt;br&gt;    “test”:”node test.js”&lt;br&gt;  }&lt;/p&gt;
+&lt;h4 id=&quot;version&quot;&gt;&lt;a href=&quot;#version&quot; class=&quot;headerlink&quot; title=&quot;version&quot;&gt;&lt;/a&gt;version&lt;/h4&gt;&lt;p&gt;版本会随着更新的发布而改变，具体见下图&lt;br&gt;&lt;img src=&quot;http://7xt3kw.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-27%20%E4%B8%8B%E5%8D%888.20.46.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;npm version 1.0.1可手动更改版本号&lt;/p&gt;
+&lt;h4 id=&quot;过期检查&quot;&gt;&lt;a href=&quot;#过期检查&quot; class=&quot;headerlink&quot; title=&quot;过期检查&quot;&gt;&lt;/a&gt;过期检查&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;npm outdated
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;检查是否有过期的包&lt;/p&gt;
+&lt;h4 id=&quot;删除&quot;&gt;&lt;a href=&quot;#删除&quot; class=&quot;headerlink&quot; title=&quot;删除&quot;&gt;&lt;/a&gt;删除&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;npm rm —save 删除所有
+npm uninstall &amp;lt;&amp;gt;删除一个
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;npm&quot;&gt;&lt;a href=&quot;#npm&quot; class=&quot;headerlink&quot; title=&quot;npm&quot;&gt;&lt;/a&gt;npm&lt;/h3&gt;&lt;h4 id=&quot;start-a-project&quot;&gt;&lt;a href=&quot;#start-a-project&quot; class=&quot;headerlink&quot; title=&quot;start a project&quot;&gt;&lt;/a&gt;start a project&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;package.json
+
+npm init —scope=&amp;lt;username&amp;gt;
+
+npm help son查看package.json的帮助文档
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
+    
+    
+      <category term="node.js" scheme="http://yoursite.com//tags/node-js/"/>
+    
+      <category term="npm" scheme="http://yoursite.com//tags/npm/"/>
+    
+  </entry>
   
   <entry>
     <title>XAMPP目录设置</title>
@@ -1340,59 +1386,6 @@ in: window.x = 1;  &amp;apos;x&amp;apos; in window //true
       &lt;h2 id=&quot;一、表达式&quot;&gt;&lt;a href=&quot;#一、表达式&quot; class=&quot;headerlink&quot; title=&quot;一、表达式&quot;&gt;&lt;/a&gt;一、表达式&lt;/h2&gt;&lt;h3 id=&quot;1-初始化表达式&quot;&gt;&lt;a href=&quot;#1-初始化表达式&quot; class=&quot;headerlink&quot; title=&quot;1.初始化表达式&quot;&gt;&lt;/a&gt;1.初始化表达式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;[1,2]   = new Array(1,2);
 [1,,,4]  =[1,undefined,undefined,4]
 {x:1,y:2} ={ var o = new Object();o.x=1;o.y=2;}
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>类型检测</title>
-    <link href="http://yoursite.com/2016/04/18/%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B/"/>
-    <id>http://yoursite.com/2016/04/18/类型检测/</id>
-    <published>2016-04-18T04:24:24.000Z</published>
-    <updated>2016-04-18T04:56:32.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;1-typeof-适合函数对象和基本类型的判断&quot;&gt;&lt;a href=&quot;#1-typeof-适合函数对象和基本类型的判断&quot; class=&quot;headerlink&quot; title=&quot;1.typeof   适合函数对象和基本类型的判断&quot;&gt;&lt;/a&gt;1.typeof   适合函数对象和基本类型的判断&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;typeof 100  // number
-typeof true // boolean
-typeof function // function
-typeof (undefined) // undefined
-typeof new Object() // object
-typeof [1,2] // object
-typeof NaN //number
-typeof null  //object
-&lt;/code&gt;&lt;/pre&gt;  &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;    
-&lt;h3 id=&quot;2-instanceof-适合于对象判断&quot;&gt;&lt;a href=&quot;#2-instanceof-适合于对象判断&quot; class=&quot;headerlink&quot; title=&quot;2. instanceof   适合于对象判断&quot;&gt;&lt;/a&gt;2. instanceof   适合于对象判断&lt;/h3&gt;&lt;pre&gt;&lt;code&gt; obj instanceof  Object
- 左操作数是对象，不是返回false。
- 右操作数是函数对象或函数构造器，     
-
- [1,2] instanceof  Array === true     
- new Object() instanceof  Array === false
-
-P.S:不同window或iframe间的对象类型检测不能使用instanceof
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;3-Object-prototype-toString-适合内置对象和基本类型&quot;&gt;&lt;a href=&quot;#3-Object-prototype-toString-适合内置对象和基本类型&quot; class=&quot;headerlink&quot; title=&quot;3.Object.prototype.toString 适合内置对象和基本类型&quot;&gt;&lt;/a&gt;3.Object.prototype.toString 适合内置对象和基本类型&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;Object.prototype.toString.apply([]); === &amp;quot;[object Array]&amp;quot;
-Object.prototype.toString.apply(function(){}) ;===&amp;quot;[object Function]&amp;quot;
-Object.prototype.toString.apply(undefined); ===&amp;quot;[object Undefined]&amp;quot;
-Object.prototype.toString.apply(null); ===&amp;quot;object Null&amp;quot;
-
- P.S:IE678 null 返回 object Object
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1-typeof-适合函数对象和基本类型的判断&quot;&gt;&lt;a href=&quot;#1-typeof-适合函数对象和基本类型的判断&quot; class=&quot;headerlink&quot; title=&quot;1.typeof   适合函数对象和基本类型的判断&quot;&gt;&lt;/a&gt;1.typeof   适合函数对象和基本类型的判断&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;typeof 100  // number
-typeof true // boolean
-typeof function // function
-typeof (undefined) // undefined
-typeof new Object() // object
-typeof [1,2] // object
-typeof NaN //number
-typeof null  //object
 &lt;/code&gt;&lt;/pre&gt;
     
     </summary>
