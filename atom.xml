@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-29T10:47:35.000Z</updated>
+  <updated>2016-07-06T10:45:14.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浏览器</title>
+    <link href="http://yoursite.com/2016/07/06/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    <id>http://yoursite.com/2016/07/06/浏览器/</id>
+    <published>2016-07-06T10:36:14.000Z</published>
+    <updated>2016-07-06T10:45:14.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;浏览器的组成&quot;&gt;&lt;a href=&quot;#浏览器的组成&quot; class=&quot;headerlink&quot; title=&quot;浏览器的组成&quot;&gt;&lt;/a&gt;浏览器的组成&lt;/h3&gt;&lt;p&gt;浏览器的核心是两部分：渲染引擎和JavaScript解释器（又称JavaScript引擎）。&lt;/p&gt;
+&lt;h4 id=&quot;渲染引擎处理网页，通常分成四个阶段。&quot;&gt;&lt;a href=&quot;#渲染引擎处理网页，通常分成四个阶段。&quot; class=&quot;headerlink&quot; title=&quot;渲染引擎处理网页，通常分成四个阶段。&quot;&gt;&lt;/a&gt;渲染引擎处理网页，通常分成四个阶段。&lt;/h4&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;解析代码：HTML代码解析为DOM，CSS代码解析为CSSOM（CSS Object Model）&lt;/li&gt;
+&lt;li&gt;对象合成：将DOM和CSSOM合成一棵渲染树（render tree）&lt;/li&gt;
+&lt;li&gt;布局：计算出渲染树的布局（layout）&lt;/li&gt;
+&lt;li&gt;绘制：将渲染树绘制到屏幕&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上四步并非严格按顺序执行，往往第一步还没完成，第二步和第三步就已经开始了。所以，会看到这种情况：网页的HTML代码还没下载完，但浏览器已经显示出内容了。&lt;/p&gt;
+&lt;h3 id=&quot;JavaScript引擎&quot;&gt;&lt;a href=&quot;#JavaScript引擎&quot; class=&quot;headerlink&quot; title=&quot;JavaScript引擎&quot;&gt;&lt;/a&gt;JavaScript引擎&lt;/h3&gt;&lt;p&gt;JavaScript引擎的主要作用是，读取网页中的JavaScript代码，对其处理后运行。&lt;/p&gt;
+&lt;p&gt;正常的网页加载流程是这样的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;浏览器一边下载HTML网页，一边开始解析&lt;/li&gt;
+&lt;li&gt;解析过程中，发现&amp;lt;script&amp;gt;标签&lt;/li&gt;
+&lt;li&gt;暂停解析，网页渲染的控制权转交给JavaScript引擎&lt;/li&gt;
+&lt;li&gt;如果&amp;lt;script&amp;gt;标签引用了外部脚本，就下载该脚本，否则就直接执行&lt;/li&gt;
+&lt;li&gt;执行完毕，控制权交还渲染引擎，恢复往下解析HTML网页&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;也就是说，加载外部脚本时，浏览器会暂停页面渲染，等待脚本下载并执行完成后，再继续渲染。原因是JavaScript可以修改DOM（比如使用document.write方法），所以必须把控制权让给它，否则会导致复杂的线程竞赛的问题。&lt;/p&gt;
+&lt;p&gt;如果外部脚本加载时间很长（比如一直无法完成下载），就会造成网页长时间失去响应，浏览器就会呈现“假死”状态，这被称为“阻塞效应”。&lt;/p&gt;
+&lt;p&gt;为了避免这种情况，较好的做法是将&amp;lt;script&amp;gt;标签都放在页面底部，而不是头部。这样即使遇到脚本失去响应，网页主体的渲染也已经完成了，用户至少可以看到内容，而不是面对一张空白的页面。&lt;/p&gt;
+&lt;p&gt;如果某些脚本代码非常重要，一定要放在页面头部的话，最好直接将代码嵌入页面，而不是连接外部脚本文件，这样能缩短加载时间。&lt;/p&gt;
+&lt;p&gt;将脚本文件都放在网页尾部加载，还有一个好处。在DOM结构生成之前就调用DOM，JavaScript会报错，如果脚本都在网页尾部加载，就不存在这个问题，因为这时DOM肯定已经生成了。&lt;/p&gt;
+&lt;p&gt;如果有多个script标签，比如下面这样。&lt;/p&gt;
+&lt;p&gt;&amp;lt;script src=”a.js”&amp;gt;&amp;lt;/script&amp;gt;&lt;br&gt;&amp;lt;script src=”b.js”&amp;gt;&amp;lt;/script&amp;gt;&lt;/p&gt;
+&lt;p&gt;浏览器会同时并行下载a.js和b.js，但是，执行时会保证先执行a.js，然后再执行b.js，即使后者先下载完成，也是如此。也就是说，脚本的执行顺序由它们在页面中的出现顺序决定，这是为了保证脚本之间的依赖关系不受到破坏。&lt;/p&gt;
+&lt;p&gt;解析和执行CSS，也会产生阻塞。Firefox会等到脚本前面的所有样式表，都下载并解析完，再执行脚本；Webkit则是一旦发现脚本引用了样式，就会暂停执行脚本执行，等到样式表下载并解析完，再恢复执行。&lt;/p&gt;
+&lt;p&gt;此外，对于来自同一个域名的资源，比如脚本文件、样式表文件、图片文件等，浏览器一般最多同时下载六个（IE11允许同时下载13个）。如果是来自不同域名的资源，就没有这个限制。所以，通常把静态文件放在不同的域名之下，以加快下载速度。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;浏览器的组成&quot;&gt;&lt;a href=&quot;#浏览器的组成&quot; class=&quot;headerlink&quot; title=&quot;浏览器的组成&quot;&gt;&lt;/a&gt;浏览器的组成&lt;/h3&gt;&lt;p&gt;浏览器的核心是两部分：渲染引擎和JavaScript解释器（又称JavaScript引擎）。&lt;/p&gt;
+&lt;h4 id=&quot;渲染引擎处理网页，通常分成四个阶段。&quot;&gt;&lt;a href=&quot;#渲染引擎处理网页，通常分成四个阶段。&quot; class=&quot;headerlink&quot; title=&quot;渲染引擎处理网页，通常分成四个阶段。&quot;&gt;&lt;/a&gt;渲染引擎处理网页，通常分成四个阶段。&lt;/h4&gt;
+    
+    </summary>
+    
+      <category term="前端理论基础" scheme="http://yoursite.com//categories/%E5%89%8D%E7%AB%AF%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="渲染引擎" scheme="http://yoursite.com//tags/%E6%B8%B2%E6%9F%93%E5%BC%95%E6%93%8E/"/>
+    
+      <category term="javascript引擎" scheme="http://yoursite.com//tags/javascript%E5%BC%95%E6%93%8E/"/>
+    
+      <category term="异步加载" scheme="http://yoursite.com//tags/%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>node.js基础—npm</title>
@@ -1347,45 +1402,6 @@ fe() ;//false
       &lt;h3 id=&quot;块级语句&quot;&gt;&lt;a href=&quot;#块级语句&quot; class=&quot;headerlink&quot; title=&quot;块级语句&quot;&gt;&lt;/a&gt;块级语句&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;没有作用域，for（定义var）和外面定义一样
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;var语句：&quot;&gt;&lt;a href=&quot;#var语句：&quot; class=&quot;headerlink&quot; title=&quot;var语句：&quot;&gt;&lt;/a&gt;var语句：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var a ＝ b ＝ 1；
 b会变成全局变量
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>表达式和运算符</title>
-    <link href="http://yoursite.com/2016/04/18/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
-    <id>http://yoursite.com/2016/04/18/表达式和运算符/</id>
-    <published>2016-04-18T04:28:59.000Z</published>
-    <updated>2016-04-18T05:01:07.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;一、表达式&quot;&gt;&lt;a href=&quot;#一、表达式&quot; class=&quot;headerlink&quot; title=&quot;一、表达式&quot;&gt;&lt;/a&gt;一、表达式&lt;/h2&gt;&lt;h3 id=&quot;1-初始化表达式&quot;&gt;&lt;a href=&quot;#1-初始化表达式&quot; class=&quot;headerlink&quot; title=&quot;1.初始化表达式&quot;&gt;&lt;/a&gt;1.初始化表达式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;[1,2]   = new Array(1,2);
-[1,,,4]  =[1,undefined,undefined,4]
-{x:1,y:2} ={ var o = new Object();o.x=1;o.y=2;}
-&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;2-函数表达式&quot;&gt;&lt;a href=&quot;#2-函数表达式&quot; class=&quot;headerlink&quot; title=&quot;2.函数表达式&quot;&gt;&lt;/a&gt;2.函数表达式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var fe = function(){};
-(function(){console.log(&amp;apos;hello world&amp;apos;);})();
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;3-属性访问表达式&quot;&gt;&lt;a href=&quot;#3-属性访问表达式&quot; class=&quot;headerlink&quot; title=&quot;3.属性访问表达式&quot;&gt;&lt;/a&gt;3.属性访问表达式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var o = {x:1};
-o.x  或  o[&amp;apos;x&amp;apos;]去访问
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;4-调用表达式&quot;&gt;&lt;a href=&quot;#4-调用表达式&quot; class=&quot;headerlink&quot; title=&quot;4.调用表达式&quot;&gt;&lt;/a&gt;4.调用表达式&lt;/h3&gt;&lt;h3 id=&quot;5-对象创建表达式&quot;&gt;&lt;a href=&quot;#5-对象创建表达式&quot; class=&quot;headerlink&quot; title=&quot;5.对象创建表达式&quot;&gt;&lt;/a&gt;5.对象创建表达式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;new Fun(1,2);
-new Object;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;二、运算符&quot;&gt;&lt;a href=&quot;#二、运算符&quot; class=&quot;headerlink&quot; title=&quot;二、运算符&quot;&gt;&lt;/a&gt;二、运算符&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;三元：c？a：b  
-逗号表达式： a,b       var val =(1,2,3);    //val =3;  
-delete:var obj = {x:1}  delete obj.x  
-in: window.x = 1;  &amp;apos;x&amp;apos; in window //true  
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、表达式&quot;&gt;&lt;a href=&quot;#一、表达式&quot; class=&quot;headerlink&quot; title=&quot;一、表达式&quot;&gt;&lt;/a&gt;一、表达式&lt;/h2&gt;&lt;h3 id=&quot;1-初始化表达式&quot;&gt;&lt;a href=&quot;#1-初始化表达式&quot; class=&quot;headerlink&quot; title=&quot;1.初始化表达式&quot;&gt;&lt;/a&gt;1.初始化表达式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;[1,2]   = new Array(1,2);
-[1,,,4]  =[1,undefined,undefined,4]
-{x:1,y:2} ={ var o = new Object();o.x=1;o.y=2;}
 &lt;/code&gt;&lt;/pre&gt;
     
     </summary>

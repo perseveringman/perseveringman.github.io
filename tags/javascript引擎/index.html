@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -82,22 +82,15 @@
 
 
 
-<meta name="description" content="一、表达式1.初始化表达式[1,2]   = new Array(1,2);
-[1,,,4]  =[1,undefined,undefined,4]
-{x:1,y:2} ={ var o = new Object();o.x=1;o.y=2;}">
-<meta property="og:type" content="article">
-<meta property="og:title" content="表达式和运算符">
-<meta property="og:url" content="http://yoursite.com/2016/04/18/表达式和运算符/index.html">
+<meta name="description" content="Talk is cheap,show me your code!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="周延博">
+<meta property="og:url" content="http://yoursite.com/tags/javascript引擎/index.html">
 <meta property="og:site_name" content="周延博">
-<meta property="og:description" content="一、表达式1.初始化表达式[1,2]   = new Array(1,2);
-[1,,,4]  =[1,undefined,undefined,4]
-{x:1,y:2} ={ var o = new Object();o.x=1;o.y=2;}">
-<meta property="og:updated_time" content="2016-04-18T05:01:07.000Z">
+<meta property="og:description" content="Talk is cheap,show me your code!">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="表达式和运算符">
-<meta name="twitter:description" content="一、表达式1.初始化表达式[1,2]   = new Array(1,2);
-[1,,,4]  =[1,undefined,undefined,4]
-{x:1,y:2} ={ var o = new Object();o.x=1;o.y=2;}">
+<meta name="twitter:title" content="周延博">
+<meta name="twitter:description" content="Talk is cheap,show me your code!">
 
 
 
@@ -115,7 +108,7 @@
   };
 </script>
 
-  <title> 表达式和运算符 | 周延博 </title>
+  <title> 标签: javascript引擎 | 周延博 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +129,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
     <a href="https://github.com/perseveringman"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,155 +227,46 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                表达式和运算符
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-18T12:28:59+08:00" content="2016-04-18">
-              2016-04-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="一、表达式"><a href="#一、表达式" class="headerlink" title="一、表达式"></a>一、表达式</h2><h3 id="1-初始化表达式"><a href="#1-初始化表达式" class="headerlink" title="1.初始化表达式"></a>1.初始化表达式</h3><pre><code>[1,2]   = new Array(1,2);
-[1,,,4]  =[1,undefined,undefined,4]
-{x:1,y:2} ={ var o = new Object();o.x=1;o.y=2;}
-</code></pre><a id="more"></a>
-<h3 id="2-函数表达式"><a href="#2-函数表达式" class="headerlink" title="2.函数表达式"></a>2.函数表达式</h3><pre><code>var fe = function(){};
-(function(){console.log(&apos;hello world&apos;);})();
-</code></pre><h3 id="3-属性访问表达式"><a href="#3-属性访问表达式" class="headerlink" title="3.属性访问表达式"></a>3.属性访问表达式</h3><pre><code>var o = {x:1};
-o.x  或  o[&apos;x&apos;]去访问
-</code></pre><h3 id="4-调用表达式"><a href="#4-调用表达式" class="headerlink" title="4.调用表达式"></a>4.调用表达式</h3><h3 id="5-对象创建表达式"><a href="#5-对象创建表达式" class="headerlink" title="5.对象创建表达式"></a>5.对象创建表达式</h3><pre><code>new Fun(1,2);
-new Object;
-</code></pre><h2 id="二、运算符"><a href="#二、运算符" class="headerlink" title="二、运算符"></a>二、运算符</h2><pre><code>三元：c？a：b  
-逗号表达式： a,b       var val =(1,2,3);    //val =3;  
-delete:var obj = {x:1}  delete obj.x  
-in: window.x = 1;  &apos;x&apos; in window //true  
-</code></pre>
-      
-    </div>
-    
-    <div>
-      
-        
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        javascript引擎
+        <small>标签</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-      
-    </div>
+            <a class="post-title-link" href="/2016/07/06/浏览器/" itemprop="url">
+              
+                <span itemprop="name">浏览器</span>
+              
+            </a>
+        
+      </h1>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
-          
-        </div>
-      
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-07-06T18:36:14+08:00"
+              content="2016-07-06" >
+          07-06
+        </time>
+      </div>
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/04/18/类型检测/" rel="next" title="类型检测">
-                <i class="fa fa-chevron-left"></i> 类型检测
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/18/语句/" rel="prev" title="语句">
-                语句 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
+
+  
 
 
           </div>
@@ -390,10 +274,6 @@ in: window.x = 1;  &apos;x&apos; in window //true
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -413,17 +293,8 @@ in: window.x = 1;  &apos;x&apos; in window //true
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/logo.jpg"
@@ -493,17 +364,6 @@ in: window.x = 1;  &apos;x&apos; in window //true
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、表达式"><span class="nav-number">1.</span> <span class="nav-text">一、表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-初始化表达式"><span class="nav-number">1.1.</span> <span class="nav-text">1.初始化表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-函数表达式"><span class="nav-number">1.2.</span> <span class="nav-text">2.函数表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-属性访问表达式"><span class="nav-number">1.3.</span> <span class="nav-text">3.属性访问表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-调用表达式"><span class="nav-number">1.4.</span> <span class="nav-text">4.调用表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-对象创建表达式"><span class="nav-number">1.5.</span> <span class="nav-text">5.对象创建表达式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、运算符"><span class="nav-number">2.</span> <span class="nav-text">二、运算符</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -599,10 +459,6 @@ in: window.x = 1;  &apos;x&apos; in window //true
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
