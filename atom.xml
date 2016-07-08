@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-08T08:57:59.000Z</updated>
+  <updated>2016-07-08T09:00:15.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/07/08/360%E5%85%A8%E6%99%AF%E8%A7%86%E9%A2%91%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2016/07/08/360全景视频（一）/</id>
     <published>2016-07-08T08:53:07.000Z</published>
-    <updated>2016-07-08T08:57:59.000Z</updated>
+    <updated>2016-07-08T09:00:15.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;一周成果简述&quot;&gt;&lt;a href=&quot;#一周成果简述&quot; class=&quot;headerlink&quot; title=&quot;一周成果简述&quot;&gt;&lt;/a&gt;一周成果简述&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;入门Three.js&lt;/li&gt;
@@ -92,7 +92,6 @@ lat = ( event.clientY - onPointerDownPointerY ) *0.1+ onPointerDownLat;
 ...
 lat = Math.max( - 85, Math.min( 85, lat ) );
 phi = THREE.Math.degToRad( 90- lat );
-//水平方向角度
 theta = THREE.Math.degToRad( lon );
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;video绘制到canvas并转换成img&quot;&gt;&lt;a href=&quot;#video绘制到canvas并转换成img&quot; class=&quot;headerlink&quot; title=&quot;video绘制到canvas并转换成img&quot;&gt;&lt;/a&gt;video绘制到canvas并转换成img&lt;/h3&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;根据烨哥给的例子：&lt;a href=&quot;http://techslides.com/demos/video/dragdrop-video-screenshot.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML5 Screenshots&lt;/a&gt;，借鉴其中的截屏代码，搬过来使用：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;//新建一个canvas标签

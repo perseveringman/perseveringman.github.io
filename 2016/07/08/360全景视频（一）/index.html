@@ -94,7 +94,7 @@
 入门Three.js
 研究将video绘制到canvas上的原理
 初步做出了VR视频转换为360全景视频的demo">
-<meta property="og:updated_time" content="2016-07-08T08:57:59.000Z">
+<meta property="og:updated_time" content="2016-07-08T09:00:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="360全景视频（一）">
 <meta name="twitter:description" content="一周成果简述
@@ -386,7 +386,6 @@ lat = ( event.clientY - onPointerDownPointerY ) *0.1+ onPointerDownLat;
 ...
 lat = Math.max( - 85, Math.min( 85, lat ) );
 phi = THREE.Math.degToRad( 90- lat );
-//水平方向角度
 theta = THREE.Math.degToRad( lon );
 </code></pre><h3 id="video绘制到canvas并转换成img"><a href="#video绘制到canvas并转换成img" class="headerlink" title="video绘制到canvas并转换成img"></a>video绘制到canvas并转换成img</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据烨哥给的例子：<a href="http://techslides.com/demos/video/dragdrop-video-screenshot.html" target="_blank" rel="external">HTML5 Screenshots</a>，借鉴其中的截屏代码，搬过来使用：</p>
 <pre><code>//新建一个canvas标签
