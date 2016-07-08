@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-06T10:45:14.000Z</updated>
+  <updated>2016-07-08T08:56:04.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,132 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>360全景视频（一）</title>
+    <link href="http://yoursite.com/2016/07/08/360%E5%85%A8%E6%99%AF%E8%A7%86%E9%A2%91%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://yoursite.com/2016/07/08/360全景视频（一）/</id>
+    <published>2016-07-08T08:53:07.000Z</published>
+    <updated>2016-07-08T08:56:04.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;一周成果简述&quot;&gt;&lt;a href=&quot;#一周成果简述&quot; class=&quot;headerlink&quot; title=&quot;一周成果简述&quot;&gt;&lt;/a&gt;一周成果简述&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;入门Three.js&lt;/li&gt;
+&lt;li&gt;研究将video绘制到canvas上的原理&lt;/li&gt;
+&lt;li&gt;初步做出了VR视频转换为360全景视频的demo&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;three-js使用入门&quot;&gt;&lt;a href=&quot;#three-js使用入门&quot; class=&quot;headerlink&quot; title=&quot;three.js使用入门&quot;&gt;&lt;/a&gt;three.js使用入门&lt;/h3&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;three.js是JavaScript编写的WebGL第三方库，引用该库，主要为了完成将视频的每一帧做成360度全景图的任务。下面将介绍如何使用该库。（如果想先了解整个视频的原理和完成情况可以忽略该部分，直接从360全景部分看起）  &lt;/p&gt;
+&lt;h5 id=&quot;三要素&quot;&gt;&lt;a href=&quot;#三要素&quot; class=&quot;headerlink&quot; title=&quot;三要素&quot;&gt;&lt;/a&gt;三要素&lt;/h5&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在Three.js中，要渲染物体到网页中，我们需要3个要素：场景（scene）、相机（camera）和渲染器（renderer）。&lt;br&gt;创建这三要素的代码如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 场景 
+var scene = new THREE.Scene();  
+
+// 透视相机 
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000); 
+
+// 渲染器
+var renderer = new THREE.WebGLRenderer();   
+renderer.setSize(window.innerWidth, window.innerHeight); 
+
+ // 设置渲染器的大小为窗口的内宽度，也就是内容区的宽度
+document.body.appendChild(renderer.domElement);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;渲染器renderer的domElement元素，表示渲染器中的画布，所有的渲染都是画在domElement上的，所以这里的appendChild表示将这个domElement挂接在body下面，这样渲染的结果就能够在页面中显示了。&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;透视相机的参数解释如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//THREE.PerspectiveCamera(fov, aspect, near, far)
+//fov为视景体竖直方向上的张角。aspect等于width / height，是照相机水平方向和竖直方向长度的比值，通常设为Canvas的横纵比例。           
+//near和far分别是照相机到视景体最近、最远的距离，均为正值，且far应大于near。 
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;添加物体到场景中&quot;&gt;&lt;a href=&quot;#添加物体到场景中&quot; class=&quot;headerlink&quot; title=&quot;添加物体到场景中&quot;&gt;&lt;/a&gt;添加物体到场景中&lt;/h5&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;添加一个物体到场景中，首先需要定义一个物体，然后定义它的材质，这里我们的需求是将每一帧作为贴图贴在物体上，使用了一个普通的材质THREE.MeshBasicMaterial，材质中有一个map属性，可以直接接受纹理,通过给map属性赋值可以替换贴图。之后再定义一个网格模型，参数为物体和材质，再将这个模型放入场景中。以下是示例代码&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//定义一个球体
+geometry = new THREE.SphereGeometry( 500, 60, 40 );
+
+//定义材质
+material = new THREE.MeshBasicMaterial({
+    map: new THREE.TextureLoader().load( &amp;apos;1.png&amp;apos; )
+} );
+//定义网格模型
+mesh = new THREE.Mesh( geometry, material );
+//将网格模型添加到场景中
+scene.add( mesh );
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;渲染循环&quot;&gt;&lt;a href=&quot;#渲染循环&quot; class=&quot;headerlink&quot; title=&quot;渲染循环&quot;&gt;&lt;/a&gt;渲染循环&lt;/h5&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;因为需要将一帧一帧图片连起来变成动画，我们需要用实时渲染来不停的对画面进行渲染。而实现这个功能最重要的函数是requestAnimationFrame，这个函数就是让浏览器去执行一次参数中的函数，每次在执行完renderer.render(scene, camera)函数，渲染结束后，会调用requestAnimationFrame()函数，requestAnimationFrame()函数又让rander()再执行一次，就形成了实时循环。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function animate() {
+    //这里写一些操作
+    renderer.render( scene, camera );
+    requestAnimationFrame( animate );
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;360全景&quot;&gt;&lt;a href=&quot;#360全景&quot; class=&quot;headerlink&quot; title=&quot;360全景&quot;&gt;&lt;/a&gt;360全景&lt;/h3&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在大概清楚了如何使用three.js制作简单的场景之后，开始着手实现360全景，首先是要建立一个模型：&lt;/p&gt;
+&lt;h5 id=&quot;建立模型&quot;&gt;&lt;a href=&quot;#建立模型&quot; class=&quot;headerlink&quot; title=&quot;建立模型&quot;&gt;&lt;/a&gt;建立模型&lt;/h5&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;想要将一张从vr拍摄的视频中的单帧图片变成360全景，首先想到的是将整张图片包围在一个球体上，所以这里建立一个球体模型：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//定义一个球体
+geometry = new THREE.SphereGeometry( 500, 60, 40 );
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&quot;贴图&quot;&gt;&lt;a href=&quot;#贴图&quot; class=&quot;headerlink&quot; title=&quot;贴图&quot;&gt;&lt;/a&gt;贴图&lt;/h5&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;建立好模型后，需要将图片贴在模型上，由于最终的目标是实现360全景视频播放，所以贴图的代码应该写在动画函数中，每次获得图片时都执行一遍贴图&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;material.map.image= imgTemp;
+material.map.needsUpdate = true;    
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上文提到过，给map属性赋值实现贴图，并使贴图可更新&lt;/p&gt;
+&lt;h5 id=&quot;相机视角&quot;&gt;&lt;a href=&quot;#相机视角&quot; class=&quot;headerlink&quot; title=&quot;相机视角&quot;&gt;&lt;/a&gt;相机视角&lt;/h5&gt;&lt;p&gt;通过给相机camera添加target属性（没有查询到这个属性，应该是新建的属性，临时用来表示视角）表示当前相机观察的视角，并通过相机的lookAt方法将camera对象的观察点始终保持在视角上。而具体的点就应该是球面上的每一个点，根据球坐标系和直角坐标系的转换，得到球面的点的公式是：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;x=rsinθcosφ
+y=rsinθsinφ
+z=rcosθ
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;据此写出表示相机视角的代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;camera.target.x = 500* Math.sin( phi ) * Math.cos( theta );
+camera.target.y = 500* Math.cos( phi );
+camera.target.z = 500* Math.sin( phi ) * Math.sin( theta );
+//使相机观察的焦点为之前计算出的位置
+camera.lookAt( camera.target );
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;鼠标或手指滑动改变视角&quot;&gt;&lt;a href=&quot;#鼠标或手指滑动改变视角&quot; class=&quot;headerlink&quot; title=&quot;鼠标或手指滑动改变视角&quot;&gt;&lt;/a&gt;鼠标或手指滑动改变视角&lt;/h3&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这里通过绑定鼠标/手指点下、滑动、放开的三个事件，来计算移动过的距离。这里主要维护的两个变量是lat,lon。当点下时记录当前的点的x，y坐标，当滑动时计算差值得到lat（y方向差值），lon（x方向差值）。得到差值再乘上0.1，得到一个大概在－100到＋100以内的值，并判断是否在（－85，85）范围内，不在就取临界值（不取90的原因是90时会出现非常扭曲的情况，所以只取到85）。用这两个处理过的值作为xoz平面的偏移角度和y轴垂直方向上的偏移角度，弧度化后带入坐标公式，得到改变的视角。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;onPointerDownPointerX = event.clientX;
+onPointerDownPointerY = event.clientY;
+...
+lon = ( onPointerDownPointerX - event.clientX ) *0.1+ onPointerDownLon;
+lat = ( event.clientY - onPointerDownPointerY ) *0.1+ onPointerDownLat;
+...
+lat = Math.max( - 85, Math.min( 85, lat ) );
+phi = THREE.Math.degToRad( 90- lat );
+//水平方向角度
+theta = THREE.Math.degToRad( lon );
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;video绘制到canvas并转换成img&quot;&gt;&lt;a href=&quot;#video绘制到canvas并转换成img&quot; class=&quot;headerlink&quot; title=&quot;video绘制到canvas并转换成img&quot;&gt;&lt;/a&gt;video绘制到canvas并转换成img&lt;/h3&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;根据烨哥给的例子：&lt;a href=&quot;http://techslides.com/demos/video/dragdrop-video-screenshot.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML5 Screenshots&lt;/a&gt;，借鉴其中的截屏代码，搬过来使用：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//新建一个canvas标签
+var canvas1 = document.createElement(&amp;quot;canvas&amp;quot;);
+//取得当前的宽高
+var w = v.clientWidth ;
+var h = v.clientHeight ;
+canvas1.width = w;
+canvas1.height = h;
+var context = canvas1.getContext(&amp;apos;2d&amp;apos;);
+context.drawImage(v,0,0,w,h);
+//将canvas转换成base64格式的image
+var imgSrc = canvas1.toDataURL();
+var imgTemp = new Image();
+imgTemp.src=imgSrc;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;仍需解决的问题&quot;&gt;&lt;a href=&quot;#仍需解决的问题&quot; class=&quot;headerlink&quot; title=&quot;仍需解决的问题&quot;&gt;&lt;/a&gt;仍需解决的问题&lt;/h3&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;现在的demo还存在很多问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;渲染出的画面很卡，需要进一步优化&lt;/li&gt;
+&lt;li&gt;每次替换贴图报警告：image is not a power of two(某个尺寸)，resized to 某个尺寸。（性能的瓶颈很可能在这里，怀疑是THREE.MeshBasicMaterial的map属性应用不正确，需要进一步研究）&lt;/li&gt;
+&lt;li&gt;需要自制一个播放的进度条&lt;/li&gt;
+&lt;li&gt;需要实现尺寸可控，同时可全屏&lt;/li&gt;
+&lt;li&gt;需要将代码改造成单例模式，封装成库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;学习资料&quot;&gt;&lt;a href=&quot;#学习资料&quot; class=&quot;headerlink&quot; title=&quot;学习资料&quot;&gt;&lt;/a&gt;学习资料&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000004303208&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;从0到1学习three.js（1）&lt;/a&gt;（写的不错，比较短，可以读一遍感受一下）&lt;br&gt;&lt;a href=&quot;http://www.ituring.com.cn/minibook/792&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;three.js入门指南中文版&lt;/a&gt;（毕业才一年的前端工作者，在校期间完成的翻译，膜拜）&lt;br&gt;&lt;a href=&quot;http://www.hewebgl.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;webgl中文网&lt;/a&gt;  （初级教程免费，后面的教程收费，好贵。。。初级的写的通俗易懂）&lt;br&gt;&lt;a href=&quot;http://blog.csdn.net/column/details/omni360threejs.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;three.js源码解析&lt;/a&gt;（CSDN上的博客，完成了大部分的源码解析，虽然不是很详细，但可以当作查阅api的资料）&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/yiyezhai/archive/2012/11/29/2791319.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;three.js源码解析&lt;/a&gt;（另一个源码解析博客，没细看）&lt;br&gt;&lt;a href=&quot;https://github.com/josdirksen/learning-threejs&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;learning-threejs&lt;/a&gt;（外国的教程，英语捉急，效率比较低，所以没有学习，但以前看英文教程的经历来说，国外的教程都很靠谱，可以尝试）&lt;br&gt;&lt;a href=&quot;http://www.jikexueyuan.com/course/threejs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;极客学院three.js课程&lt;/a&gt;（极客学院的three.js课程，很基础很基础，几十分钟就看完了）&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;一周成果简述&quot;&gt;&lt;a href=&quot;#一周成果简述&quot; class=&quot;headerlink&quot; title=&quot;一周成果简述&quot;&gt;&lt;/a&gt;一周成果简述&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;入门Three.js&lt;/li&gt;
+&lt;li&gt;研究将video绘制到canvas上的原理&lt;/li&gt;
+&lt;li&gt;初步做出了VR视频转换为360全景视频的demo
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
+    
+    
+      <category term="three.js" scheme="http://yoursite.com//tags/three-js/"/>
+    
+      <category term="vr" scheme="http://yoursite.com//tags/vr/"/>
+    
+      <category term="360全景" scheme="http://yoursite.com//tags/360%E5%85%A8%E6%99%AF/"/>
+    
+      <category term="video绘制canvas" scheme="http://yoursite.com//tags/video%E7%BB%98%E5%88%B6canvas/"/>
+    
+  </entry>
   
   <entry>
     <title>浏览器</title>
@@ -1348,61 +1474,6 @@ eval独立作用域
 不允许未声明的变量
 arguments 变为静态副本
 不允许重复定义对象属性名
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="http://yoursite.com//categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com//tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>语句</title>
-    <link href="http://yoursite.com/2016/04/18/%E8%AF%AD%E5%8F%A5/"/>
-    <id>http://yoursite.com/2016/04/18/语句/</id>
-    <published>2016-04-18T04:33:25.000Z</published>
-    <updated>2016-04-18T05:00:29.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;块级语句&quot;&gt;&lt;a href=&quot;#块级语句&quot; class=&quot;headerlink&quot; title=&quot;块级语句&quot;&gt;&lt;/a&gt;块级语句&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;没有作用域，for（定义var）和外面定义一样
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;var语句：&quot;&gt;&lt;a href=&quot;#var语句：&quot; class=&quot;headerlink&quot; title=&quot;var语句：&quot;&gt;&lt;/a&gt;var语句：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var a ＝ b ＝ 1；
-b会变成全局变量
-&lt;/code&gt;&lt;/pre&gt;  &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;try－catch语句：&quot;&gt;&lt;a href=&quot;#try－catch语句：&quot; class=&quot;headerlink&quot; title=&quot;try－catch语句：&quot;&gt;&lt;/a&gt;try－catch语句：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;异常捕获
- try{
-     throw&amp;quot;test&amp;quot;;
-}catch(ex){
-     console.log(ex); //test
-}finally{
-     console.log(&amp;apos;finally&amp;apos;);     
-}                     
-     有异常执行catch，怎样都会执行finally。
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;function语句：&quot;&gt;&lt;a href=&quot;#function语句：&quot; class=&quot;headerlink&quot; title=&quot;function语句：&quot;&gt;&lt;/a&gt;function语句：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function fd(){
-...
-}  //函数声明语句
-
-var fe = function(){
-
-}; //函数表达式语句，有分号。
-
-函数声明会被预处理，所以在最前面执行fd(); //true
-fe() ;//false
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;for-…-in语句&quot;&gt;&lt;a href=&quot;#for-…-in语句&quot; class=&quot;headerlink&quot; title=&quot;for … in语句:&quot;&gt;&lt;/a&gt;for … in语句:&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;1.顺序不确定
-2.enumerable为false不会出现
-3.for in 对象属性受原型链影响
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;with语句：&quot;&gt;&lt;a href=&quot;#with语句：&quot; class=&quot;headerlink&quot; title=&quot;with语句：&quot;&gt;&lt;/a&gt;with语句：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;让JS引擎优化更难
-可读性差
-可被变量定义代替
-严格模式下禁用
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;块级语句&quot;&gt;&lt;a href=&quot;#块级语句&quot; class=&quot;headerlink&quot; title=&quot;块级语句&quot;&gt;&lt;/a&gt;块级语句&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;没有作用域，for（定义var）和外面定义一样
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;var语句：&quot;&gt;&lt;a href=&quot;#var语句：&quot; class=&quot;headerlink&quot; title=&quot;var语句：&quot;&gt;&lt;/a&gt;var语句：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var a ＝ b ＝ 1；
-b会变成全局变量
-&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
